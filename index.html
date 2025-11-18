@@ -206,7 +206,7 @@
             border: 1px solid rgba(100, 255, 218, 0.2);
             border-radius: 8px;
             padding: 0.5rem 0;
-            min-width: 280px;
+            min-width: 220px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -218,6 +218,14 @@
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+        
+        .dropdown-menu a {
+            padding: 0.75rem 1.5rem;
+            padding-left: 2rem;
+            color: var(--slate);
+            white-space: nowrap;
+            display: block;
         }
         
         .dropdown-section {
@@ -235,14 +243,6 @@
             color: var(--teal);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-        }
-        
-        .dropdown-menu a {
-            padding: 0.75rem 1.5rem;
-            padding-left: 2rem;
-            color: var(--slate);
-            white-space: nowrap;
-            display: block;
         }
         
         .dropdown-menu a:hover {
@@ -264,8 +264,73 @@
         .cta-button:hover {
             background: rgba(100, 255, 218, 0.1);
         }
+
+        /* Page Header with Badge */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
         
-        /* Hero Section with Animation */
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0;
+            z-index: 0;
+        }
+        
+        .page-header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(100, 255, 218, 0.15);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--teal);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section with Animation - Added back from index-old.html */
         .hero {
             position: relative;
             width: 100%;
@@ -332,43 +397,8 @@
         .text-item.active {
             opacity: 1;
         }
-        
-        /* Content Sections */
-        section:not(.hero) {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        
-        /* Section Divider */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--teal), transparent);
-            max-width: 1400px;
-            margin: 0 auto;
-            opacity: 0.3;
-        }
-        
-        .section-divider-thick {
-            height: 80px;
-            background: linear-gradient(180deg, rgba(10, 25, 47, 0.03) 0%, transparent 100%);
-            position: relative;
-        }
-        
-        .section-divider-thick::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--teal);
-            border-radius: 50%;
-            opacity: 0.2;
-        }
-        
-        /* Section Break Bar with Header */
+
+        /* Section Break */
         .section-break {
             background: var(--teal);
             padding: 2rem;
@@ -399,172 +429,77 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-        
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: #64748b;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
         /* Services Grid */
+        #services {
+            background: #ffffff;
+            padding: 4rem 2rem;
+        }
+        
         .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
         
         .service-card {
             background: #ffffff;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         
         .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.15);
             border-color: var(--teal);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15);
         }
         
         .service-icon {
             width: 48px;
             height: 48px;
-            margin-bottom: 1rem;
-            color: var(--navy);
+            margin-bottom: 1.5rem;
+            color: var(--teal);
         }
         
         .service-card h3 {
             color: var(--navy);
             font-size: 1.5rem;
             margin-bottom: 1rem;
-        }
-        
-        .service-card h3::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 20px;
-            background: var(--teal);
-            margin-right: 0.75rem;
-            vertical-align: middle;
+            font-weight: 700;
         }
         
         .service-card p {
             color: #475569;
             line-height: 1.8;
+            font-size: 1rem;
         }
-        
-        /* How We Work Section */
-        .how-we-work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .work-card {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .work-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--teal);
-        }
-        
-        .work-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.2);
-            border-color: var(--teal);
-        }
-        
-        .work-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1rem;
-            color: var(--teal);
-        }
-        
-        .work-card h3 {
-            color: var(--teal);
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .work-card p {
-            color: #cbd5e1;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        
-        .work-card ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-        }
-        
-        .work-card ul li {
-            color: #94a3b8;
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .work-card ul li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: bold;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: var(--white);
-            text-align: center;
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
             padding: 4rem 2rem;
-            margin-top: 0;
+            text-align: center;
         }
         
-        .contact-section h2 {
+        .cta-section h2 {
+            color: var(--teal);
             font-size: 2.5rem;
-            color: var(--navy);
             margin-bottom: 1rem;
         }
         
-        .contact-section p {
+        .cta-section p {
+            color: #cbd5e1;
             font-size: 1.25rem;
-            color: var(--navy);
-            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.8;
         }
         
-        .contact-button {
+        .cta-section .contact-button {
             display: inline-block;
             padding: 1rem 2.5rem;
             background: var(--teal);
@@ -576,12 +511,12 @@
             transition: all 0.3s ease;
         }
         
-        .contact-button:hover {
+        .cta-section .contact-button:hover {
             background: var(--white);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
         }
-        
+
         /* Footer */
         footer {
             background: var(--navy);
@@ -611,28 +546,25 @@
             margin-bottom: 1rem;
         }
         
-        .contact-info {
+        .footer-links {
             list-style: none;
             padding: 0;
         }
         
-        .contact-info li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .footer-links li {
+            margin-bottom: 0.75rem;
         }
         
-        .contact-info a {
+        .footer-links a {
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
-        .contact-info a:hover {
+        .footer-links a:hover {
             color: var(--teal);
         }
-        
+
         .contact-icons-only {
             display: flex;
             gap: 1.5rem;
@@ -660,66 +592,15 @@
             box-shadow: 0 5px 20px rgba(100, 255, 218, 0.4);
         }
         
-        .contact-icon {
-            color: var(--teal);
-            font-size: 1.2rem;
-            min-width: 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(100, 255, 218, 0.1);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 50%;
-            color: var(--teal);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background: var(--teal);
-            color: var(--navy);
-            transform: translateY(-3px);
-        }
-        
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--teal);
-        }
-        
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 2rem;
             border-top: 1px solid rgba(100, 255, 218, 0.1);
             text-align: center;
-            font-size: 0.9rem;
+            color: #64748b;
         }
-        
+
         /* Mobile Responsive */
         .mobile-menu-button {
             display: none;
@@ -730,7 +611,7 @@
             cursor: pointer;
             padding: 0.5rem;
         }
-        
+
         @media (max-width: 768px) {
             .nav-right {
                 flex-direction: column;
@@ -806,6 +687,10 @@
                 font-size: 0.6rem;
             }
             
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
             .hero {
                 height: 70vh;
                 min-height: 450px;
@@ -840,20 +725,18 @@
             .section-break h2 {
                 font-size: 1.5rem;
             }
-            
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -896,7 +779,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Animated Background -->
     <section class="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
@@ -915,59 +797,12 @@
         </div>
     </section>
 
-    <!-- Section Break -->
     <div class="section-break">
         <h2>Our Services</h2>
     </div>
 
-    <!-- Services Section -->
-    <section id="services" style="padding-bottom: 4rem;">
+    <section id="services">
         <div class="services-grid">
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="9" y1="15" x2="15" y2="15"></line>
-                    <line x1="12" y1="18" x2="12" y2="12"></line>
-                </svg>
-                <h3>Technical Due Diligence</h3>
-                <p>Comprehensive M&A technical assessments identifying risks, opportunities, and value creation strategies for portfolio acquisitions.</p>
-            </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path>
-                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path>
-                </svg>
-                <h3>AI & Data Strategy</h3>
-                <p>AI-driven value creation through data strategy, machine learning implementation, and intelligent automation initiatives.</p>
-            </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <circle cx="12" cy="12" r="6"></circle>
-                    <circle cx="12" cy="12" r="2"></circle>
-                </svg>
-                <h3>Go-to-Market Acceleration</h3>
-                <p>Strategic GTM planning, market positioning, and revenue acceleration for portfolio companies and enterprise products.</p>
-            </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                    <polyline points="17 6 23 6 23 12"></polyline>
-                </svg>
-                <h3>Product-Led Growth</h3>
-                <p>PLG strategy implementation, user acquisition optimization, and product virality engineering for scalable growth.</p>
-            </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-                <h3>Portfolio Leadership</h3>
-                <p>Embedded executive leadership for portfolio companies driving product, technology, and operational excellence.</p>
-            </div>
             <div class="service-card">
                 <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="7" height="7"></rect>
@@ -975,78 +810,66 @@
                     <rect x="14" y="14" width="7" height="7"></rect>
                     <rect x="3" y="14" width="7" height="7"></rect>
                 </svg>
-                <h3>Organizational Optimization</h3>
-                <p>Product and technology organization design, team scaling, and operational efficiency improvement.</p>
+                <h3>Product Strategy & Portfolio Assessment</h3>
+                <p>Evaluate product roadmap viability, market positioning strength, and portfolio growth potential to validate acquisition thesis and identify strategic opportunities for value creation.</p>
+            </div>
+
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <h3>Technology Stack & Architecture Review</h3>
+                <p>Assess technology infrastructure, scalability, technical debt, and platform modernization requirements to quantify integration complexity and future investment needs.</p>
+            </div>
+
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <h3>Engineering Team & Organizational Capabilities</h3>
+                <p>Evaluate team structure, talent quality, development velocity, and organizational maturity to assess execution capabilities and identify key retention risks.</p>
+            </div>
+
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path>
+                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path>
+                </svg>
+                <h3>Data Infrastructure & AI/ML Capabilities</h3>
+                <p>Analyze data architecture, analytics maturity, and AI implementation to validate competitive advantages and uncover opportunities for intelligent automation and insights.</p>
+            </div>
+
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M12 8v4"></path>
+                    <path d="M12 16h.01"></path>
+                </svg>
+                <h3>Risk Identification & Mitigation</h3>
+                <p>Identify technical risks, security vulnerabilities, compliance gaps, and operational bottlenecks with actionable mitigation strategies to protect deal value and enable smooth integration.</p>
+            </div>
+
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <h3>Value Creation Roadmap</h3>
+                <p>Develop prioritized post-acquisition initiatives that drive operational efficiency, accelerate growth, and maximize enterprise value through strategic execution and optimization.</p>
             </div>
         </div>
     </section>
 
-    <!-- Section Break -->
-    <div class="section-break">
-        <h2>How We Work</h2>
-    </div>
-
-    <!-- How We Work Section -->
-    <section id="how-we-work" style="padding-top: 4rem;">
-        <div class="how-we-work-grid">
-            <div class="work-card">
-                <svg class="work-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <h3>Monthly Retainer</h3>
-                <p>Ongoing strategic partnership with dedicated support for continuous value creation and execution.</p>
-                <ul>
-                    <li>Consistent strategic guidance</li>
-                    <li>Priority access to expertise</li>
-                    <li>Proactive opportunity identification</li>
-                    <li>Regular executive check-ins</li>
-                    <li>Flexible allocation of hours</li>
-                </ul>
-            </div>
-            <div class="work-card">
-                <svg class="work-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-                <h3>Fractional CPO</h3>
-                <p>Embedded product leadership driving strategy, execution, and organizational excellence for portfolio companies.</p>
-                <ul>
-                    <li>Interim executive leadership</li>
-                    <li>Product strategy & roadmap ownership</li>
-                    <li>Team building & mentorship</li>
-                    <li>Investor relations & reporting</li>
-                    <li>Hands-on execution support</li>
-                </ul>
-            </div>
-            <div class="work-card">
-                <svg class="work-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 11l3 3L22 4"></path>
-                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                </svg>
-                <h3>Advisory & Consulting</h3>
-                <p>Project-based engagements for targeted initiatives, due diligence, and strategic decision-making.</p>
-                <ul>
-                    <li>Technical due diligence</li>
-                    <li>Strategic assessments</li>
-                    <li>Market opportunity analysis</li>
-                    <li>Go-to-market planning</li>
-                    <li>Defined scope & timeline</li>
-                </ul>
-            </div>
-        </div>
+    <section class="cta-section">
+        <h2>Ready to De-Risk Your Next Acquisition?</h2>
+        <p>Partner with us to conduct comprehensive technical due diligence that identifies risks, validates opportunities, and creates a clear roadmap for value creation.</p>
+        <a href="contact.html" class="contact-button">Contact Us</a>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <h2>Contact Us</h2>
-        <p>Let's discuss how we can help drive results for your portfolio or organization.</p>
-        <a href="/cdn-cgi/l/email-protection#54373b3a203537201424263b302137202421382731243526203a3126277a373b39" class="contact-button">Connect With Us</a>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1071,7 +894,7 @@
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="/cdn-cgi/l/email-protection#0c616d7e6f606065696e616d624c6b616d6560226f6361" class="icon-link" aria-label="Email">
+                    <a href="/cdn-cgi/l/email-protection#4a272b38292626232f28272b240a2d272b232664292527" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -1086,12 +909,11 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC . All rights reserved.</p>
+            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Animation Script -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Ensure script runs after DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
         const canvas = document.getElementById('hero-canvas');
@@ -1350,4 +1172,11 @@
             // Close menu when clicking outside
             document.addEventListener('click', function(e) {
                 if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-          
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    }); // End DOMContentLoaded
+    </script>
+</body>
+</html>
