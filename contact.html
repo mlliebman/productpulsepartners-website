@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Product Pulse Partners - Get in touch for strategic advisory services">
+    <title>Contact Us | Product Pulse Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a192f;
+            --slate: #8892b0;
+            --teal: #64ffda;
+            --white: #ffffff;
+            --light-navy: #112240;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+        
+        /* Navigation - same as about.html */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(6, 12, 25, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-pulse {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--teal);
+            border-radius: 50%;
+            animation: pulse-animation 2s ease-out infinite;
+        }
+        
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--teal);
+            z-index: 1;
+        }
+        
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        
+        .logo-main {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .logo-highlight {
+            color: var(--teal);
+            font-weight: 700;
+        }
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--slate);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--slate);
+            transition: color 0.3s ease;
+        }
+        
+        .dropdown-toggle:hover {
+            color: var(--teal);
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 25, 47, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu a {
+            padding: 0.75rem 1.5rem;
+            color: var(--slate);
+            white-space: nowrap;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--teal);
+        }
+        
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--teal);
+            color: var(--teal);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-methods li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .contact-methods li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .contact-detail h3 {
+            font-size: 1.125rem;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-detail a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .contact-detail a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--teal);
+            color: var(--navy);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .email-button:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            padding: 4rem 2rem 2rem 2rem;
+            color: #94a3b8;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--teal);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 50%;
+            color: var(--teal);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--teal);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .contact-icons-only {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 50%;
+            color: var(--teal);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .icon-link:hover {
+            background: var(--teal);
+            color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.4);
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-pulse">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-dot"></div>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Product <span class="logo-highlight">Pulse</span></span>
+                    <span class="logo-sub">Partners</span>
+                </div>
+            </a>
+            <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <div class="dropdown-toggle">Services</div>
+                    <div class="dropdown-menu">
+                        <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                        <a href="growth-and-scale.html">Growth & Scale</a>
+                    </div>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                </ul>
+            <a href="contact.html" class="cta-button">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Let's Connect</h1>
+        <p>Ready to discuss your product leadership needs, M&A diligence, or AI strategy? Reach out and let's start the conversation.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-container">
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p>Whether you're looking for strategic advisory, technical due diligence, or fractional leadership, we're here to help. Reach out to discuss your specific needs.</p>
+            
+            <div style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="/cdn-cgi/l/email-protection#563b3724353a3a3f33343b373816313b373f3a7835393b" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: #0a192f; color: #64ffda; text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s ease; flex: 1; min-width: 200px; justify-content: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Send Email
+                </a>
+                <a href="https://www.linkedin.com/in/marcliebman/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: #0077B5; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s ease; flex: 1; min-width: 200px; justify-content: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2>Send Us a Message</h2>
+            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+            
+            <form action="https://formspree.io/f/xpwbaogj" method="POST" style="width: 100%; margin-top: 2rem;">
+                <div style="margin-bottom: 1.5rem;">
+                    <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 1rem; border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 1rem; border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <input type="text" name="company" placeholder="Company Name" style="width: 100%; padding: 1rem; border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <input type="tel" name="phone" placeholder="Phone Number (optional)" style="width: 100%; padding: 1rem; border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <textarea name="message" placeholder="Tell us about your needs..." rows="5" required style="width: 100%; padding: 1rem; border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+                <!-- Hidden fields for better tracking -->
+                <input type="hidden" name="_subject" value="New inquiry from Product Pulse Partners website">
+                <input type="hidden" name="_next" value="https://productpulsepartners.com/thank-you.html">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" class="email-button" style="width: 100%; cursor: pointer; border: none;">Send Message</button>
+            </form>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #94a3b8; text-align: center;">
+                Or reach out directly via 
+                <a href="/cdn-cgi/l/email-protection#ee838f9c8d8282878b8c838f80ae89838f8782c08d8183" style="color: #64ffda; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    email
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Product Pulse Partners</h3>
+                <p>Elite strategic advisory helping investors and C-suite leaders de-risk M&A, drive AI value, and maximize exits.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/marcliebman/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ma-due-diligence.html">M&A Due Diligence</a></li>
+                    <li><a href="growth-and-scale.html">Growth & Scale</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="contact-icons-only">
+                    <a href="/cdn-cgi/l/email-protection#670a0615040b0b0e02050a060927000a060e0b4904080a" class="icon-link" aria-label="Email">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/marcliebman/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+     

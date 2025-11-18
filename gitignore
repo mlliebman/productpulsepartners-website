@@ -1,0 +1,106 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+*.code-workspace
+
+# Log Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency Directories
+node_modules/
+bower_components/
+
+# Build Output (if you add build tools later)
+dist/
+build/
+*.min.js
+*.min.css
+
+# Temporary Files
+*.tmp
+*.temp
+*.cache
+.sass-cache/
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Package Manager Lock Files (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+
+# Local Testing
+test/
+tests/
+*.test.js
+
+# Documentation Drafts
+drafts/
+notes.txt
+TODO.md
+
+# Image Originals/Working Files
+*.psd
+*.ai
+*.sketch
+*.fig
+*.xcf
+
+# Video Files (if you don't want large files in repo)
+*.mp4
+*.mov
+*.avi
+*.wmv
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Coverage Reports
+coverage/
+.nyc_output/
+
+# MacOS Specific
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows Specific
+$RECYCLE.BIN/
+
+# Linux Specific
+.directory
+.Trash-*
+
+# Custom (add your own patterns below)
+old/
+archive/
+deprecated/
