@@ -171,4 +171,4 @@ Strategic Advisory for Private Equity & Enterprises
 
 ---
 
-**© 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.**
+**© 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.** 
