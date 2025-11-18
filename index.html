@@ -206,7 +206,7 @@
             border: 1px solid rgba(100, 255, 218, 0.2);
             border-radius: 8px;
             padding: 0.5rem 0;
-            min-width: 220px;
+            min-width: 280px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -220,10 +220,29 @@
             transform: translateY(0);
         }
         
+        .dropdown-section {
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .dropdown-section-title {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
         .dropdown-menu a {
             padding: 0.75rem 1.5rem;
+            padding-left: 2rem;
             color: var(--slate);
             white-space: nowrap;
+            display: block;
         }
         
         .dropdown-menu a:hover {
@@ -775,8 +794,18 @@
                     <li class="dropdown">
                         <div class="dropdown-toggle">Services</div>
                         <div class="dropdown-menu">
-                            <a href="ma-due-diligence.html">M&A Due Diligence</a>
-                            <a href="growth-and-scale.html">Growth & Scale</a>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
                         </div>
                     </li>
                     <li><a href="about.html">About Us</a></li>
@@ -1022,7 +1051,7 @@
         let activatedDots = new Set();
         let width = window.innerWidth;
         let height = window.innerHeight;
-        let lastPulseTime = 0;
+        let lastPulseTime = -CONFIG.pulseInterval; // Initialize negative to trigger first pulse immediately
         
         function resizeCanvas() {
             // Get actual dimensions of the hero section

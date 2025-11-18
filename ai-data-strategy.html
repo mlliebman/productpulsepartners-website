@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform data into competitive advantage through intelligent automation, machine learning, and AI-driven insights">
+    <title>AI & Data Strategy | Product Pulse Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a192f;
+            --slate: #8892b0;
+            --teal: #64ffda;
+            --white: #ffffff;
+            --light-navy: #112240;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(6, 12, 25, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-pulse {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--teal);
+            border-radius: 50%;
+            animation: pulse-animation 2s ease-out infinite;
+        }
+        
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--teal);
+            z-index: 1;
+        }
+        
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        
+        .logo-main {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        
+        .logo-highlight {
+            color: var(--teal);
+        }
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--slate);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--teal);
+            color: var(--teal);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        .page-hero {
+            background: var(--navy);
+            padding: 140px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .page-hero .highlight {
+            color: var(--teal);
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+        
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--teal);
+            margin: 3rem auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--teal);
+        }
+        
+        .feature-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+        
+        .feature-card ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            color: #64748b;
+        }
+        
+        .feature-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .deliverables-section {
+            background: var(--navy);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+        
+        .deliverables-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .deliverables-section h2 {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .deliverable-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .deliverable-item h3 {
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+        
+        .deliverable-item p {
+            color: var(--slate);
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2847 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: var(--slate);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-section .cta-button {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            background: var(--teal);
+            color: var(--navy);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .cta-section .cta-button:hover {
+            background: #52d4a8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
+        }
+        
+        footer {
+            background: var(--navy);
+            color: var(--slate);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-pulse">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-dot"></div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Product <span class="logo-highlight">Pulse</span></div>
+                    <div class="logo-sub">Partners</div>
+                </div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <a href="contact.html" class="cta-button">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1><span class="highlight">AI & Data Strategy</span></h1>
+            <p>Transform data into competitive advantage through intelligent automation, machine learning implementation, and AI-driven insights that accelerate growth.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <p class="intro-text">
+            The future belongs to companies that leverage data and AI effectively. We help growth-stage companies build AI and data strategies that drive measurable business value—from automating operations to powering predictive analytics and enabling intelligent products.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 style="text-align: center; margin-bottom: 3rem;">Our Approach</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Data Foundation Assessment</h3>
+                <p>Evaluate your current data infrastructure and identify opportunities for improvement.</p>
+                <ul>
+                    <li>Data architecture review</li>
+                    <li>Data quality assessment</li>
+                    <li>Analytics maturity evaluation</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>AI/ML Strategy Development</h3>
+                <p>Define high-impact AI initiatives aligned with business objectives and technical capabilities.</p>
+                <ul>
+                    <li>Use case identification and prioritization</li>
+                    <li>ROI modeling and business case development</li>
+                    <li>Build vs. buy recommendations</li>
+                    <li>Implementation roadmap creation</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>AI-Powered Product Features</h3>
+                <p>Integrate AI capabilities into your product to create competitive differentiation.</p>
+                <ul>
+                    <li>Feature ideation and validation</li>
+                    <li>ML model development guidance</li>
+                    <li>Product integration strategy</li>
+                    <li>Continuous improvement frameworks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="deliverables-section">
+        <div class="deliverables-content">
+            <h2>What You Receive</h2>
+            <div class="deliverables-grid">
+                <div class="deliverable-item">
+                    <h3>AI/ML Strategy Roadmap</h3>
+                    <p>Comprehensive 12-18 month roadmap with prioritized initiatives, resource requirements, and expected ROI.</p>
+                </div>
+                <div class="deliverable-item">
+                    <h3>Data Architecture Blueprint</h3>
+                    <p>Technical architecture recommendations for scalable data infrastructure supporting AI initiatives.</p>
+                </div>
+                <div class="deliverable-item">
+                    <h3>Use Case Business Cases</h3>
+                    <p>Detailed ROI analysis and implementation plans for high-priority AI use cases.</p>
+                </div>
+                <div class="deliverable-item">
+                    <h3>Implementation Support</h3>
+                    <p>Hands-on guidance through proof-of-concept development and production deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Harness the Power of AI?</h2>
+        <p>Let's discuss how AI and data strategy can transform your business and create lasting competitive advantages.</p>
+        <a href="contact.html" class="cta-button">Get Started</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
