@@ -24,12 +24,26 @@
         .logo-highlight { color: var(--teal); }
         .logo-sub { font-size: 0.7rem; font-weight: 500; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links li { position: relative; }
         .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--teal); }
+        .dropdown { position: relative; }
+        .dropdown-toggle { cursor: pointer; display: flex; align-items: center; gap: 0.25rem; color: var(--slate); transition: color 0.3s ease; padding: 0.5rem 0; }
+        .dropdown-toggle:hover { color: var(--teal); }
+        .dropdown-toggle::after { content: '▼'; font-size: 0.7rem; transition: transform 0.3s ease; }
+        .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); border-radius: 8px; padding: 0.5rem 0; min-width: 280px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-section { padding: 0.5rem 0; }
+        .dropdown-section:not(:last-child) { border-bottom: 1px solid rgba(100, 255, 218, 0.1); }
+        .dropdown-section-title { padding: 0.5rem 1.5rem 0.25rem; font-size: 0.75rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; }
+        .dropdown-menu a { padding: 0.75rem 1.5rem; padding-left: 2rem; color: var(--slate); white-space: nowrap; display: block; }
+        .dropdown-menu a:hover { background: rgba(100, 255, 218, 0.1); color: var(--teal); }
         .cta-button { padding: 0.75rem 1.5rem; background: transparent; border: 1px solid var(--teal); color: var(--teal); border-radius: 4px; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease; }
         .cta-button:hover { background: rgba(100, 255, 218, 0.1); }
         .page-hero { background: var(--navy); padding: 140px 2rem 80px; text-align: center; position: relative; overflow: hidden; }
         .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%); }
+        .page-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px); background-size: 40px 40px; background-position: 0 0; z-index: 0; }
         .page-hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
         .page-hero h1 { font-size: 3rem; color: var(--white); margin-bottom: 1.5rem; font-weight: 700; }
         .page-hero .highlight { color: var(--teal); }
@@ -41,6 +55,7 @@
         .section-divider { width: 60px; height: 4px; background: var(--teal); margin: 3rem auto; }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
         .feature-card { background: #f8fafc; padding: 2rem; border-radius: 8px; border-left: 4px solid var(--teal); }
+        .feature-icon { width: 48px; height: 48px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 24px; }
         .feature-card h3 { color: var(--navy); margin-bottom: 1rem; font-size: 1.3rem; }
         .feature-card p { color: #64748b; line-height: 1.7; }
         .feature-card ul { margin-top: 1rem; padding-left: 1.5rem; color: #64748b; }
@@ -72,7 +87,23 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#services">Services</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle">Services</div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="about.html">About Us</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
@@ -91,6 +122,11 @@
         <h2 style="text-align: center; margin-bottom: 3rem;">What We Deliver</h2>
         <div class="feature-grid">
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M2.81 14.12L5.64 11.29 8.17 10.79C11.39 6.41 17.55 4.22 19.78 4.22C19.78 6.45 17.59 12.61 13.21 15.83L12.71 18.36L9.88 21.19L9.17 17.66C7.76 17.66 7.76 17.66 7.05 16.95C6.34 16.24 6.34 16.24 6.34 14.83L2.81 14.12M9.88 11.29C10.27 11.68 10.9 11.68 11.29 11.29C11.68 10.9 11.68 10.27 11.29 9.88C10.9 9.5 10.27 9.5 9.88 9.88C9.5 10.27 9.5 10.9 9.88 11.29Z"/>
+                    </svg>
+                </div>
                 <h3>GTM Strategy Development</h3>
                 <p>Comprehensive go-to-market strategy aligned with your product and business objectives.</p>
                 <ul>
@@ -101,6 +137,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
                 <h3>Market Expansion</h3>
                 <p>Strategic guidance for entering new markets, verticals, or geographies.</p>
                 <ul>
@@ -111,6 +152,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
                 <h3>Launch Planning & Execution</h3>
                 <p>Execute flawless product and feature launches that maximize market impact.</p>
                 <ul>

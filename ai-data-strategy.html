@@ -142,6 +142,10 @@
             align-items: center;
         }
         
+        .nav-links li {
+            position: relative;
+        }
+        
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
@@ -150,6 +154,87 @@
         }
         
         .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--slate);
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-toggle:hover {
+            color: var(--teal);
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 25, 47, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-section {
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .dropdown-section-title {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .dropdown-menu a {
+            padding: 0.75rem 1.5rem;
+            padding-left: 2rem;
+            color: var(--slate);
+            white-space: nowrap;
+            display: block;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(100, 255, 218, 0.1);
             color: var(--teal);
         }
         
@@ -184,6 +269,19 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0;
+            z-index: 0;
         }
         
         .page-hero-content {
@@ -260,6 +358,18 @@
             padding: 2rem;
             border-radius: 8px;
             border-left: 4px solid var(--teal);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 24px;
         }
         
         .feature-card h3 {
@@ -387,7 +497,23 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#services">Services</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle">Services</div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="about.html">About Us</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
@@ -413,6 +539,11 @@
 
         <div class="feature-grid">
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/>
+                    </svg>
+                </div>
                 <h3>Data Foundation Assessment</h3>
                 <p>Evaluate your current data infrastructure and identify opportunities for improvement.</p>
                 <ul>
@@ -423,6 +554,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zm-2 10H6V7h12v12zm-9-6c-.83 0-1.5-.67-1.5-1.5S8.17 10 9 10s1.5.67 1.5 1.5S9.83 13 9 13zm7.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM8 15h8v2H8v-2z"/>
+                    </svg>
+                </div>
                 <h3>AI/ML Strategy Development</h3>
                 <p>Define high-impact AI initiatives aligned with business objectives and technical capabilities.</p>
                 <ul>
@@ -434,6 +570,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                    </svg>
+                </div>
                 <h3>AI-Powered Product Features</h3>
                 <p>Integrate AI capabilities into your product to create competitive differentiation.</p>
                 <ul>
@@ -442,30 +583,6 @@
                     <li>Product integration strategy</li>
                     <li>Continuous improvement frameworks</li>
                 </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="deliverables-section">
-        <div class="deliverables-content">
-            <h2>What You Receive</h2>
-            <div class="deliverables-grid">
-                <div class="deliverable-item">
-                    <h3>AI/ML Strategy Roadmap</h3>
-                    <p>Comprehensive 12-18 month roadmap with prioritized initiatives, resource requirements, and expected ROI.</p>
-                </div>
-                <div class="deliverable-item">
-                    <h3>Data Architecture Blueprint</h3>
-                    <p>Technical architecture recommendations for scalable data infrastructure supporting AI initiatives.</p>
-                </div>
-                <div class="deliverable-item">
-                    <h3>Use Case Business Cases</h3>
-                    <p>Detailed ROI analysis and implementation plans for high-priority AI use cases.</p>
-                </div>
-                <div class="deliverable-item">
-                    <h3>Implementation Support</h3>
-                    <p>Hands-on guidance through proof-of-concept development and production deployment.</p>
-                </div>
             </div>
         </div>
     </section>

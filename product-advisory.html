@@ -143,6 +143,10 @@
             align-items: center;
         }
         
+        .nav-links li {
+            position: relative;
+        }
+        
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
@@ -151,6 +155,88 @@
         }
         
         .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--slate);
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-toggle:hover {
+            color: var(--teal);
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 25, 47, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-section {
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .dropdown-section-title {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .dropdown-menu a {
+            padding: 0.75rem 1.5rem;
+            padding-left: 2rem;
+            color: var(--slate);
+            white-space: nowrap;
+            display: block;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(100, 255, 218, 0.1);
             color: var(--teal);
         }
         
@@ -186,6 +272,19 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0;
+            z-index: 0;
         }
         
         .page-hero-content {
@@ -264,6 +363,18 @@
             padding: 2rem;
             border-radius: 8px;
             border-left: 4px solid var(--teal);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 24px;
         }
         
         .feature-card h3 {
@@ -395,7 +506,23 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#services">Services</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle">Services</div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="about.html">About Us</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
@@ -423,6 +550,11 @@
 
         <div class="feature-grid">
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                </div>
                 <h3>Product Strategy Development</h3>
                 <p>Comprehensive product strategy that aligns with business objectives and market opportunities.</p>
                 <ul>
@@ -434,6 +566,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
                 <h3>Product-Market Fit Enhancement</h3>
                 <p>Systematic approach to achieving and expanding product-market fit for accelerated growth.</p>
                 <ul>
@@ -445,6 +582,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                    </svg>
+                </div>
                 <h3>Roadmap Prioritization</h3>
                 <p>Data-driven roadmap planning that balances growth initiatives with technical excellence.</p>
                 <ul>
@@ -456,6 +598,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
                 <h3>Competitive Differentiation</h3>
                 <p>Strategic positioning to establish and maintain competitive advantages in the market.</p>
                 <ul>
@@ -467,6 +614,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
                 <h3>Executive Product Leadership</h3>
                 <p>Senior product guidance for companies lacking CPO-level expertise or needing interim leadership.</p>
                 <ul>
@@ -478,6 +630,11 @@
             </div>
 
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                </div>
                 <h3>Investor Reporting & Insights</h3>
                 <p>Regular updates on product progress, market dynamics, and value creation opportunities.</p>
                 <ul>
@@ -490,55 +647,11 @@
         </div>
     </section>
 
-    <!-- Deliverables Section -->
-    <section class="deliverables-section">
-        <div class="deliverables-content">
-            <h2>What You Receive</h2>
-            <div class="deliverables-grid">
-                <div class="deliverable-item">
-                    <h3>Product Strategy Deck</h3>
-                    <p>Comprehensive product strategy document with market analysis, positioning, and 12-18 month roadmap.</p>
-                </div>
-                <div class="deliverable-item">
-                    <h3>Quarterly Business Reviews</h3>
-                    <p>Executive-level presentations covering product progress, metrics, and strategic recommendations.</p>
-                </div>
-                <div class="deliverable-item">
-                    <h3>Competitive Intelligence Reports</h3>
-                    <p>Ongoing market and competitive analysis to inform product decisions and positioning.</p>
-                </div>
-                <div class="deliverable-item">
-                    <h3>Product Metrics Dashboard</h3>
-                    <p>Custom dashboards tracking key product and business metrics with trend analysis.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Engagement Models Section -->
-    <section class="content-section">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Engagement Models</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>Strategic Advisory</h3>
-                <p>Ongoing strategic guidance through monthly sessions and asynchronous support for critical product decisions.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Interim CPO</h3>
-                <p>Full-time or fractional executive product leadership during transitions or while recruiting permanent leadership.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Board-Level Oversight</h3>
-                <p>Quarterly board participation providing product insights, strategy validation, and investor-level reporting.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section">
         <h2>Ready to Accelerate Portfolio Value?</h2>
         <p>Let's discuss how strategic product advisory can drive growth and maximize enterprise value for your portfolio companies.</p>
-        <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+        <a href="contact.html" class="cta-button">Contact Us</a>
     </section>
 
     <!-- Footer -->

@@ -222,8 +222,27 @@
         
         .dropdown-menu a {
             padding: 0.75rem 1.5rem;
+            padding-left: 2rem;
             color: var(--slate);
             white-space: nowrap;
+            display: block;
+        }
+        
+        .dropdown-section {
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .dropdown-section-title {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .dropdown-menu a:hover {
@@ -253,6 +272,35 @@
             text-align: center;
             margin-top: 80px;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0;
+            z-index: 0;
+        }
+        
+        .page-header > * {
+            position: relative;
+            z-index: 1;
         }
 
         .header-badge {
@@ -522,8 +570,18 @@
                     <li class="dropdown">
                         <div class="dropdown-toggle">Services</div>
                         <div class="dropdown-menu">
-                            <a href="ma-due-diligence.html">M&A Due Diligence</a>
-                            <a href="growth-and-scale.html">Growth & Scale</a>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
                         </div>
                     </li>
                     <li><a href="about.html">About Us</a></li>
@@ -613,7 +671,7 @@
     <section class="cta-section">
         <h2>Ready to De-Risk Your Next Acquisition?</h2>
         <p>Partner with us to conduct comprehensive technical due diligence that identifies risks, validates opportunities, and creates a clear roadmap for value creation.</p>
-        <a href="contact.html" class="contact-button">Schedule Assessment</a>
+        <a href="contact.html" class="contact-button">Contact Us</a>
     </section>
 
     <!-- Footer -->
@@ -637,7 +695,7 @@
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="mailto:info@productpulsepartners.com" class="icon-link" aria-label="Email">
+                    <a href="/cdn-cgi/l/email-protection#f79e999198b78785989382948387829b84928796858399928584d994989a" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -652,8 +710,4 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC . All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC . All rights reserve

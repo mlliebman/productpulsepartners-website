@@ -24,12 +24,26 @@
         .logo-highlight { color: var(--teal); }
         .logo-sub { font-size: 0.7rem; font-weight: 500; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links li { position: relative; }
         .nav-links a { color: var(--slate); text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--teal); }
+        .dropdown { position: relative; }
+        .dropdown-toggle { cursor: pointer; display: flex; align-items: center; gap: 0.25rem; color: var(--slate); transition: color 0.3s ease; padding: 0.5rem 0; }
+        .dropdown-toggle:hover { color: var(--teal); }
+        .dropdown-toggle::after { content: '▼'; font-size: 0.7rem; transition: transform 0.3s ease; }
+        .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); border-radius: 8px; padding: 0.5rem 0; min-width: 280px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000; }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-section { padding: 0.5rem 0; }
+        .dropdown-section:not(:last-child) { border-bottom: 1px solid rgba(100, 255, 218, 0.1); }
+        .dropdown-section-title { padding: 0.5rem 1.5rem 0.25rem; font-size: 0.75rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; }
+        .dropdown-menu a { padding: 0.75rem 1.5rem; padding-left: 2rem; color: var(--slate); white-space: nowrap; display: block; }
+        .dropdown-menu a:hover { background: rgba(100, 255, 218, 0.1); color: var(--teal); }
         .cta-button { padding: 0.75rem 1.5rem; background: transparent; border: 1px solid var(--teal); color: var(--teal); border-radius: 4px; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease; }
         .cta-button:hover { background: rgba(100, 255, 218, 0.1); }
         .page-hero { background: var(--navy); padding: 140px 2rem 80px; text-align: center; position: relative; overflow: hidden; }
         .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%); }
+        .page-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px); background-size: 40px 40px; background-position: 0 0; z-index: 0; }
         .page-hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
         .page-hero h1 { font-size: 3rem; color: var(--white); margin-bottom: 1.5rem; font-weight: 700; }
         .page-hero .highlight { color: var(--teal); }
@@ -41,6 +55,7 @@
         .section-divider { width: 60px; height: 4px; background: var(--teal); margin: 3rem auto; }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
         .feature-card { background: #f8fafc; padding: 2rem; border-radius: 8px; border-left: 4px solid var(--teal); }
+        .feature-icon { width: 48px; height: 48px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 24px; }
         .feature-card h3 { color: var(--navy); margin-bottom: 1rem; font-size: 1.3rem; }
         .feature-card p { color: #64748b; line-height: 1.7; }
         .feature-card ul { margin-top: 1rem; padding-left: 1.5rem; color: #64748b; }
@@ -72,7 +87,23 @@
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#services">Services</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle">Services</div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="about.html">About Us</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
@@ -91,6 +122,11 @@
         <h2 style="text-align: center; margin-bottom: 3rem;">Optimization Focus Areas</h2>
         <div class="feature-grid">
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </div>
                 <h3>Organization Design</h3>
                 <p>Design scalable product and engineering org structures aligned with business objectives.</p>
                 <ul>
@@ -101,6 +137,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
                 <h3>Process Optimization</h3>
                 <p>Implement efficient processes that accelerate delivery without sacrificing quality.</p>
                 <ul>
@@ -111,6 +152,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                    </svg>
+                </div>
                 <h3>Velocity Improvement</h3>
                 <p>Identify and eliminate bottlenecks that slow down product development and delivery.</p>
                 <ul>
@@ -121,6 +167,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                    </svg>
+                </div>
                 <h3>Talent Strategy</h3>
                 <p>Build hiring, development, and retention strategies for high-performing teams.</p>
                 <ul>
@@ -131,6 +182,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                </div>
                 <h3>Performance Management</h3>
                 <p>Establish frameworks for measuring, tracking, and improving team performance.</p>
                 <ul>
@@ -141,6 +197,11 @@
                 </ul>
             </div>
             <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; color: #0a192f;">
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                    </svg>
+                </div>
                 <h3>Culture & Communication</h3>
                 <p>Foster collaborative cultures with clear communication and shared accountability.</p>
                 <ul>
