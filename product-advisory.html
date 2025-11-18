@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Strategic product guidance for portfolio companies driving growth, competitive positioning, and value creation">
+    <title>Product Advisory | Product Pulse Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a192f;
+            --slate: #8892b0;
+            --teal: #64ffda;
+            --white: #ffffff;
+            --light-navy: #112240;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+        
+        /* Navigation - Same as homepage */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(6, 12, 25, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-pulse {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--teal);
+            border-radius: 50%;
+            animation: pulse-animation 2s ease-out infinite;
+        }
+        
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--teal);
+            z-index: 1;
+        }
+        
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        
+        .logo-main {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        
+        .logo-highlight {
+            color: var(--teal);
+        }
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--slate);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--teal);
+            color: var(--teal);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        /* Hero Section */
+        .page-hero {
+            background: var(--navy);
+            padding: 140px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .page-hero .highlight {
+            color: var(--teal);
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+        
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--teal);
+            margin: 3rem auto;
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--teal);
+        }
+        
+        .feature-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+        
+        .feature-card ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            color: #64748b;
+        }
+        
+        .feature-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Deliverables Section */
+        .deliverables-section {
+            background: var(--navy);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+        
+        .deliverables-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .deliverables-section h2 {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .deliverable-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .deliverable-item h3 {
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+        
+        .deliverable-item p {
+            color: var(--slate);
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2847 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: var(--slate);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-section .cta-button {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            background: var(--teal);
+            color: var(--navy);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .cta-section .cta-button:hover {
+            background: #52d4a8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--slate);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-pulse">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-dot"></div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Product <span class="logo-highlight">Pulse</span></div>
+                    <div class="logo-sub">Partners</div>
+                </div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <a href="contact.html" class="cta-button">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1><span class="highlight">Product Advisory</span></h1>
+            <p>Strategic product guidance for portfolio companies driving growth, competitive positioning, and value creation through effective product strategy and execution.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <p class="intro-text">
+            Portfolio companies need more than capital—they need strategic product guidance to maximize growth and enterprise value. Our product advisory services provide investors with expert oversight while helping portfolio companies build winning products that drive ARR growth and expand multiples.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2 style="text-align: center; margin-bottom: 3rem;">How We Help</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Product Strategy Development</h3>
+                <p>Comprehensive product strategy that aligns with business objectives and market opportunities.</p>
+                <ul>
+                    <li>Market opportunity assessment</li>
+                    <li>Competitive positioning strategy</li>
+                    <li>Product vision and roadmap</li>
+                    <li>Value proposition optimization</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Product-Market Fit Enhancement</h3>
+                <p>Systematic approach to achieving and expanding product-market fit for accelerated growth.</p>
+                <ul>
+                    <li>User research and insights</li>
+                    <li>Feature prioritization framework</li>
+                    <li>Usage analytics and optimization</li>
+                    <li>Customer feedback loops</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Roadmap Prioritization</h3>
+                <p>Data-driven roadmap planning that balances growth initiatives with technical excellence.</p>
+                <ul>
+                    <li>Strategic initiative prioritization</li>
+                    <li>Resource allocation optimization</li>
+                    <li>ROI-based feature ranking</li>
+                    <li>Technical debt management</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Competitive Differentiation</h3>
+                <p>Strategic positioning to establish and maintain competitive advantages in the market.</p>
+                <ul>
+                    <li>Competitive landscape analysis</li>
+                    <li>Differentiation strategy development</li>
+                    <li>Feature gap assessment</li>
+                    <li>Market positioning refinement</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Executive Product Leadership</h3>
+                <p>Senior product guidance for companies lacking CPO-level expertise or needing interim leadership.</p>
+                <ul>
+                    <li>Strategic product oversight</li>
+                    <li>Team mentorship and development</li>
+                    <li>Cross-functional alignment</li>
+                    <li>Board and investor communication</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Investor Reporting & Insights</h3>
+                <p>Regular updates on product progress, market dynamics, and value creation opportunities.</p>
+                <ul>
+                    <li>Product metrics and KPI tracking</li>
+                    <li>Market dynamics updates</li>
+                    <li>Risk identification and mitigation</li>
+                    <li>Strategic recommendations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section class="deliverables-section">
+        <div class="deliverables-content">
+            <h2>What You Receive</h2>
+            <div class="deliverables-grid">
+                <div class="deliverable-item">
+                    <h3>Product Strategy Deck</h3>
+                    <p>Comprehensive product strategy document with market analysis, positioning, and 12-18 month roadmap.</p>
+                </div>
+                <div class="deliverable-item">
+                    <h3>Quarterly Business Reviews</h3>
+                    <p>Executive-level presentations covering product progress, metrics, and strategic recommendations.</p>
+                </div>
+                <div class="deliverable-item">
+                    <h3>Competitive Intelligence Reports</h3>
+                    <p>Ongoing market and competitive analysis to inform product decisions and positioning.</p>
+                </div>
+                <div class="deliverable-item">
+                    <h3>Product Metrics Dashboard</h3>
+                    <p>Custom dashboards tracking key product and business metrics with trend analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Models Section -->
+    <section class="content-section">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Engagement Models</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Strategic Advisory</h3>
+                <p>Ongoing strategic guidance through monthly sessions and asynchronous support for critical product decisions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Interim CPO</h3>
+                <p>Full-time or fractional executive product leadership during transitions or while recruiting permanent leadership.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Board-Level Oversight</h3>
+                <p>Quarterly board participation providing product insights, strategy validation, and investor-level reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Accelerate Portfolio Value?</h2>
+        <p>Let's discuss how strategic product advisory can drive growth and maximize enterprise value for your portfolio companies.</p>
+        <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
