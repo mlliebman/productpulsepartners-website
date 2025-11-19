@@ -157,6 +157,12 @@
         }
         
         .nav-links a {
+        
+        .nav-links > li > a::before,
+        .nav-links > li > a::after {
+            content: none !important;
+            display: none !important;
+        }
             color: var(--slate);
             text-decoration: none;
             font-size: 0.95rem;
@@ -595,6 +601,12 @@
             }
             
             .nav-links a {
+        
+        .nav-links > li > a::before,
+        .nav-links > li > a::after {
+            content: none !important;
+            display: none !important;
+        }
                 display: block;
                 padding: 1rem;
             }
@@ -699,22 +711,36 @@
         <div class="services-grid">
             <div class="service-card">
                 <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
                 </svg>
-                <h3>Product Strategy & Portfolio Assessment</h3>
-                <p>Evaluate product roadmap viability, market positioning strength, and portfolio growth potential to validate acquisition thesis and identify strategic opportunities for value creation.</p>
+                <h3>Pre-Acquisition Technical Deep Dive</h3>
+                <p>Comprehensive technical diligence including product architecture assessment, technology stack evaluation, and infrastructure review to validate deal thesis and uncover hidden technical debt before transaction close.</p>
             </div>
 
             <div class="service-card">
                 <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v20M2 12h20"></path>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
-                <h3>Technology Stack & Architecture Review</h3>
-                <p>Assess technology infrastructure, scalability, technical debt, and platform modernization requirements to quantify integration complexity and future investment needs.</p>
+                <h3>Code Quality & IP Assessment</h3>
+                <p>In-depth code base review, IP ownership verification, open-source license compliance, and technical dependency analysis to identify acquisition risks and validate intellectual property claims.</p>
+            </div>
+
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                    <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                    <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <h3>Integration Complexity & Synergy Analysis</h3>
+                <p>Detailed system integration planning, platform compatibility assessment, data migration complexity evaluation, and technology consolidation strategy to quantify post-close integration costs and timeline.</p>
             </div>
 
             <div class="service-card">
@@ -724,17 +750,8 @@
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
-                <h3>Engineering Team & Organizational Capabilities</h3>
-                <p>Evaluate team structure, talent quality, development velocity, and organizational maturity to assess execution capabilities and identify key retention risks.</p>
-            </div>
-
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path>
-                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path>
-                </svg>
-                <h3>Data Infrastructure & AI/ML Capabilities</h3>
-                <p>Analyze data architecture, analytics maturity, and AI implementation to validate competitive advantages and uncover opportunities for intelligent automation and insights.</p>
+                <h3>Engineering Team & Retention Risk</h3>
+                <p>Comprehensive engineering team assessment including key person risk analysis, skill gap identification, compensation benchmarking, and retention strategy development to secure critical technical talent post-acquisition.</p>
             </div>
 
             <div class="service-card">
@@ -743,17 +760,17 @@
                     <path d="M12 8v4"></path>
                     <path d="M12 16h.01"></path>
                 </svg>
-                <h3>Risk Identification & Mitigation</h3>
-                <p>Identify technical risks, security vulnerabilities, compliance gaps, and operational bottlenecks with actionable mitigation strategies to protect deal value and enable smooth integration.</p>
+                <h3>Security & Compliance Audit</h3>
+                <p>Rigorous security posture evaluation, data privacy compliance review (GDPR, CCPA, SOC 2), vulnerability assessment, and regulatory risk identification to protect against post-close liability and ensure compliance continuity.</p>
             </div>
 
             <div class="service-card">
                 <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                    <polyline points="17 6 23 6 23 12"></polyline>
+                    <path d="M12 2v20M2 12h20"></path>
+                    <circle cx="12" cy="12" r="10"></circle>
                 </svg>
-                <h3>Value Creation Roadmap</h3>
-                <p>Develop prioritized post-acquisition initiatives that drive operational efficiency, accelerate growth, and maximize enterprise value through strategic execution and optimization.</p>
+                <h3>100-Day Value Creation Blueprint</h3>
+                <p>Prioritized post-acquisition roadmap with quick wins, integration milestones, cost optimization opportunities, and revenue acceleration initiatives designed to maximize deal value and accelerate return on investment.</p>
             </div>
         </div>
     </section>
@@ -791,7 +808,7 @@
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="/cdn-cgi/l/email-protection#dfb2beadbcb3b3b6babdb2beb19fb8b2beb6b3f1bcb0b2" class="icon-link" aria-label="Email">
+                    <a href="mailto:marclliebman@gmail.com" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
