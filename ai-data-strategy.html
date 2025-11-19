@@ -147,6 +147,12 @@
         }
         
         .nav-links a {
+        
+        .nav-links > li > a::before,
+        .nav-links > li > a::after {
+            content: none !important;
+            display: none !important;
+        }
             color: var(--slate);
             text-decoration: none;
             font-size: 0.95rem;
@@ -552,6 +558,11 @@
             color: var(--slate);
             font-size: 0.9rem;
         }
+        /* Hide Connect in mobile menu on desktop */
+        .cta-mobile {
+            display: none;
+        }
+
         /* Mobile Navigation */
         .mobile-menu-button {
             display: none;
@@ -601,6 +612,12 @@
             }
             
             .nav-links a {
+        
+        .nav-links > li > a::before,
+        .nav-links > li > a::after {
+            content: none !important;
+            display: none !important;
+        }
                 display: block;
                 padding: 1rem;
             }
@@ -788,7 +805,7 @@
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="/cdn-cgi/l/email-protection#cda0acbfaea1a1a4a8afa0aca38daaa0aca4a1e3aea2a0" class="icon-link" aria-label="Email">
+                    <a href="/cdn-cgi/l/email-protection#1974786b7a7575707c7b747877597e74787075377a7674" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -803,4 +820,4 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
+            <p>&copy; 2025 Product Pulse Partners
