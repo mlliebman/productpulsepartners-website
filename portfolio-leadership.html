@@ -47,6 +47,30 @@
         .dropdown-menu a:hover { background: rgba(100, 255, 218, 0.1); color: var(--teal); }
         .cta-button { padding: 0.75rem 1.5rem; background: transparent; border: 1px solid var(--teal); color: var(--teal); border-radius: 4px; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease; }
         .cta-button:hover { background: rgba(100, 255, 218, 0.1); }
+        
+        .desktop-connect {
+            display: inline-block;
+        }
+        
+        .nav-connect {
+            display: none;
+        }
+        
+        .nav-connect a {
+            color: var(--teal) !important;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem !important;
+            display: block;
+            text-align: center;
+            background: transparent;
+            border: 1px solid var(--teal);
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+        
+        .nav-connect a:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
         .page-hero { background: var(--navy); padding: 140px 2rem 80px; text-align: center; position: relative; overflow: hidden; }
         .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%); }
         .page-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px); background-size: 40px 40px; background-position: 0 0; z-index: 0; }
@@ -189,6 +213,10 @@
         }
 
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            
             .nav-right {
                 flex-direction: row;
                 justify-content: flex-end;
@@ -196,6 +224,14 @@
             }
             
             .mobile-menu-button {
+                display: block;
+            }
+            
+            .desktop-connect {
+                display: none !important;
+            }
+            
+            .nav-connect {
                 display: block;
             }
             
@@ -311,9 +347,9 @@
                         </div>
                     </li>
                     <li><a href="about.html">About Us</a></li>
-                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
+                    <li class="nav-connect"><a href="contact.html">Connect</a></li>
                 </ul>
-                <a href="contact.html" class="cta-button">Connect</a>
+                <a href="contact.html" class="cta-button desktop-connect">Connect</a>
             </div>
         </div>
     </nav>
