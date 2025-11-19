@@ -144,6 +144,15 @@
         
         .nav-links li {
             position: relative;
+            list-style: none;
+            list-style-type: none;
+        }
+        
+        .nav-links li::before,
+        .nav-links li::after,
+        .nav-links li::marker {
+            content: none !important;
+            display: none !important;
         }
         
         .nav-links a {
@@ -151,6 +160,8 @@
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
         }
         
         .nav-links > li > a::before,
@@ -258,6 +269,17 @@
         
         .cta-button:hover {
             background: rgba(100, 255, 218, 0.1);
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--teal);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
         }
         
         /* Hero Section */
@@ -639,6 +661,10 @@
             
             .page-hero p {
                 font-size: 1.1rem;
+            }
+            
+            .mobile-menu-button {
+                display: block;
             }
             
             .nav-links {
