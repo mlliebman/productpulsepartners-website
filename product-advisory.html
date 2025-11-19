@@ -311,6 +311,20 @@
             line-height: 1.7;
         }
         
+        .header-badge {
+            display: inline-block;
+            background: rgba(100, 255, 218, 0.15);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--teal);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        
         /* Content Section */
         .content-section {
             max-width: 1200px;
@@ -545,6 +559,95 @@
             color: var(--slate);
             font-size: 0.9rem;
         }
+        /* Mobile Navigation */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--teal);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 100%;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(6, 12, 25, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+                border-top: 1px solid rgba(100, 255, 218, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+            
+            .nav-links li.cta-mobile {
+                display: block;
+            }
+            
+            .nav-links li.cta-mobile a {
+                color: var(--teal);
+                border: 1px solid var(--teal);
+                border-radius: 4px;
+                margin: 0.5rem;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                border: none;
+                border-radius: 0;
+                background: rgba(10, 25, 47, 0.5);
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown-toggle {
+                padding: 1rem;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -564,7 +667,8 @@
                 </div>
             </a>
             <div class="nav-right">
-                <ul class="nav-links">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">☰</button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
                         <div class="dropdown-toggle">Services</div>
@@ -584,6 +688,7 @@
                         </div>
                     </li>
                     <li><a href="about.html">About Us</a></li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
             </div>
@@ -593,6 +698,7 @@
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="page-hero-content">
+            <div class="header-badge">Investors & Growth Stage Companies</div>
             <h1><span class="highlight">Product Advisory</span></h1>
             <p>Strategic product guidance for portfolio companies driving growth, competitive positioning, and value creation through effective product strategy and execution.</p>
         </div>
@@ -622,6 +728,7 @@
                     <li>Competitive positioning strategy</li>
                     <li>Product vision and roadmap</li>
                     <li>Value proposition optimization</li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
 
@@ -638,6 +745,7 @@
                     <li>Feature prioritization framework</li>
                     <li>Usage analytics and optimization</li>
                     <li>Customer feedback loops</li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
 
@@ -654,6 +762,7 @@
                     <li>Resource allocation optimization</li>
                     <li>ROI-based feature ranking</li>
                     <li>Technical debt management</li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
 
@@ -670,6 +779,7 @@
                     <li>Differentiation strategy development</li>
                     <li>Feature gap assessment</li>
                     <li>Market positioning refinement</li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
 
@@ -686,6 +796,7 @@
                     <li>Team mentorship and development</li>
                     <li>Cross-functional alignment</li>
                     <li>Board and investor communication</li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
 
@@ -702,6 +813,7 @@
                     <li>Market dynamics updates</li>
                     <li>Risk identification and mitigation</li>
                     <li>Strategic recommendations</li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
         </div>
@@ -733,13 +845,14 @@
                     <li><a href="portfolio-leadership.html">Portfolio Leadership</a></li>
                     <li><a href="organizational-optimization.html">Organizational Optimization</a></li>
                     <li><a href="about.html">About Us</a></li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="mailto:marclliebman@gmail.com" class="icon-link" aria-label="Email">
+                    <a href="/cdn-cgi/l/email-protection#1974786b7a7575707c7b747877597e74787075377a7674" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -755,7 +868,3 @@
         
         <div class="footer-bottom">
             <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>

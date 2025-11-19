@@ -546,6 +546,95 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Mobile Navigation */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--teal);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 100%;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(6, 12, 25, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+                border-top: 1px solid rgba(100, 255, 218, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+            
+            .nav-links li.cta-mobile {
+                display: block;
+            }
+            
+            .nav-links li.cta-mobile a {
+                color: var(--teal);
+                border: 1px solid var(--teal);
+                border-radius: 4px;
+                margin: 0.5rem;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                border: none;
+                border-radius: 0;
+                background: rgba(10, 25, 47, 0.5);
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown-toggle {
+                padding: 1rem;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -565,7 +654,8 @@
                 </div>
             </a>
             <div class="nav-right">
-                <ul class="nav-links">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">☰</button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
                         <div class="dropdown-toggle">Services</div>
@@ -585,6 +675,7 @@
                         </div>
                     </li>
                     <li><a href="about.html">About Us</a></li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
             </div>
@@ -693,13 +784,14 @@
                     <li><a href="portfolio-leadership.html">Portfolio Leadership</a></li>
                     <li><a href="organizational-optimization.html">Organizational Optimization</a></li>
                     <li><a href="about.html">About Us</a></li>
+                <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="mailto:marclliebman@gmail.com" class="icon-link" aria-label="Email">
+                    <a href="/cdn-cgi/l/email-protection#dfb2beadbcb3b3b6babdb2beb19fb8b2beb6b3f1bcb0b2" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -731,4 +823,4 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC . All rights reserve
+            <p>&copy; 2025 Product Pulse Pa
