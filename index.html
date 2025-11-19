@@ -157,12 +157,6 @@
         }
         
         .nav-links a {
-        
-        .nav-links > li > a::before,
-        .nav-links > li > a::after {
-            content: none !important;
-            display: none !important;
-        }
             color: var(--slate);
             text-decoration: none;
             font-size: 0.95rem;
@@ -484,6 +478,120 @@
             font-size: 1rem;
         }
 
+        /* How We Work Section */
+        .how-we-work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .work-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--teal);
+        }
+        
+        .work-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.2);
+            border-color: var(--teal);
+        }
+        
+        .work-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            color: var(--teal);
+        }
+        
+        .work-card h3 {
+            color: var(--teal);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .work-card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .work-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+        
+        .work-card ul li {
+            color: #94a3b8;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .work-card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 0;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section p {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--teal);
+            color: var(--navy);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--navy);
@@ -598,6 +706,32 @@
             box-shadow: 0 5px 20px rgba(100, 255, 218, 0.4);
         }
         
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 50%;
+            color: var(--teal);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--teal);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+        
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
@@ -605,11 +739,6 @@
             border-top: 1px solid rgba(100, 255, 218, 0.1);
             text-align: center;
             color: #64748b;
-        }
-
-        /* Hide Connect in mobile menu on desktop */
-        .cta-mobile {
-            display: none;
         }
 
         /* Mobile Responsive */
@@ -661,30 +790,8 @@
             }
             
             .nav-links a {
-        
-        .nav-links > li > a::before,
-        .nav-links > li > a::after {
-            content: none !important;
-            display: none !important;
-        }
                 display: block;
                 padding: 1rem;
-            }
-            
-            .cta-button {
-                display: none;
-            }
-            
-            .nav-links li.cta-mobile {
-                display: block;
-            }
-            
-            .nav-links li.cta-mobile a {
-                color: var(--teal);
-                border: 1px solid var(--teal);
-                border-radius: 4px;
-                margin: 0.5rem;
-                text-align: center;
             }
             
             .dropdown-menu {
@@ -806,7 +913,6 @@
                         </div>
                     </li>
                     <li><a href="about.html">About Us</a></li>
-                    <li class="cta-mobile"><a href="contact.html">Connect</a></li>
                 </ul>
                 <a href="contact.html" class="cta-button">Connect</a>
             </div>
@@ -898,10 +1004,69 @@
         </div>
     </section>
 
-    <section class="cta-section">
-        <h2>Ready to De-Risk Your Next Acquisition?</h2>
-        <p>Partner with us to conduct comprehensive technical due diligence that identifies risks, validates opportunities, and creates a clear roadmap for value creation.</p>
-        <a href="contact.html" class="contact-button">Contact Us</a>
+    <!-- Section Break -->
+    <div class="section-break">
+        <h2>How We Work</h2>
+    </div>
+
+    <!-- How We Work Section -->
+    <section id="how-we-work" style="padding: 4rem 2rem; background: #ffffff;">
+        <div class="how-we-work-grid">
+            <div class="work-card">
+                <svg class="work-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <h3>Monthly Retainer</h3>
+                <p>Ongoing strategic partnership with dedicated support for continuous value creation and execution.</p>
+                <ul>
+                    <li>Consistent strategic guidance</li>
+                    <li>Priority access to expertise</li>
+                    <li>Proactive opportunity identification</li>
+                    <li>Regular executive check-ins</li>
+                    <li>Flexible allocation of hours</li>
+                </ul>
+            </div>
+            <div class="work-card">
+                <svg class="work-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <h3>Fractional CPO</h3>
+                <p>Embedded product leadership driving strategy, execution, and organizational excellence for portfolio companies.</p>
+                <ul>
+                    <li>Interim executive leadership</li>
+                    <li>Product strategy & roadmap ownership</li>
+                    <li>Team building & mentorship</li>
+                    <li>Investor relations & reporting</li>
+                    <li>Hands-on execution support</li>
+                </ul>
+            </div>
+            <div class="work-card">
+                <svg class="work-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                <h3>Advisory & Consulting</h3>
+                <p>Project-based engagements for targeted initiatives, due diligence, and strategic decision-making.</p>
+                <ul>
+                    <li>Technical due diligence</li>
+                    <li>Strategic assessments</li>
+                    <li>Market opportunity analysis</li>
+                    <li>Go-to-market planning</li>
+                    <li>Defined scope & timeline</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Let's discuss how we can help drive results for your portfolio or organization.</p>
+        <a href="/cdn-cgi/l/email-protection#8be6eaf9e8e7e7e2eee9e6eae5cbece6eae2e7a5e8e4e6" class="contact-button">Connect With Us</a>
     </section>
 
     <footer>
@@ -928,7 +1093,7 @@
             <div class="footer-section">
                 <h3>Connect With Us</h3>
                 <div class="contact-icons-only">
-                    <a href="mailto:marclliebman@gmail.com" class="icon-link" aria-label="Email">
+                    <a href="/cdn-cgi/l/email-protection#4a272b38292626232f28272b240a2d272b232664292527" class="icon-link" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
