@@ -921,3 +921,41 @@
                     </a>
                 </div>
             </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuButton && navLinks) {
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Handle dropdown toggle on mobile
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.stopPropagation();
+                        const dropdown = this.closest('.dropdown');
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

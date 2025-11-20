@@ -244,6 +244,38 @@
                 font-size: 0.6rem;
             }
             
+            .nav-container {
+                gap: 1rem;
+        }
+        a
+            }
+                
+            .logo {
+                flex-shrink: 0;
+                min-width: 0;
+            }
+                
+            .logo-pulse {
+                width: 28px;
+                height: 28px;
+                flex-shrink: 0;
+            }
+                
+            .logo-text {
+                white-space: nowrap;
+            }
+                
+            .logo-main {
+                font-size: 0.95rem;
+            }
+                
+            .logo-sub {
+                font-size: 0.6rem;
+            }
+                
+            .nav-container {
+            }
+            
             .nav-right {
                 flex-direction: row;
                 justify-content: flex-end;
@@ -252,7 +284,6 @@
             
             .mobile-menu-button {
                 display: block;
-                flex-shrink: 0;
             }
             
             .desktop-connect {
@@ -488,4 +519,38 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Product Pulse Partners
+            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuButton && navLinks) {
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Handle dropdown toggle on mobile
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.stopPropagation();
+                        const dropdown = this.closest('.dropdown');
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
