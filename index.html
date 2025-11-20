@@ -578,6 +578,79 @@
             font-weight: bold;
         }
 
+        /* Experience Ticker */
+        .experience-ticker {
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            padding: 2.5rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 0 2rem;
+        }
+        
+        .ticker-header h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ticker-header p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .ticker-container {
+            overflow: hidden;
+            position: relative;
+            margin-top: 1rem;
+        }
+        
+        .ticker-wrapper {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 60s linear infinite;
+        }
+        
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0 3rem;
+            font-size: 1rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        
+        .ticker-separator {
+            color: var(--teal);
+            margin: 0 1rem;
+            opacity: 0.5;
+        }
+        
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .ticker-wrapper:hover {
+            animation-play-state: paused;
+        }
+
         /* Contact Section */
         .contact-section {
             background: var(--white);
@@ -909,6 +982,23 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .ticker-header h3 {
+                font-size: 0.75rem;
+            }
+            
+            .ticker-header p {
+                font-size: 0.85rem;
+            }
+            
+            .ticker-item {
+                font-size: 0.9rem;
+                padding: 0 2rem;
+            }
+            
+            .experience-ticker {
+                padding: 2rem 0;
+            }
         }
     </style>
 </head>
@@ -971,6 +1061,60 @@
                     <span class="text-item">Maximize Sell-Side & Exit Value</span>
                 </div>
             </h1>
+        </div>
+    </section>
+
+    <!-- Experience Ticker -->
+    <section class="experience-ticker">
+        <div class="ticker-header">
+            <h3>Experience Across Premier PE Ecosystems</h3>
+            <p>Advisory engagements and executive leadership roles at portfolio companies</p>
+        </div>
+        <div class="ticker-container">
+            <div class="ticker-wrapper">
+                <!-- First set of items -->
+                <div class="ticker-item">Advent International – Advisory</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">$1B+ Exit Value</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Oakley Capital – Advisory</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Thoma Bravo - Portco Leadership</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">10+ Acquisitions & Integrations</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Blackstone – Portfolio Consulting</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">$900M+ Portfolio Company Revenue</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Genstar Capital - Portco Exec Leadership</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">30+ Due Diligence Projects</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Insight Partners - Portco Exec Leadership</div>
+                <span class="ticker-separator">•</span>
+                <!-- Duplicate set for seamless loop -->
+                <div class="ticker-item">Advent International – Advisory</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">$1B+ Exit Value</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Oakley Capital – Advisory</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Thoma Bravo - Portco Leadership</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">10+ Acquisitions & Integrations</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Blackstone – Portfolio Consulting</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">$900M+ Portfolio Company Revenue</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Genstar Capital - Portco Exec Leadership</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">30+ Due Diligence Projects</div>
+                <span class="ticker-separator">•</span>
+                <div class="ticker-item">Insight Partners - Portco Exec Leadership</div>
+                <span class="ticker-separator">•</span>
+            </div>
         </div>
     </section>
 
@@ -1103,7 +1247,7 @@
     <section class="contact-section" id="contact">
         <h2>Contact Us</h2>
         <p>Let's discuss how we can help drive results for your portfolio or organization.</p>
-        <a href="/cdn-cgi/l/email-protection#8be6eaf9e8e7e7e2eee9e6eae5cbece6eae2e7a5e8e4e6" class="contact-button">Connect With Us</a>
+        <a href="contact.html" class="contact-button">Connect With Us</a>
     </section>
 
     <footer>
