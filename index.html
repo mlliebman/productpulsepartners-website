@@ -1444,14 +1444,27 @@
                     const innerRadius = Math.max(0, pulse.radius - 100);
                     const outerRadius = pulse.radius;
                     
+                    // Calculate text area (center region of screen)
+                    const textAreaRadius = Math.min(width, height) * 0.35; // 35% of smaller dimension
+                    
+                    // Create gradient opacity - starts very low at center, increases toward outer edge
+                    let opacityMultiplier = 1;
+                    if (pulse.radius < textAreaRadius * 1.5) {
+                        // Calculate how far through the text area the pulse is (0 at center, 1 at outer edge)
+                        const progress = pulse.radius / (textAreaRadius * 1.5);
+                        
+                        // Start at 15% opacity at center, gradually increase to full opacity at text edge
+                        opacityMultiplier = 0.15 + (progress * 0.85); // Ranges from 0.15 to 1.0
+                    }
+                    
                     const gradient = ctx.createRadialGradient(
                         centerXPos, centerYPos, innerRadius,
                         centerXPos, centerYPos, outerRadius
                     );
                     
-                    gradient.addColorStop(0, hexToRgba(COLORS.background, pulse.opacity));
-                    gradient.addColorStop(0.3, hexToRgba(COLORS.signalTeal, pulse.opacity * 0.3));
-                    gradient.addColorStop(1, hexToRgba(COLORS.signalTeal, pulse.opacity));
+                    gradient.addColorStop(0, hexToRgba(COLORS.background, pulse.opacity * opacityMultiplier));
+                    gradient.addColorStop(0.3, hexToRgba(COLORS.signalTeal, pulse.opacity * 0.3 * opacityMultiplier));
+                    gradient.addColorStop(1, hexToRgba(COLORS.signalTeal, pulse.opacity * opacityMultiplier));
                     
                     ctx.beginPath();
                     ctx.arc(centerXPos, centerYPos, pulse.radius, 0, Math.PI * 2);
