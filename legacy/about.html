@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJZ21W6J8G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KJZ21W6J8G');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Product Pulse Partners - Elite strategic advisory for private equity and enterprises">
+    <title>About Us | Product Pulse Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0a192f;
+            --slate: #8892b0;
+            --teal: #64ffda;
+            --white: #ffffff;
+            --light-navy: #112240;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(6, 12, 25, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .logo-pulse {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--teal);
+            border-radius: 50%;
+            animation: pulse-animation 2s ease-out infinite;
+        }
+        
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--teal);
+            z-index: 1;
+        }
+        
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        
+        .logo-main {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        
+        .logo-highlight {
+            color: var(--teal);
+        }
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--slate);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            position: relative;
+            list-style: none;
+            list-style-type: none;
+        }
+        
+        .nav-links li::before,
+        .nav-links li::after,
+        .nav-links li::marker {
+            content: none !important;
+            display: none !important;
+        }
+        
+        .nav-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links > li > a::before,
+        .nav-links > li > a::after {
+            content: none !important;
+            display: none !important;
+        }
+        
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--slate);
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-toggle:hover {
+            color: var(--teal);
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 25, 47, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-section {
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .dropdown-section-title {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .dropdown-menu a {
+            padding: 0.75rem 1.5rem;
+            padding-left: 2rem;
+            color: var(--slate);
+            white-space: nowrap;
+            display: block;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--teal);
+        }
+        
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--teal);
+            color: var(--teal);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        .desktop-connect {
+            display: inline-block;
+        }
+        
+        .nav-connect {
+            display: none;
+        }
+        
+        .nav-connect a {
+            color: var(--teal) !important;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem !important;
+            display: block;
+            text-align: center;
+            background: transparent;
+            border: 1px solid var(--teal);
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+        
+        .nav-connect a:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--teal);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Hero Section */
+        .page-hero {
+            background: var(--navy);
+            padding: 140px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05), transparent 70%);
+        }
+        
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(136, 146, 176, 0.3) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0;
+            z-index: 0;
+        }
+        
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .page-hero .highlight {
+            color: var(--teal);
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            color: var(--slate);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+        
+        .content-section p {
+            font-size: 1.125rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            background: #f8fafc;
+            padding: 5rem 2rem;
+        }
+        
+        .mission-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .mission-content h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .mission-text {
+            font-size: 1.125rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-bullets {
+            margin-top: 2rem;
+        }
+        
+        .mission-bullets ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .mission-bullets li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            font-size: 1.125rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        
+        .mission-bullets li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+        
+        /* What We Bring Section */
+        .value-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .value-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .value-container h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .value-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--teal);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        
+        /* Founder Section */
+        .founder-section {
+            background: #ffffff;
+            padding: 5rem 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .founder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .founder-image-container {
+            position: relative;
+        }
+        
+        .founder-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .founder-bio h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .founder-bio h3 {
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .founder-bio p {
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-bio strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #f8fafc;
+            margin: 4rem 0 0 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.8;
+        }
+        
+        .cta-section .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--teal);
+            color: var(--navy);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .cta-section .cta-button:hover {
+            background: #52d4a8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--slate);
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section p {
+            color: var(--slate);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--slate);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            color: var(--slate);
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--teal);
+        }
+        
+        .contact-icons-only {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .icon-link {
+            color: var(--slate);
+            transition: color 0.3s ease;
+        }
+        
+        .icon-link:hover {
+            color: var(--teal);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(136, 146, 176, 0.2);
+        }
+        
+        .footer-bottom p {
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .founder-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .founder-image-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .logo {
+                flex-shrink: 0;
+                min-width: 0;
+            }
+            
+            .logo-pulse {
+                width: 28px;
+                height: 28px;
+                flex-shrink: 0;
+            }
+            
+            .logo-text {
+                white-space: nowrap;
+            }
+            
+            .logo-main {
+                font-size: 0.95rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.6rem;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+                flex-shrink: 0;
+            }
+            
+            .desktop-connect {
+                display: none !important;
+            }
+            
+            .nav-connect {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(6, 12, 25, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+                border-top: 1px solid rgba(100, 255, 218, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                border: none;
+                border-radius: 0;
+                background: rgba(10, 25, 47, 0.5);
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown-toggle {
+                padding: 1rem;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-pulse">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-dot"></div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Product <span class="logo-highlight">Pulse</span></div>
+                    <div class="logo-sub">Partners</div>
+                </div>
+            </a>
+            <div class="nav-right">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle">Services</div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Investors</div>
+                                <a href="ma-due-diligence.html">M&A Due Diligence</a>
+                                <a href="product-advisory.html">Product Advisory</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-section-title">For Growth Stage PortCo</div>
+                                <a href="ai-data-strategy.html">AI & Data Strategy</a>
+                                <a href="gtm-acceleration.html">Go-to-Market Acceleration</a>
+                                <a href="portfolio-leadership.html">Portfolio Leadership</a>
+                                <a href="organizational-optimization.html">Organizational Optimization</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="nav-connect"><a href="contact.html">Connect</a></li>
+                </ul>
+                <a href="contact.html" class="cta-button desktop-connect">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1><span style="color: #ffffff;">About</span> <span style="color: #ffffff;">Product</span> <span class="highlight">Pulse</span> <span style="color: #ffffff;">Partners</span></h1>
+            <p>Elite strategic advisory for private equity investors and C-suite leaders navigating M&A, product strategy, and AI-driven transformation.</p>
+        </div>
+    </section>
+
+    <!-- Founder Section - Top Placement -->
+    <section class="founder-section">
+        <div class="founder-container">
+            <div class="founder-image-container">
+                <img src="marc-liebman.jpg" alt="Marc Liebman, Founding Partner" class="founder-image">
+            </div>
+            <div class="founder-bio">
+                <h2>Founded by an Operator,<br>Not a Career Consultant</h2>
+                <p>The "Partner" in our name is our philosophy, and it starts with our founder. Our firm's playbooks are built on decades of real-world operating experience, not theory. We have been the C-suite leaders inside high-growth and PE-backed companies, responsible for the P&L, the product roadmap, and the investment thesis.</p>
+                
+                <h3>Marc Liebman, Founding Partner</h3>
+                <p>Marc is a Chief Product Officer and strategic leader with 25 years of experience driving product strategy, execution, and revenue growth for B2B SaaS and enterprise technology businesses.</p>
+                
+                <p style="font-weight: 600;">His track record is built on building, leading, and operating at scale:</p>
+                
+                <p><strong>Executive Leadership:</strong> Proven experience overseeing multiple business lines generating up to $300M annually, leading global product teams and optimizing R&D investments across 15+ product lines.</p>
+                
+                <p><strong>PE-Backed Expertise:</strong> Deep expertise in PE-backed environments, leading post-M&A integrations, product rationalization, and technology consolidation to maximize enterprise value.</p>
+                
+                <p><strong>Scaling High-Performing Teams:</strong> A track record of building and scaling high-performing organizations, directly leading 40+ product management FTEs while streamlining development and enhancing speed to market.</p>
+                
+                <p><strong>Driving Measurable Value:</strong> Expert in scaling product-market fit, accelerating revenue growth, and driving EBITDA expansion through strategic execution and operational rigor.</p>
+                
+                <p><strong>Data, AI & GTM Focus:</strong> Passionate about embedding AI-driven insights and data strategies to fuel innovation, while synchronizing product strategy with sales, retention, and go-to-market initiatives to drive long-term growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <h2>Our Mission</h2>
+            <p class="mission-text">
+                Product Pulse Partners exists to help private equity investors and C-suite leaders make smarter, faster decisions in the most critical moments—whether you're evaluating an acquisition, optimizing a portfolio company, or navigating a complex product or AI transformation.
+            </p>
+            <p class="mission-text">
+                We are operators, not theorists. With 25+ years of hands-on experience building, scaling, and exiting B2B SaaS companies, we bring the strategic clarity, technical depth, and execution mindset that bridge the gap between vision and results.
+            </p>
+            <div class="mission-bullets">
+                <ul>
+                    <li><strong>For Investors:</strong> We reduce risk in M&A with deep technical and product due diligence, uncover hidden value in portfolio companies, and provide the strategic roadmap to accelerate growth and maximize exits.</li>
+                    <li><strong>For C-Suite Leaders:</strong> We provide fractional CPO leadership, embed AI and data strategy, build high-performing product organizations, and execute against your most ambitious transformation goals.</li>
+                </ul>
+            </div>
+            <p class="mission-text" style="margin-top: 2rem;">
+                Our approach is grounded in real-world execution: we've led product teams through PE-backed exits, built organizations from the ground up, and understand the pressures you face, the questions that keep you up at night, and what it takes to deliver measurable results.
+            </p>
+        </div>
+    </section>
+
+    <!-- What We Bring Section -->
+    <section class="value-section">
+        <div class="value-container">
+            <h2>What We Bring to the Table</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>Operator Experience, Not Just Advice</h3>
+                    <p>We're former CPOs and product leaders who've done the work—scaling teams, driving revenue, and executing successful exits. You're not getting theory; you're getting battle-tested insights.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Deep Technical & Strategic Expertise</h3>
+                    <p>From cloud architecture and AI/ML to product-market fit and pricing strategy, we speak the language of both the boardroom and the engineering floor.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Laser Focus on Value Creation</h3>
+                    <p>Every engagement is tied to measurable outcomes—reducing risk, accelerating growth, optimizing costs, or positioning for exit. We don't just deliver reports; we drive results.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Speed & Agility</h3>
+                    <p>We move fast. Whether it's 30-day M&A diligence or embedding as a fractional CPO, we hit the ground running and deliver when it matters most.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Trusted by Investors & Operators</h3>
+                    <p>Our clients include private equity firms evaluating acquisitions and C-suite leaders at high-growth companies navigating transformation. We understand both sides of the table.</p>
+                </div>
+                <div class="value-card">
+                    <h3>AI-First Mindset</h3>
+                    <p>We help you separate AI hype from reality, embed AI strategies that create competitive advantage, and ensure your product roadmap is future-ready.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Let's Start the Conversation</h2>
+        <p>If you are an investor, founder, or C-suite leader exploring your next stage of growth, we'd love to connect. Reach out to discuss your product leadership needs, M&A diligence, or AI strategy, and let's build your value-creation plan.</p>
+        <a href="contact.html" class="cta-button">Get In Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Product Pulse Partners</h3>
+                <p>Elite strategic advisory helping investors and C-suite leaders de-risk M&A, drive AI value, and maximize exits.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/marcliebman/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ma-due-diligence.html">M&A Due Diligence</a></li>
+                    <li><a href="product-advisory.html">Product Advisory</a></li>
+                    <li><a href="ai-data-strategy.html">AI & Data Strategy</a></li>
+                    <li><a href="gtm-acceleration.html">Go-to-Market Acceleration</a></li>
+                    <li><a href="portfolio-leadership.html">Portfolio Leadership</a></li>
+                    <li><a href="organizational-optimization.html">Organizational Optimization</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="contact-icons-only">
+                    <a href="mailto:marclliebman@gmail.com" class="icon-link" aria-label="Email">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/marcliebman/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Product Pulse Partners, MLX Advisory LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuButton && navLinks) {
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Handle dropdown toggle on mobile
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.stopPropagation();
+                        const dropdown = this.closest('.dropdown');
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
