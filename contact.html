@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -61,7 +61,7 @@
       <div>
         <div class="detail-table" style="margin-bottom:44px;">
           <div class="detail-row"><div class="detail-label">Email</div><div class="detail-value"><a href="mailto:marc@theproductoperator.ai" style="color:var(--teal-dark);text-decoration:none;font-weight:500;border-bottom:1px solid transparent;transition:border-color 280ms;" onmouseover="this.style.borderColor='var(--teal-dark)'" onmouseout="this.style.borderColor='transparent'">marc@theproductoperator.ai</a></div></div>
-          <div class="detail-row"><div class="detail-label">LinkedIn</div><div class="detail-value"><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener" style="color:var(--teal-dark);text-decoration:none;font-weight:500;border-bottom:1px solid transparent;transition:border-color 280ms;" onmouseover="this.style.borderColor='var(--teal-dark)'" onmouseout="this.style.borderColor='transparent'">linkedin.com/in/marcliebman →</a></div></div>
+          <div class="detail-row"><div class="detail-label">LinkedIn</div><div class="detail-value"><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener" style="color:var(--teal-dark);text-decoration:none;font-weight:500;border-bottom:1px solid transparent;transition:border-color 280ms;" onmouseover="this.style.borderColor='var(--teal-dark)'" onmouseout="this.style.borderColor='transparent'">linkedin.com/in/marcliebman</a></div></div>
           <div class="detail-row"><div class="detail-label">Based in</div><div class="detail-value">New Jersey · Available nationally</div></div>
           <div class="detail-row"><div class="detail-label">Response time</div><div class="detail-value">Same day, typically within a few hours</div></div>
         </div>
@@ -73,7 +73,7 @@
         <input type="hidden" name="_next" value="https://theproductoperator.ai/thank-you.html">
         <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off">
 
-        <div class="form-title">Tell me what you're working on.</div>
+        <div class="form-title">How can I help?</div>
         <div class="form-group">
           <label class="form-label" for="name">Name</label>
           <input class="form-input" id="name" name="name" type="text" placeholder="Your name" required>
@@ -83,8 +83,18 @@
           <input class="form-input" id="email" name="email" type="email" placeholder="you@firm.com" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="message">What are you working on?</label>
-          <textarea class="form-textarea" id="message" name="message" rows="5" placeholder="Due diligence on a deal, portfolio company challenge, want to see the platform — whatever it is, be direct." required></textarea>
+          <label class="form-label" for="inquiry_type">What brings you here?</label>
+          <select class="form-select" id="inquiry_type" name="inquiry_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="due-diligence">Due diligence on a deal</option>
+            <option value="advisory">Fractional CPO or advisory engagement</option>
+            <option value="platform">The AI platform</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">A brief note <span class="form-label-optional">(optional)</span></label>
+          <textarea class="form-textarea" id="message" name="message" rows="4" placeholder="Any context that helps me respond precisely."></textarea>
         </div>
         <button type="submit" class="btn-primary" style="align-self:flex-start;margin-top:8px;"><span>Send →</span></button>
       </form>
@@ -94,7 +104,7 @@
       <div class="alt-path-text">
         <div class="alt-path-label">Direct Access</div>
         <div class="alt-path-title">Not ready for a full engagement?</div>
-        <p class="alt-path-body">Try the platform directly. BYOK — bring your own Anthropic API key. Operational in under an hour. No commitment required.</p>
+        <p class="alt-path-body">Try the platform directly. BYOK — bring your own AI API key. Operational in under an hour. No commitment required.</p>
       </div>
       <a href="https://app.theproductoperator.ai" target="_blank" rel="noopener" class="btn-primary"><span>Try the Platform →</span></a>
     </div>
@@ -109,10 +119,12 @@
     <li><a href="ai-platform.html">The Platform</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
     <li><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener">LinkedIn</a></li>
   </ul>
   <span class="footer-copy">© 2026 Marc Liebman · theproductoperator.ai</span>
 </footer>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
