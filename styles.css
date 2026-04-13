@@ -796,7 +796,7 @@ footer {
 .hero-sub {
   font-size: 17px; font-weight: 300;
   color: rgba(255,255,255,0.7);
-  line-height: 1.8; max-width: 600px;
+  line-height: 1.8; max-width: 100%;
   margin-bottom: 36px;
 }
 .hero-ctas { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
