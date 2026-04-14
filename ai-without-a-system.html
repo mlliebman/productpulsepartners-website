@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You paid for the AI. Nobody built the system. — The Product Operator</title>
+<meta name="description" content="Why AI investment inside PE-backed product orgs has no defensible return — and the three gaps causing it.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=9">
+<style>
+/* Scoped page-specific layout — light theme only */
+.wai-hero {
+  padding: 148px 48px 88px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.wai-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 4.8vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--black);
+  max-width: 920px;
+  margin: 22px 0 26px;
+}
+.wai-hero p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--slate);
+  max-width: 820px;
+}
+
+.wai-section { padding: 100px 48px; border-bottom: 1px solid var(--border); }
+.wai-section.alt { background: var(--off-white); }
+.wai-section > .container > p.section-body { max-width: 820px; }
+
+/* Comparison table */
+.wai-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin-top: 48px;
+}
+.wai-compare-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column;
+}
+.wai-compare-card.wai-success { border-top-color: var(--teal-dark); }
+.wai-compare-card.wai-danger  { border-top-color: #d14343; }
+.wai-compare-header {
+  padding: 22px 28px 18px;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--border);
+}
+.wai-compare-card.wai-success .wai-compare-header { color: var(--teal-dark); }
+.wai-compare-card.wai-danger  .wai-compare-header { color: #b53030; }
+.wai-compare-rows { padding: 8px 28px; flex: 1; }
+.wai-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 15px;
+}
+.wai-row:last-child { border-bottom: none; }
+.wai-row > span:first-child { color: var(--slate); font-weight: 400; }
+.wai-val { color: var(--black); font-weight: 500; font-variant-numeric: tabular-nums; }
+.wai-val.wai-muted { color: #b53030; font-style: italic; font-weight: 400; }
+.wai-compare-footer {
+  padding: 18px 28px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--off-white);
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.02em;
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-radius: 0 0 10px 10px;
+}
+.wai-compare-card.wai-success .wai-compare-footer { color: var(--teal-dark); }
+.wai-compare-card.wai-danger  .wai-compare-footer { color: #b53030; }
+
+/* Full-width callout */
+.wai-callout {
+  margin-top: 56px;
+  padding: 40px 44px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal-dark);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.wai-callout-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 14px;
+}
+.wai-callout p { font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.8; max-width: 780px; }
+
+/* Three gaps overview — accent-top cards */
+.wai-gaps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 48px;
+}
+.wai-gap-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column;
+}
+.wai-gap-card.wai-gap-01 { border-top-color: var(--teal-dark); }
+.wai-gap-card.wai-gap-02 { border-top-color: #d14343; }
+.wai-gap-card.wai-gap-03 { border-top-color: #c87a12; }
+.wai-gap-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  align-self: flex-start;
+}
+.wai-gap-01 .wai-gap-tag { background: #eafaf5; color: var(--teal-dark); }
+.wai-gap-02 .wai-gap-tag { background: #fdecec; color: #b53030; }
+.wai-gap-03 .wai-gap-tag { background: #fcf3e3; color: #8f5608; }
+.wai-gap-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 14px;
+}
+.wai-gap-body {
+  font-size: 15px; color: var(--slate); line-height: 1.7;
+}
+
+/* Gap detail blocks */
+.wai-gap-detail { padding: 100px 48px; border-bottom: 1px solid var(--border); }
+.wai-gap-detail:nth-child(even) { background: var(--off-white); }
+.wai-gap-detail .wai-gap-num {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 20px;
+}
+.wai-gap-detail .wai-gap-num::before {
+  content: ''; width: 24px; height: 1px; background: var(--teal-dark);
+}
+.wai-gap-detail h3 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.4vw, 44px);
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  color: var(--black);
+  max-width: 840px;
+  margin-bottom: 26px;
+}
+.wai-gap-detail > .container > p {
+  font-size: 17px; font-weight: 300; color: var(--slate);
+  line-height: 1.8; max-width: 820px;
+  margin-bottom: 28px;
+}
+.wai-impact {
+  margin: 24px 0;
+  padding: 28px 32px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid #d14343;
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+}
+.wai-gap-detail:nth-child(even) .wai-impact { background: var(--white); }
+.wai-impact-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #b53030;
+  margin-bottom: 10px;
+}
+.wai-impact p {
+  font-size: 15px; color: var(--mid); line-height: 1.75;
+  max-width: 780px; font-weight: 400;
+}
+.wai-quote {
+  margin-top: 32px;
+  padding: 20px 0 20px 28px;
+  border-left: 2px solid var(--border);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--mid);
+  max-width: 780px;
+}
+
+/* Before / after comparison inside Gap 02 */
+.wai-ba {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin: 36px 0 20px;
+}
+.wai-ba-col {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 30px;
+  box-shadow: var(--shadow-xs);
+}
+.wai-ba-col.wai-success { border-top-color: var(--teal-dark); }
+.wai-ba-col.wai-danger  { border-top-color: #d14343; }
+.wai-ba-header {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.wai-ba-col.wai-success .wai-ba-header { color: var(--teal-dark); }
+.wai-ba-col.wai-danger  .wai-ba-header { color: #b53030; }
+.wai-ba-row { margin-bottom: 18px; }
+.wai-ba-row:last-child { margin-bottom: 0; }
+.wai-ba-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #9a958c;
+  margin-bottom: 5px;
+}
+.wai-ba-value {
+  font-size: 14px; font-weight: 500;
+  line-height: 1.55;
+  color: var(--black);
+}
+.wai-ba-loss {
+  display: block; margin-top: 6px;
+  font-size: 12px; font-weight: 400;
+  color: #b53030;
+  font-style: italic;
+}
+.wai-caption {
+  text-align: center;
+  font-size: 13px; color: var(--slate);
+  font-style: italic;
+  margin: 24px 0 48px;
+}
+
+/* Cost stack table */
+.wai-cost {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+  border-collapse: collapse;
+}
+.wai-cost th, .wai-cost td {
+  padding: 16px 22px;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.wai-cost thead th {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  background: var(--off-white);
+}
+.wai-cost td { color: var(--mid); }
+.wai-cost td.wai-cost-value { font-weight: 500; color: var(--black); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.wai-cost tr:last-child td { border-bottom: none; }
+.wai-cost tfoot td {
+  background: #fdecec;
+  color: #8a1f1f;
+  font-weight: 500;
+  border-top: 1px solid #f4c4c4;
+}
+.wai-cost tfoot td.wai-cost-value { color: #8a1f1f; }
+
+/* Solution pivot — statement blocks */
+.wai-statements {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px 44px;
+  margin-top: 44px;
+}
+.wai-statement {
+  padding-left: 20px;
+  border-left: 2px solid var(--teal-dark);
+}
+.wai-statement strong {
+  display: block;
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.wai-statement p {
+  font-size: 15px; font-weight: 300;
+  color: var(--slate); line-height: 1.75;
+}
+.wai-close {
+  margin-top: 56px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* CTA */
+.wai-cta { padding: 120px 48px; text-align: center; }
+.wai-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--black);
+  max-width: 720px;
+  margin: 0 auto 22px;
+}
+.wai-cta p.wai-cta-body {
+  font-size: 17px; font-weight: 300;
+  color: var(--slate); line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+.wai-cta-sub {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--slate);
+  font-style: italic;
+}
+
+/* Footnote */
+.wai-footnote {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 44px 24px 88px;
+  text-align: center;
+  font-size: 12px;
+  color: #9a958c;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .wai-hero { padding: 128px 32px 72px; }
+  .wai-section { padding: 72px 32px; }
+  .wai-gap-detail { padding: 72px 32px; }
+  .wai-cta { padding: 88px 32px; }
+  .wai-compare, .wai-gaps-grid, .wai-ba, .wai-statements { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 640px) {
+  .wai-hero { padding: 108px 24px 60px; }
+  .wai-section { padding: 60px 24px; }
+  .wai-gap-detail { padding: 60px 24px; }
+  .wai-callout { padding: 28px 24px; }
+  .wai-gap-card { padding: 28px 24px; }
+  .wai-ba-col { padding: 22px 22px; }
+  .wai-cost th, .wai-cost td { padding: 12px 14px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <ul class="nav-links">
+    <li><a href="due-diligence.html">Due Diligence</a></li>
+    <li><a href="fractional-cpo.html">Advisory &amp; Leadership</a></li>
+    <li><a href="ai-platform.html">The Platform</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-btn-wrap"><a href="https://app.theproductoperator.ai" target="_blank" rel="noopener" class="nav-cta-outline">Try the Platform</a></li>
+    <li class="nav-btn-wrap"><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="due-diligence.html">Due Diligence</a>
+  <a href="fractional-cpo.html">Advisory &amp; Leadership</a>
+  <a href="ai-platform.html">The Platform</a>
+  <a href="about.html">About</a>
+  <a href="https://app.theproductoperator.ai" target="_blank" rel="noopener">Try the Platform</a>
+  <a href="contact.html">Let's Talk</a>
+</div>
+
+<!-- SECTION 1 — Hero -->
+<section class="wai-hero">
+  <div class="container">
+    <span class="section-label">The Product Operator</span>
+    <h1>You paid for the AI. Nobody built the system.</h1>
+    <p>Every PE-backed product org I work with has the same problem. AI spend is on the P&amp;L. Measurable operational outcomes aren't in the data. Here's what's causing it.</p>
+  </div>
+</section>
+
+<!-- SECTION 2 — Investment problem -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">For operating partners</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">The spend is visible. The return isn't.</h2>
+    <p class="section-body">When a PE operating partner asks a portfolio company to justify its AI investment, the conversation usually ends the same way. Tool licenses, seats, training spend — all documented. PM cycle time, rework rate, handoff failure rate, time-to-release — none of it tracked. The investment has no defensible return because no one built the system that would generate one. This isn't unique to one company. It's the default state of AI adoption across the market. Tools deployed. Workflows unchanged. P&amp;L impacted. EBITDA story missing.</p>
+
+    <div class="wai-compare">
+      <div class="wai-compare-card wai-success">
+        <div class="wai-compare-header">Spend — fully visible</div>
+        <div class="wai-compare-rows">
+          <div class="wai-row"><span>AI tool licenses</span><span class="wai-val">$4,200/mo</span></div>
+          <div class="wai-row"><span>Seat expansion</span><span class="wai-val">$1,800/mo</span></div>
+          <div class="wai-row"><span>Onboarding + training</span><span class="wai-val">$12,000 (one-time)</span></div>
+          <div class="wai-row"><span>PM time on AI workflow</span><span class="wai-val">$4,800/mo</span></div>
+        </div>
+        <div class="wai-compare-footer">
+          <span>Monthly run rate</span><span>~$11K/mo</span>
+        </div>
+      </div>
+      <div class="wai-compare-card wai-danger">
+        <div class="wai-compare-header">Impact — not tracked</div>
+        <div class="wai-compare-rows">
+          <div class="wai-row"><span>PM output per head</span><span class="wai-val wai-muted">not measured</span></div>
+          <div class="wai-row"><span>Rework rate</span><span class="wai-val wai-muted">not measured</span></div>
+          <div class="wai-row"><span>Handoff failure rate</span><span class="wai-val wai-muted">not measured</span></div>
+          <div class="wai-row"><span>Cycle time delta</span><span class="wai-val wai-muted">not measured</span></div>
+        </div>
+        <div class="wai-compare-footer">
+          <span>Measurable ROI</span><span>unknown</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wai-callout">
+      <div class="wai-callout-title">The spend is on the P&amp;L. The return isn't in the data.</div>
+      <p>This isn't a tooling problem. It's a systems problem. Without a workflow that connects AI outputs to measurable operational outcomes, the investment has no defensible return.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — Three gaps overview -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Root cause</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Three gaps that neutralize the investment.</h2>
+    <p class="section-body">The teams that are moving operational metrics aren't prompting more. They closed three specific gaps in how AI connects to the work. Every org that hasn't closed them is running the same playbook — and getting the same results.</p>
+
+    <div class="wai-gaps-grid">
+      <div class="wai-gap-card wai-gap-01">
+        <span class="wai-gap-tag">Most common</span>
+        <div class="wai-gap-title">The AI doesn't know who you are.</div>
+        <p class="wai-gap-body">40–60% of PM output requires significant rework. The org is paying for AI and still paying for the rework.</p>
+      </div>
+      <div class="wai-gap-card wai-gap-02">
+        <span class="wai-gap-tag">Most expensive</span>
+        <div class="wai-gap-title">The work doesn't survive the handoff.</div>
+        <p class="wai-gap-body">A bad spec isn't one hour of rework. It's one sprint. Misaligned execution shows up in cycle time, rework rate, and missed releases.</p>
+      </div>
+      <div class="wai-gap-card wai-gap-03">
+        <span class="wai-gap-tag">Most overlooked</span>
+        <div class="wai-gap-title">Everything is there. Nothing is decided.</div>
+        <p class="wai-gap-body">When outputs don't accelerate decisions, AI added a step — it didn't remove one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — Gap detail blocks -->
+<section class="wai-gap-detail" id="gap-1">
+  <div class="container">
+    <div class="wai-gap-num">Gap 01 · Most common</div>
+    <h3>The AI doesn't know who you are.</h3>
+    <p>You've given the most capable reasoning system ever built zero grounding in your company. No product. No customer. No market. No strategic priorities. Every prompt starts from scratch. The output feels generic because it is. The AI isn't being lazy — it's working with nothing.</p>
+    <div class="wai-impact">
+      <div class="wai-impact-label">What it costs</div>
+      <p>40–60% of PM output requires significant rework before it can be used. At a loaded PM cost, that's not a productivity gap — it's a margin problem. The org is paying for AI and still paying for the rework.</p>
+    </div>
+    <blockquote class="wai-quote">"We ran it three times and kept getting the same boilerplate. We might as well have Googled it."</blockquote>
+  </div>
+</section>
+
+<section class="wai-gap-detail" id="gap-2">
+  <div class="container">
+    <div class="wai-gap-num">Gap 02 · Most expensive</div>
+    <h3>The work doesn't survive the handoff.</h3>
+    <p>The AI doesn't know where the output goes — so it gives you a wall of text when you needed a development-ready spec. But even when the format is right, the reasoning behind it rarely travels. Someone summarizes it in Slack. Someone else interprets the summary in a ticket. By the time it reaches the person doing the work, the original intent is three degrees removed. Two failure modes, same result: the work arrives broken.</p>
+    <div class="wai-impact">
+      <div class="wai-impact-label">What it costs</div>
+      <p>A bad spec isn't one hour of rework. It's one sprint. Misaligned execution doesn't show up in your AI budget — it shows up in cycle time, rework rate, and missed release dates.</p>
+    </div>
+
+    <div class="wai-ba">
+      <div class="wai-ba-col wai-success">
+        <div class="wai-ba-header">Your brief</div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">Objective</div>
+          <div class="wai-ba-value">Reduce notification fatigue for enterprise users by consolidating alerts into a daily digest.</div>
+        </div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">User problem</div>
+          <div class="wai-ba-value">Power users receive 40+ notifications daily. 73% dismissed without reading.</div>
+        </div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">Why now</div>
+          <div class="wai-ba-value">Q3 churn data: notification overload in 34% of at-risk accounts.</div>
+        </div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">Success metric</div>
+          <div class="wai-ba-value">30% reduction in dismissed alerts within 60 days.</div>
+        </div>
+      </div>
+      <div class="wai-ba-col wai-danger">
+        <div class="wai-ba-header">Three handoffs later</div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">Objective</div>
+          <div class="wai-ba-value">Reduce the number of notifications.</div>
+          <span class="wai-ba-loss">↳ lost: enterprise scope, digest mechanism</span>
+        </div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">User problem</div>
+          <div class="wai-ba-value">Users get too many notifications.</div>
+          <span class="wai-ba-loss">↳ lost: 40+ figure, 73% stat, power user context</span>
+        </div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">Why now</div>
+          <div class="wai-ba-value">—</div>
+          <span class="wai-ba-loss">↳ lost: Q3 data, churn link, 34% stat</span>
+        </div>
+        <div class="wai-ba-row">
+          <div class="wai-ba-label">Success metric</div>
+          <div class="wai-ba-value">TBD</div>
+          <span class="wai-ba-loss">↳ lost: 30% target, 60-day window</span>
+        </div>
+      </div>
+    </div>
+    <p class="wai-caption">The structure survived. The substance didn't.</p>
+
+    <table class="wai-cost">
+      <thead>
+        <tr>
+          <th>What breaks</th>
+          <th>Time lost</th>
+          <th>Est. cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PM rewrites degraded brief</td>
+          <td class="wai-cost-value">4 hrs</td>
+          <td class="wai-cost-value">~$800</td>
+        </tr>
+        <tr>
+          <td>Engineering scopes broken spec</td>
+          <td class="wai-cost-value">6 hrs</td>
+          <td class="wai-cost-value">~$1,800</td>
+        </tr>
+        <tr>
+          <td>Sprint replanned mid-cycle</td>
+          <td class="wai-cost-value">1 day</td>
+          <td class="wai-cost-value">~$4,200</td>
+        </tr>
+        <tr>
+          <td>Feature ships misaligned</td>
+          <td class="wai-cost-value">2 wks</td>
+          <td class="wai-cost-value">~$18,000</td>
+        </tr>
+        <tr>
+          <td>At-risk account escalates</td>
+          <td class="wai-cost-value">—</td>
+          <td class="wai-cost-value">untracked</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total visible cost — one feature, one handoff failure</td>
+          <td class="wai-cost-value">~3 wks</td>
+          <td class="wai-cost-value">~$25K</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p class="wai-caption" style="margin-bottom:0;">This happens every sprint. It doesn't show up on any AI ROI dashboard.</p>
+
+    <blockquote class="wai-quote">"The spec was right. What didn't make it through was why."</blockquote>
+  </div>
+</section>
+
+<section class="wai-gap-detail" id="gap-3">
+  <div class="container">
+    <div class="wai-gap-num">Gap 03 · Most overlooked</div>
+    <h3>Everything is there. Nothing is decided.</h3>
+    <p>The AI doesn't know what you're trying to decide, what tradeoffs matter, or who's reading the output. So it gives you comprehensive. Comprehensive isn't actionable. You still have to do the hard part. This is the gap that makes AI feel smart but not useful. When outputs don't accelerate decisions, AI added a step — it didn't remove one.</p>
+    <div class="wai-impact">
+      <div class="wai-impact-label">What it costs</div>
+      <p>Decision latency is the drag nobody tracks. Every cycle where AI produces output but doesn't sharpen a decision is cost absorbed with no value captured.</p>
+    </div>
+    <blockquote class="wai-quote">"The brief was thorough. I read it twice and still didn't know what we were recommending."</blockquote>
+  </div>
+</section>
+
+<!-- SECTION 5 — Solution pivot -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">The system that works</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Not a prompting technique. A different operating model.</h2>
+    <p class="section-body">The teams pulling ahead built a system where:</p>
+
+    <div class="wai-statements">
+      <div class="wai-statement">
+        <strong>Org grounding flows into every output automatically.</strong>
+        <p>No PM remembering to add context. No generic outputs that could belong to any company.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>Artifacts arrive shaped for where they go.</strong>
+        <p>A development-ready spec comes out of a discovery session ready for engineering — not three rounds of reformatting later.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>Decisions come out of the process, not after it.</strong>
+        <p>Outputs are framed around the tradeoff, the recommendation, the next action.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>The reasoning travels with the work.</strong>
+        <p>Handoffs carry the intent, not just the artifact. The person building knows not just what to build — but why.</p>
+      </div>
+    </div>
+
+    <p class="wai-close">That's the gap between AI as a cost line and AI as an EBITDA lever.</p>
+  </div>
+</section>
+
+<!-- SECTION 6 — CTA -->
+<section class="wai-cta">
+  <div class="container">
+    <h2>20 minutes. I'll show you the difference.</h2>
+    <p class="wai-cta-body">I built a workflow platform for product teams that closes all three gaps. I run it inside the engagements I take on. If you're asking portfolio companies to justify their AI spend and the answers aren't there — this is the 20 minutes to book.</p>
+    <a href="https://www.linkedin.com/in/marcliebman" target="_blank" rel="noopener" class="btn-primary"><span>DM me on LinkedIn</span></a>
+    <p class="wai-cta-sub">No deck. No sales process. Just the workflow.</p>
+  </div>
+</section>
+
+<p class="wai-footnote">Figures shown are illustrative, based on a representative 15-person product org at $150–$300/hr blended PM and engineering loaded cost.</p>
+
+<footer>
+  <a href="index.html" class="footer-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <div class="footer-nav">
+    <ul class="footer-links">
+      <li><a href="due-diligence.html">Due Diligence</a></li>
+      <li><a href="fractional-cpo.html">Advisory &amp; Leadership</a></li>
+      <li><a href="ai-platform.html">The Platform</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+    <span class="footer-divider" aria-hidden="true"></span>
+    <ul class="footer-contact">
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mailto:marc@theproductoperator.ai" aria-label="Email Marc" class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></a></li>
+      <li><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+    </ul>
+  </div>
+  <span class="footer-copy">© 2026 Marc Liebman · theproductoperator.ai</span>
+</footer>
+<script src="app.js?v=9"></script>
+</body>
+</html>
