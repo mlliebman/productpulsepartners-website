@@ -789,6 +789,16 @@ footer {
   color: #b91c1c;
 }
 .form-card button[disabled] { opacity: 0.6; cursor: wait; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-row > .form-group { margin-bottom: 0; }
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-row > .form-group { margin-bottom: 20px; }
+}
 
 /* ─── PHOTO TREATMENT (duotone + fade) ─────────────────────────────────── */
 .photo-wrap {

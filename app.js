@@ -207,6 +207,9 @@ document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
 
     const name = (form.elements.name?.value || '').trim();
     const email = (form.elements.email?.value || '').trim();
+    const company = (form.elements.company?.value || '').trim();
+    const role = (form.elements.role?.value || '').trim();
+    const teamSize = (form.elements.team_size?.value || '').trim();
     const message = (form.elements.message?.value || '').trim();
     const inquiryType = (form.elements.inquiry_type?.value || '').trim();
 
@@ -227,6 +230,9 @@ document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
         body: JSON.stringify({
           name,
           email,
+          company,
+          role,
+          teamSize,
           message,
           source,
           ...(inquiryType ? { inquiry_type: inquiryType } : {})
