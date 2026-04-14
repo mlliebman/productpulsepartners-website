@@ -261,3 +261,32 @@ document.querySelectorAll('.mockup-wrap').forEach(mockup => {
   mockup.addEventListener('dragstart', e => e.preventDefault());
   mockup.addEventListener('copy', e => e.preventDefault());
 });
+
+// Platform warmup — wake Railway cold-starts on intent.
+// Fires a no-cors fetch to app.theproductoperator.ai the first time the
+// user hovers, focuses, or touches any link that points at it. Intent
+// typically precedes click by 100-500ms, which gives the container a
+// head start on boot so the click lands on a warm service.
+(function warmupPlatform() {
+  let warmed = false;
+  const warm = () => {
+    if (warmed) return;
+    warmed = true;
+    try {
+      fetch('https://app.theproductoperator.ai/', {
+        method: 'GET',
+        mode: 'no-cors',
+        credentials: 'omit',
+        cache: 'no-store',
+        keepalive: true
+      }).catch(function () {});
+    } catch (_) {}
+  };
+
+  const links = document.querySelectorAll('a[href*="app.theproductoperator.ai"]');
+  links.forEach(function (a) {
+    a.addEventListener('mouseenter', warm, { once: true, passive: true });
+    a.addEventListener('focus', warm, { once: true, passive: true });
+    a.addEventListener('touchstart', warm, { once: true, passive: true });
+  });
+})();
