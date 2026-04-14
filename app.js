@@ -177,3 +177,11 @@ if ('IntersectionObserver' in window) {
 } else {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 }
+
+// Dashboard mockup — protect from copy/select/drag extraction
+document.querySelectorAll('.mockup-wrap').forEach(mockup => {
+  mockup.addEventListener('contextmenu', e => e.preventDefault());
+  mockup.addEventListener('selectstart', e => e.preventDefault());
+  mockup.addEventListener('dragstart', e => e.preventDefault());
+  mockup.addEventListener('copy', e => e.preventDefault());
+});
