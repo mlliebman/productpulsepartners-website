@@ -179,6 +179,74 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 }
 
+// Contact form submission → app.theproductoperator.ai/api/contact-sales
+document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
+  const endpoint = 'https://app.theproductoperator.ai/api/contact-sales';
+  const source = form.dataset.source || 'web';
+  const messageEl = form.querySelector('.form-message');
+  const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+  const submitLabel = submitBtn ? submitBtn.innerHTML : '';
+
+  const showError = (text) => {
+    if (!messageEl) return;
+    messageEl.textContent = text;
+    messageEl.className = 'form-message error';
+    messageEl.hidden = false;
+  };
+  const clearMessage = () => {
+    if (!messageEl) return;
+    messageEl.hidden = true;
+    messageEl.textContent = '';
+    messageEl.className = 'form-message';
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.elements._honey && form.elements._honey.value) return;
+    clearMessage();
+
+    const name = (form.elements.name?.value || '').trim();
+    const email = (form.elements.email?.value || '').trim();
+    const message = (form.elements.message?.value || '').trim();
+    const inquiryType = (form.elements.inquiry_type?.value || '').trim();
+
+    if (!name || !email) {
+      showError('Name and email are required.');
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending…</span>';
+    }
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          source,
+          ...(inquiryType ? { inquiry_type: inquiryType } : {})
+        })
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || 'Submission failed. Please email marc@theproductoperator.ai directly.');
+      }
+      window.location.href = '/thank-you.html';
+    } catch (err) {
+      showError(err.message || 'Submission failed. Please email marc@theproductoperator.ai directly.');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = submitLabel;
+      }
+    }
+  });
+});
+
 // Dashboard mockup — protect from copy/select/drag extraction
 document.querySelectorAll('.mockup-wrap').forEach(mockup => {
   mockup.addEventListener('contextmenu', e => e.preventDefault());

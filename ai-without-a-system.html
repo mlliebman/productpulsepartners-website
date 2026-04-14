@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=10">
 <style>
 /* Scoped page-specific layout — light theme only */
 .wai-hero {
@@ -696,13 +696,9 @@
   <div class="container">
     <h2>Want to see more? Let's connect.</h2>
     <p class="wai-cta-body">Fifteen minutes. I'll walk you through the workflow platform that closes all three gaps, with your company in mind. Leave a note and I'll respond the same day.</p>
-    <form class="wai-cta-form form-card" action="https://formsubmit.co/marc@theproductoperator.ai" method="POST">
-      <input type="hidden" name="_subject" value="New inquiry from ai-without-a-system">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://theproductoperator.ai/thank-you.html">
-      <input type="hidden" name="source" value="ai-without-a-system">
+    <form class="wai-cta-form form-card" data-tpo-contact data-source="ai-without-a-system">
       <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off">
+      <div class="form-message" hidden></div>
       <div class="form-group">
         <label class="form-label" for="wai-name">Name</label>
         <input class="form-input" id="wai-name" name="name" type="text" placeholder="Your name" required>
@@ -743,6 +739,6 @@
   </div>
   <span class="footer-copy">© 2026 Marc Liebman · theproductoperator.ai</span>
 </footer>
-<script src="app.js?v=9"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>
