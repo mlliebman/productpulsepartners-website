@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You paid for the AI. Nobody built the system. — The Product Operator</title>
-<meta name="description" content="Why AI investment inside PE-backed product orgs has no defensible return — and the three gaps causing it.">
+<title>You paid for the AI. Nobody built the system. | The Product Operator</title>
+<meta name="description" content="Why AI investment inside PE-backed product orgs has no defensible return, and the three gaps causing it.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,7 +25,7 @@
   line-height: 1.08;
   letter-spacing: -0.025em;
   color: var(--black);
-  max-width: 920px;
+  max-width: 100%;
   margin: 22px 0 26px;
 }
 .wai-hero p {
@@ -33,12 +33,13 @@
   font-weight: 300;
   line-height: 1.8;
   color: var(--slate);
-  max-width: 820px;
+  max-width: 100%;
 }
 
 .wai-section { padding: 100px 48px; border-bottom: 1px solid var(--border); }
 .wai-section.alt { background: var(--off-white); }
-.wai-section > .container > p.section-body { max-width: 820px; }
+.wai-section.plain { background: var(--white); }
+.wai-section > .container > p.section-body { max-width: 100%; }
 
 /* Comparison table */
 .wai-compare {
@@ -106,7 +107,7 @@
   color: var(--black);
   margin-bottom: 14px;
 }
-.wai-callout p { font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.8; max-width: 780px; }
+.wai-callout p { font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.8; max-width: 100%; }
 
 /* Three gaps overview — accent-top cards */
 .wai-gaps-grid {
@@ -121,7 +122,38 @@
   padding: 36px 32px;
   box-shadow: var(--shadow-sm);
   display: flex; flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  position: relative;
 }
+.wai-gap-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.wai-gap-num-badge {
+  font-family: var(--serif);
+  font-size: 38px;
+  line-height: 1;
+  color: #ebe8e2;
+  margin-bottom: 10px;
+  transition: color var(--dur) var(--ease);
+}
+.wai-gap-01:hover .wai-gap-num-badge { color: #d4f1ea; }
+.wai-gap-02:hover .wai-gap-num-badge { color: #f4d6d6; }
+.wai-gap-03:hover .wai-gap-num-badge { color: #f1dfbe; }
+.wai-gap-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px;
+  font-size: 13px; font-weight: 500;
+  color: var(--black);
+  border-bottom: 1px solid transparent;
+  align-self: flex-start;
+  transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.wai-gap-card:hover .wai-gap-link { color: var(--teal-dark); gap: 12px; }
+.wai-gap-link .arrow { display: inline-block; transition: transform var(--dur) var(--ease); }
+.wai-gap-card:hover .wai-gap-link .arrow { transform: translateX(3px); }
 .wai-gap-card.wai-gap-01 { border-top-color: var(--teal-dark); }
 .wai-gap-card.wai-gap-02 { border-top-color: #d14343; }
 .wai-gap-card.wai-gap-03 { border-top-color: #c87a12; }
@@ -168,12 +200,12 @@
   letter-spacing: -0.02em;
   line-height: 1.14;
   color: var(--black);
-  max-width: 840px;
+  max-width: 100%;
   margin-bottom: 26px;
 }
 .wai-gap-detail > .container > p {
   font-size: 17px; font-weight: 300; color: var(--slate);
-  line-height: 1.8; max-width: 820px;
+  line-height: 1.8; max-width: 100%;
   margin-bottom: 28px;
 }
 .wai-impact {
@@ -194,7 +226,7 @@
 }
 .wai-impact p {
   font-size: 15px; color: var(--mid); line-height: 1.75;
-  max-width: 780px; font-weight: 400;
+  max-width: 100%; font-weight: 400;
 }
 .wai-quote {
   margin-top: 32px;
@@ -205,7 +237,7 @@
   font-size: 22px;
   line-height: 1.4;
   color: var(--mid);
-  max-width: 780px;
+  max-width: 100%;
 }
 
 /* Before / after comparison inside Gap 02 */
@@ -328,7 +360,7 @@
 }
 
 /* CTA */
-.wai-cta { padding: 120px 48px; text-align: center; }
+.wai-cta { padding: 120px 48px; text-align: center; background: var(--off-white); }
 .wai-cta h2 {
   font-family: var(--serif);
   font-size: clamp(32px, 4vw, 52px);
@@ -344,8 +376,14 @@
   max-width: 680px;
   margin: 0 auto 40px;
 }
+.wai-cta-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+.wai-cta-form button { margin-top: 8px; }
 .wai-cta-sub {
-  margin-top: 20px;
+  margin-top: 24px;
   font-size: 13px;
   color: var(--slate);
   font-style: italic;
@@ -420,11 +458,11 @@
     <span class="section-label">For operating partners</span>
     <div class="rule"></div>
     <h2 class="section-headline">The spend is visible. The return isn't.</h2>
-    <p class="section-body">When a PE operating partner asks a portfolio company to justify its AI investment, the conversation usually ends the same way. Tool licenses, seats, training spend — all documented. PM cycle time, rework rate, handoff failure rate, time-to-release — none of it tracked. The investment has no defensible return because no one built the system that would generate one. This isn't unique to one company. It's the default state of AI adoption across the market. Tools deployed. Workflows unchanged. P&amp;L impacted. EBITDA story missing.</p>
+    <p class="section-body">When a PE operating partner asks a portfolio company to justify its AI investment, the conversation usually ends the same way. Tool licenses, seats, training spend: all documented. PM cycle time, rework rate, handoff failure rate, time-to-release: none of it tracked. The investment has no defensible return because no one built the system that would generate one. This isn't unique to one company. It's the default state of AI adoption across the market. Tools deployed. Workflows unchanged. P&amp;L impacted. EBITDA story missing.</p>
 
     <div class="wai-compare">
       <div class="wai-compare-card wai-success">
-        <div class="wai-compare-header">Spend — fully visible</div>
+        <div class="wai-compare-header">Spend · fully visible</div>
         <div class="wai-compare-rows">
           <div class="wai-row"><span>AI tool licenses</span><span class="wai-val">$4,200/mo</span></div>
           <div class="wai-row"><span>Seat expansion</span><span class="wai-val">$1,800/mo</span></div>
@@ -436,7 +474,7 @@
         </div>
       </div>
       <div class="wai-compare-card wai-danger">
-        <div class="wai-compare-header">Impact — not tracked</div>
+        <div class="wai-compare-header">Impact · not tracked</div>
         <div class="wai-compare-rows">
           <div class="wai-row"><span>PM output per head</span><span class="wai-val wai-muted">not measured</span></div>
           <div class="wai-row"><span>Rework rate</span><span class="wai-val wai-muted">not measured</span></div>
@@ -462,24 +500,30 @@
     <span class="section-label">Root cause</span>
     <div class="rule"></div>
     <h2 class="section-headline">Three gaps that neutralize the investment.</h2>
-    <p class="section-body">The teams that are moving operational metrics aren't prompting more. They closed three specific gaps in how AI connects to the work. Every org that hasn't closed them is running the same playbook — and getting the same results.</p>
+    <p class="section-body">The teams that are moving operational metrics aren't prompting more. They closed three specific gaps in how AI connects to the work. Every org that hasn't closed them is running the same playbook and getting the same results.</p>
 
     <div class="wai-gaps-grid">
-      <div class="wai-gap-card wai-gap-01">
+      <a href="#gap-1" class="wai-gap-card wai-gap-01">
+        <div class="wai-gap-num-badge">01</div>
         <span class="wai-gap-tag">Most common</span>
         <div class="wai-gap-title">The AI doesn't know who you are.</div>
-        <p class="wai-gap-body">40–60% of PM output requires significant rework. The org is paying for AI and still paying for the rework.</p>
-      </div>
-      <div class="wai-gap-card wai-gap-02">
+        <p class="wai-gap-body">40 to 60 percent of PM output requires significant rework. The org is paying for AI and still paying for the rework.</p>
+        <span class="wai-gap-link">Read more <span class="arrow">→</span></span>
+      </a>
+      <a href="#gap-2" class="wai-gap-card wai-gap-02">
+        <div class="wai-gap-num-badge">02</div>
         <span class="wai-gap-tag">Most expensive</span>
         <div class="wai-gap-title">The work doesn't survive the handoff.</div>
         <p class="wai-gap-body">A bad spec isn't one hour of rework. It's one sprint. Misaligned execution shows up in cycle time, rework rate, and missed releases.</p>
-      </div>
-      <div class="wai-gap-card wai-gap-03">
+        <span class="wai-gap-link">Read more <span class="arrow">→</span></span>
+      </a>
+      <a href="#gap-3" class="wai-gap-card wai-gap-03">
+        <div class="wai-gap-num-badge">03</div>
         <span class="wai-gap-tag">Most overlooked</span>
         <div class="wai-gap-title">Everything is there. Nothing is decided.</div>
-        <p class="wai-gap-body">When outputs don't accelerate decisions, AI added a step — it didn't remove one.</p>
-      </div>
+        <p class="wai-gap-body">When outputs don't accelerate decisions, AI added a step. It didn't remove one.</p>
+        <span class="wai-gap-link">Read more <span class="arrow">→</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -489,10 +533,10 @@
   <div class="container">
     <div class="wai-gap-num">Gap 01 · Most common</div>
     <h3>The AI doesn't know who you are.</h3>
-    <p>You've given the most capable reasoning system ever built zero grounding in your company. No product. No customer. No market. No strategic priorities. Every prompt starts from scratch. The output feels generic because it is. The AI isn't being lazy — it's working with nothing.</p>
+    <p>You've given the most capable reasoning system ever built zero grounding in your company. No product. No customer. No market. No strategic priorities. Every prompt starts from scratch. The output feels generic because it is. The AI isn't being lazy. It's working with nothing.</p>
     <div class="wai-impact">
       <div class="wai-impact-label">What it costs</div>
-      <p>40–60% of PM output requires significant rework before it can be used. At a loaded PM cost, that's not a productivity gap — it's a margin problem. The org is paying for AI and still paying for the rework.</p>
+      <p>40–60% of PM output requires significant rework before it can be used. At a loaded PM cost, that's not a productivity gap. It's a margin problem. The org is paying for AI and still paying for the rework.</p>
     </div>
     <blockquote class="wai-quote">"We ran it three times and kept getting the same boilerplate. We might as well have Googled it."</blockquote>
   </div>
@@ -502,10 +546,10 @@
   <div class="container">
     <div class="wai-gap-num">Gap 02 · Most expensive</div>
     <h3>The work doesn't survive the handoff.</h3>
-    <p>The AI doesn't know where the output goes — so it gives you a wall of text when you needed a development-ready spec. But even when the format is right, the reasoning behind it rarely travels. Someone summarizes it in Slack. Someone else interprets the summary in a ticket. By the time it reaches the person doing the work, the original intent is three degrees removed. Two failure modes, same result: the work arrives broken.</p>
+    <p>The AI doesn't know where the output goes, so it gives you a wall of text when you needed a development-ready spec. But even when the format is right, the reasoning behind it rarely travels. Someone summarizes it in Slack. Someone else interprets the summary in a ticket. By the time it reaches the person doing the work, the original intent is three degrees removed. Two failure modes, same result: the work arrives broken.</p>
     <div class="wai-impact">
       <div class="wai-impact-label">What it costs</div>
-      <p>A bad spec isn't one hour of rework. It's one sprint. Misaligned execution doesn't show up in your AI budget — it shows up in cycle time, rework rate, and missed release dates.</p>
+      <p>A bad spec isn't one hour of rework. It's one sprint. Misaligned execution doesn't show up in your AI budget. It shows up in cycle time, rework rate, and missed release dates.</p>
     </div>
 
     <div class="wai-ba">
@@ -591,7 +635,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td>Total visible cost — one feature, one handoff failure</td>
+          <td>Total visible cost, one feature, one handoff failure</td>
           <td class="wai-cost-value">~3 wks</td>
           <td class="wai-cost-value">~$25K</td>
         </tr>
@@ -607,7 +651,7 @@
   <div class="container">
     <div class="wai-gap-num">Gap 03 · Most overlooked</div>
     <h3>Everything is there. Nothing is decided.</h3>
-    <p>The AI doesn't know what you're trying to decide, what tradeoffs matter, or who's reading the output. So it gives you comprehensive. Comprehensive isn't actionable. You still have to do the hard part. This is the gap that makes AI feel smart but not useful. When outputs don't accelerate decisions, AI added a step — it didn't remove one.</p>
+    <p>The AI doesn't know what you're trying to decide, what tradeoffs matter, or who's reading the output. So it gives you comprehensive. Comprehensive isn't actionable. You still have to do the hard part. This is the gap that makes AI feel smart but not useful. When outputs don't accelerate decisions, AI added a step. It didn't remove one.</p>
     <div class="wai-impact">
       <div class="wai-impact-label">What it costs</div>
       <p>Decision latency is the drag nobody tracks. Every cycle where AI produces output but doesn't sharpen a decision is cost absorbed with no value captured.</p>
@@ -616,8 +660,8 @@
   </div>
 </section>
 
-<!-- SECTION 5 — Solution pivot -->
-<section class="wai-section alt">
+<!-- SECTION 5 Solution pivot -->
+<section class="wai-section plain" style="border-top:3px solid var(--teal-dark);">
   <div class="container">
     <span class="section-label">The system that works</span>
     <div class="rule"></div>
@@ -631,7 +675,7 @@
       </div>
       <div class="wai-statement">
         <strong>Artifacts arrive shaped for where they go.</strong>
-        <p>A development-ready spec comes out of a discovery session ready for engineering — not three rounds of reformatting later.</p>
+        <p>A development-ready spec comes out of a discovery session ready for engineering, not three rounds of reformatting later.</p>
       </div>
       <div class="wai-statement">
         <strong>Decisions come out of the process, not after it.</strong>
@@ -639,7 +683,7 @@
       </div>
       <div class="wai-statement">
         <strong>The reasoning travels with the work.</strong>
-        <p>Handoffs carry the intent, not just the artifact. The person building knows not just what to build — but why.</p>
+        <p>Handoffs carry the intent, not just the artifact. The person building knows not just what to build, but why.</p>
       </div>
     </div>
 
@@ -647,12 +691,32 @@
   </div>
 </section>
 
-<!-- SECTION 6 — CTA -->
+<!-- SECTION 6 CTA -->
 <section class="wai-cta">
   <div class="container">
-    <h2>20 minutes. I'll show you the difference.</h2>
-    <p class="wai-cta-body">I built a workflow platform for product teams that closes all three gaps. I run it inside the engagements I take on. If you're asking portfolio companies to justify their AI spend and the answers aren't there — this is the 20 minutes to book.</p>
-    <a href="https://www.linkedin.com/in/marcliebman" target="_blank" rel="noopener" class="btn-primary"><span>DM me on LinkedIn</span></a>
+    <h2>Want to see more? Let's connect.</h2>
+    <p class="wai-cta-body">Fifteen minutes. I'll walk you through the workflow platform that closes all three gaps, with your company in mind. Leave a note and I'll respond the same day.</p>
+    <form class="wai-cta-form form-card" action="https://formsubmit.co/marc@theproductoperator.ai" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry from ai-without-a-system">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://theproductoperator.ai/thank-you.html">
+      <input type="hidden" name="source" value="ai-without-a-system">
+      <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off">
+      <div class="form-group">
+        <label class="form-label" for="wai-name">Name</label>
+        <input class="form-input" id="wai-name" name="name" type="text" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="wai-email">Email</label>
+        <input class="form-input" id="wai-email" name="email" type="email" placeholder="you@firm.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="wai-message">A brief note <span class="form-label-optional">(optional)</span></label>
+        <textarea class="form-textarea" id="wai-message" name="message" rows="3" placeholder="Anything that helps me respond precisely."></textarea>
+      </div>
+      <button type="submit" class="btn-primary"><span>Send →</span></button>
+    </form>
     <p class="wai-cta-sub">No deck. No sales process. Just the workflow.</p>
   </div>
 </section>
