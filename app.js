@@ -145,11 +145,12 @@ if (hamburger && mobileMenu) {
     if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
   }
 
-  window.addEventListener('load', () => {
-    resize();
-    init();
-    start();
-  });
+  function boot() { resize(); init(); start(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
 
   let resizeTimer;
   window.addEventListener('resize', () => {
