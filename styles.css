@@ -181,6 +181,22 @@ section { padding: 110px 48px; position: relative; }
 }
 em.teal, .teal-em { font-style: italic; color: var(--teal-dark); font-weight: 400; }
 
+/* Stronger eyebrow labels — applied site-wide */
+.section-label,
+.page-eyebrow,
+.cta-label,
+.dark-label,
+.hero-eyebrow,
+.service-track-label,
+.path-card-label,
+.alt-path-label,
+.wai-gap-num,
+.wai-impact-label,
+.wai-ba-header,
+.wai-gap-tag {
+  font-weight: 600;
+}
+
 /* ─── BUTTONS ───────────────────────────────────────────────────────────── */
 .btn-primary {
   position: relative; display: inline-flex; align-items: center; gap: 10px;
