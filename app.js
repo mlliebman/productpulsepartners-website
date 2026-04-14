@@ -182,7 +182,8 @@ if ('IntersectionObserver' in window) {
 // Contact form submission → app.theproductoperator.ai/api/contact-sales
 document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
   const endpoint = 'https://app.theproductoperator.ai/api/contact-sales';
-  const source = form.dataset.source || 'web';
+  const urlSource = new URLSearchParams(window.location.search).get('source');
+  const source = urlSource || form.dataset.source || 'web';
   const messageEl = form.querySelector('.form-message');
   const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
   const submitLabel = submitBtn ? submitBtn.innerHTML : '';
