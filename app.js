@@ -188,6 +188,20 @@ document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
   const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
   const submitLabel = submitBtn ? submitBtn.innerHTML : '';
 
+  // Wake Railway on first form interaction so the service is warm by submit
+  let formWarmed = false;
+  const warmForm = () => {
+    if (formWarmed) return;
+    formWarmed = true;
+    try {
+      fetch('https://app.theproductoperator.ai/', {
+        method: 'GET', mode: 'no-cors', credentials: 'omit',
+        cache: 'no-store', keepalive: true
+      }).catch(function () {});
+    } catch (_) {}
+  };
+  form.addEventListener('focusin', warmForm, { once: true, passive: true });
+
   const showError = (text) => {
     if (!messageEl) return;
     messageEl.textContent = text;
