@@ -437,9 +437,12 @@
 }
 .wai-cta-inline {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-  align-items: start;
+}
+.wai-cta-form > .wai-cta-btn {
+  margin-top: 16px;
+  display: inline-block;
 }
 .wai-cta-form .form-input,
 .wai-cta-form .form-textarea {
@@ -489,7 +492,7 @@
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  .wai-cta-inline .wai-cta-btn { width: 100%; text-align: center; }
+  .wai-cta-form > .wai-cta-btn { width: 100%; text-align: center; }
 }
 
 /* Footnote */
@@ -810,9 +813,9 @@
         <input class="form-input" name="name" type="text" placeholder="Name" required autocomplete="name">
         <input class="form-input" name="email" type="email" placeholder="Email" required autocomplete="email">
         <input class="form-input" name="company" type="text" placeholder="Company" required autocomplete="organization">
-        <button type="submit" class="wai-cta-btn"><span>Request early preview</span></button>
       </div>
       <textarea class="form-textarea" name="message" rows="2" placeholder="Anything we should know? (optional)"></textarea>
+      <button type="submit" class="wai-cta-btn"><span>Request early preview</span></button>
     </form>
   </div>
 </section>
