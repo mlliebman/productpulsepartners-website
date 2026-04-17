@@ -202,6 +202,18 @@ document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
   };
   form.addEventListener('focusin', warmForm, { once: true, passive: true });
 
+  // GA4: track form interaction start
+  let formStarted = false;
+  form.addEventListener('focusin', () => {
+    if (formStarted) return;
+    formStarted = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_start', {
+        form_source: window.location.pathname
+      });
+    }
+  }, { once: true, passive: true });
+
   const showError = (text) => {
     if (!messageEl) return;
     messageEl.textContent = text;
@@ -257,6 +269,12 @@ document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || 'Submission failed. Please email marc@theproductoperator.ai directly.');
       }
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit_contact', {
+          inquiry_type: inquiryType || 'not_specified',
+          source: source
+        });
+      }
       window.location.href = '/thank-you.html';
     } catch (err) {
       showError(err.message || 'Submission failed. Please email marc@theproductoperator.ai directly.');
@@ -265,6 +283,36 @@ document.querySelectorAll('form[data-tpo-contact]').forEach(form => {
         submitBtn.innerHTML = submitLabel;
       }
     }
+  });
+});
+
+// GA4: track thank-you page as conversion confirmation
+if (window.location.pathname.includes('thank-you')) {
+  if (typeof gtag === 'function') {
+    gtag('event', 'generate_lead');
+  }
+}
+
+// GA4: track CTA clicks (platform links and contact CTAs)
+document.querySelectorAll('a[href*="app.theproductoperator.ai"], a[href*="contact.html"], .nav-cta, .nav-cta-outline').forEach(link => {
+  link.addEventListener('click', () => {
+    if (typeof gtag !== 'function') return;
+    const isPlatform = link.href && link.href.includes('app.theproductoperator.ai');
+    gtag('event', isPlatform ? 'platform_cta_click' : 'cta_click', {
+      link_text: (link.textContent || '').trim(),
+      page: window.location.pathname
+    });
+  });
+});
+
+// GA4: track nav link clicks
+document.querySelectorAll('#site-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'nav_click', {
+      link_text: (link.textContent || '').trim(),
+      destination: link.getAttribute('href') || ''
+    });
   });
 });
 
