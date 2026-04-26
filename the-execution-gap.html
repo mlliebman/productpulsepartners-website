@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CVXZ3WEN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9CVXZ3WEN3');
+</script>
+<title>The Product Operator</title>
+<meta name="description" content="The execution gap is where most PE value creation plans fail. Six diligence questions that would have surfaced it.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Most PE diligence asks whether the company is worth buying. It rarely asks whether the team can deliver the thesis.">
+<meta property="og:description" content="The execution gap is where most PE value creation plans fail. Six diligence questions that would have surfaced it.">
+<meta property="og:image" content="https://theproductoperator.ai/og-the-execution-gap.png">
+<meta property="og:url" content="https://theproductoperator.ai/the-execution-gap">
+<meta property="og:type" content="article">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Most PE diligence asks whether the company is worth buying. It rarely asks whether the team can deliver the thesis.">
+<meta name="twitter:description" content="The execution gap is where most PE value creation plans fail. Six diligence questions that would have surfaced it.">
+<meta name="twitter:image" content="https://theproductoperator.ai/og-the-execution-gap.png">
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="styles.css?v=15">
+<style>
+/* Page-scoped layout. Sibling to ai-as-cost-vs-lever, data-as-the-ai-bottleneck, the-drift-problem. */
+.wai-hero {
+  padding: 116px 48px 56px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.wai-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--black);
+  max-width: 100%;
+  margin: 14px 0 22px;
+}
+.wai-hero p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--slate);
+  max-width: 100%;
+}
+
+.wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
+.wai-section.alt { background: var(--off-white); }
+.wai-section.plain { background: var(--white); }
+.wai-section > .container > p.section-body { max-width: 100%; }
+
+/* Two-column comparison (mirrors cost-vs-lever's spend/impact) */
+.wai-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin-top: 36px;
+}
+.wai-compare-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column;
+}
+.wai-compare-card.wai-success { border-top-color: var(--teal-dark); }
+.wai-compare-card.wai-danger  { border-top-color: #d14343; }
+.wai-compare-header {
+  padding: 22px 28px 18px;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
+}
+.wai-compare-card.wai-success .wai-compare-header { color: var(--teal-dark); }
+.wai-compare-card.wai-danger  .wai-compare-header { color: #b53030; }
+.wai-compare-list {
+  list-style: none;
+  padding: 6px 28px 22px;
+  margin: 0;
+  flex: 1;
+}
+.wai-compare-list li {
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.5;
+}
+.wai-compare-list li:last-child { border-bottom: none; }
+.wai-compare-card.wai-danger .wai-compare-list li { color: var(--mid); }
+.wai-compare-closing {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* Cost callout (large pull-quote, thin border) */
+.wai-cost-callout {
+  margin: 44px 0 0;
+  padding: 32px 36px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid #d14343;
+  border-radius: 8px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.36;
+  letter-spacing: -0.015em;
+  color: var(--black);
+}
+
+/* Six question cards in a 3x2 grid */
+.wai-cards6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+.wai-q-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.wai-q-card.q1 { border-top-color: var(--teal-dark); }
+.wai-q-card.q2 { border-top-color: #c87a12; }
+.wai-q-card.q3 { border-top-color: #d14343; }
+.wai-q-card.q4 { border-top-color: #b58a1c; }
+.wai-q-card.q5 { border-top-color: #6b6b85; }
+.wai-q-card.q6 { border-top-color: #00806c; }
+.wai-q-num {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1;
+  color: #ebe8e2;
+  margin-bottom: 10px;
+}
+.wai-q-question {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+  margin: 0 0 14px;
+  font-weight: 400;
+}
+.wai-q-framing {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.wai-q-example {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--mid);
+  background: var(--off-white);
+  padding: 12px 16px;
+  border-radius: 6px;
+  border-left: 2px solid #c5bfb2;
+  font-style: italic;
+  margin-top: auto;
+}
+.wai-q-example-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 4px;
+  font-style: normal;
+}
+
+/* Worked example */
+.wai-example h3 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  color: var(--black);
+  margin: 12px 0 14px;
+}
+.wai-example > .container > p.example-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.7;
+  max-width: 100%;
+  margin-bottom: 22px;
+}
+.wai-example > .container > p.example-body:last-of-type {
+  margin-bottom: 0;
+}
+.wai-example .wai-example-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 6px;
+}
+.wai-example .wai-example-tag.outcome { color: #b53030; }
+.wai-table-note {
+  font-size: 12px;
+  color: #9a958c;
+  font-style: italic;
+  line-height: 1.55;
+  margin-top: 18px;
+  max-width: 100%;
+}
+
+/* Diagnostic */
+.wai-diagnostic {
+  max-width: 880px;
+  margin: 32px 0 0;
+}
+.wai-diagnostic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: diag-counter;
+}
+.wai-diagnostic-list li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.55;
+  align-items: start;
+}
+.wai-diagnostic-list li:first-child { padding-top: 8px; }
+.wai-diagnostic-list li:last-child { border-bottom: none; }
+.wai-diagnostic-list li::before {
+  counter-increment: diag-counter;
+  content: counter(diag-counter, decimal-leading-zero);
+  font-family: var(--serif);
+  font-size: 18px;
+  color: #c5bfb2;
+  line-height: 1.2;
+}
+.wai-diagnostic-interp {
+  margin-top: 28px;
+  padding: 22px 26px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal-dark);
+  border-radius: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+/* Closing principles — three statements */
+.wai-statements {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px 32px;
+  margin-top: 36px;
+}
+.wai-statement {
+  padding-left: 20px;
+  border-left: 2px solid var(--teal-dark);
+}
+.wai-statement strong {
+  display: block;
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.wai-statement p {
+  font-size: 14px; font-weight: 300;
+  color: var(--slate); line-height: 1.7;
+}
+
+/* Three-box flow */
+.wai-flow {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr 36px 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin: 16px 0 22px;
+}
+.wai-flow-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  padding: 30px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wai-flow-box.start { border-top: 3px solid #d14343; }
+.wai-flow-box.middle { border-top: 3px solid #c87a12; }
+.wai-flow-box.end { border-top: 3px solid var(--teal-dark); }
+.wai-flow-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.wai-flow-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--black);
+}
+.wai-flow-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  color: #c5bfb2;
+}
+.wai-flow-caption {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* Quiet close */
+.wai-quiet {
+  padding: 88px 48px 96px;
+  background: var(--white);
+}
+.wai-quiet .container {
+  max-width: 760px;
+}
+.wai-quiet p {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.5;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+.wai-quiet a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal-dark);
+  font-style: normal;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.wai-quiet a:hover {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .wai-hero { padding: 100px 32px 48px; }
+  .wai-section { padding: 56px 32px; }
+  .wai-quiet { padding: 72px 32px 80px; }
+  .wai-compare, .wai-statements { grid-template-columns: 1fr; gap: 20px; }
+  .wai-cards6 { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .wai-flow { grid-template-columns: 1fr; }
+  .wai-flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+}
+@media (max-width: 640px) {
+  .wai-hero { padding: 92px 24px 40px; }
+  .wai-section { padding: 48px 24px; }
+  .wai-quiet { padding: 60px 24px 64px; }
+  .wai-cost-callout { padding: 24px 22px; }
+  .wai-cards6 { grid-template-columns: 1fr; }
+  .wai-q-card { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <ul class="nav-links">
+    <li><a href="due-diligence.html">Due Diligence</a></li>
+    <li><a href="leadership.html">Advisory &amp; Leadership</a></li>
+    <li><a href="ai-platform.html">The Platform</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-btn-wrap"><a href="https://app.theproductoperator.ai" target="_blank" rel="noopener" class="nav-cta-outline">Try the Platform</a></li>
+    <li class="nav-btn-wrap"><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="due-diligence.html">Due Diligence</a>
+  <a href="leadership.html">Advisory &amp; Leadership</a>
+  <a href="ai-platform.html">The Platform</a>
+  <a href="about.html">About</a>
+  <a href="https://app.theproductoperator.ai" target="_blank" rel="noopener">Try the Platform</a>
+  <a href="contact.html">Let's Talk</a>
+</div>
+
+<!-- 1. Hero hook -->
+<section class="wai-hero">
+  <div class="container">
+    <span class="section-label">The Product Operator</span>
+    <h1>Most PE diligence asks whether the company is worth buying. It rarely asks whether the team can deliver the thesis.</h1>
+    <p>Several PE operating partners I work with have lived the same pattern. The deal closed clean. The financial diligence was thorough. The thesis was sound. Six quarters in, the value creation plan is behind, and most of the gap traces back to a product organization that wasn't ready for the plan it was handed. Pre-close diligence rarely tests for that. Post-close, it's the operating partner's problem.</p>
+  </div>
+</section>
+
+<!-- 2. Two-column comparison -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">What gets tested vs. what predicts</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Diligence is excellent at the things it has always been excellent at.</h2>
+    <p class="section-body">The financial model gets stress-tested. The pipeline gets validated. The tech stack gets a security review. What rarely gets tested is whether the team running the company has ever delivered against the kind of plan the new owner is about to hand them. The diligence sits on the left. The execution risk lives on the right.</p>
+
+    <div class="wai-compare">
+      <div class="wai-compare-card wai-success">
+        <div class="wai-compare-header">What diligence covers</div>
+        <ul class="wai-compare-list">
+          <li>Financial model</li>
+          <li>Customer concentration</li>
+          <li>Churn cohort</li>
+          <li>Sales pipeline</li>
+          <li>Tech stack and security</li>
+          <li>Working capital and unit economics</li>
+        </ul>
+      </div>
+      <div class="wai-compare-card wai-danger">
+        <div class="wai-compare-header">What diligence rarely covers</div>
+        <ul class="wai-compare-list">
+          <li>Product team's track record at the required cadence</li>
+          <li>Whether the roadmap reflects the thesis or the backlog</li>
+          <li>Strength of the CPO seat</li>
+          <li>Discovery rigor in the product process</li>
+          <li>How well the team handles ambiguity</li>
+          <li>Whether the org has shipped strategic shifts before</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="wai-compare-closing">The thesis is on the left. The risk is on the right.</p>
+
+    <div class="wai-cost-callout">
+      A value creation plan behind by two quarters carries multiples of the original deal premium in delayed return. None of it traces back to anything that was tested at diligence.
+    </div>
+  </div>
+</section>
+
+<!-- 4. Six diligence questions as compressed cards -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Six questions</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">The questions that surface execution risk before close.</h2>
+    <p class="section-body">These are diligence questions, not interview questions. They go to the deal team, the operating partner, and the candidate company's leadership. Six questions whose honest answers usually predict execution risk faster than any other piece of pre-close work. None of them require proprietary access. All of them are routinely skipped.</p>
+
+    <div class="wai-cards6">
+      <div class="wai-q-card q1">
+        <div class="wai-q-num">01</div>
+        <h3 class="wai-q-question">"Has this team ever shipped a strategic shift before?"</h3>
+        <p class="wai-q-framing">The deal thesis often requires the product org to shift focus from what it does today to something different. A team that has only ever executed continuity may not be capable of discontinuity.</p>
+        <div class="wai-q-example">
+          <span class="wai-q-example-label">What this surfaces</span>
+          An org that built its current product on a strong product-led-growth motion may not be capable of executing the enterprise-sales-driven roadmap the thesis depends on.
+        </div>
+      </div>
+
+      <div class="wai-q-card q2">
+        <div class="wai-q-num">02</div>
+        <h3 class="wai-q-question">"Does the roadmap match the thesis, or the backlog?"</h3>
+        <p class="wai-q-framing">Most product roadmaps reflect what the team has been building. The investment thesis often depends on what the team should be building next. Those are rarely the same document.</p>
+        <div class="wai-q-example">
+          <span class="wai-q-example-label">What this surfaces</span>
+          A roadmap dominated by reliability and tech-debt work may indicate engineering is fighting fires, not executing growth bets.
+        </div>
+      </div>
+
+      <div class="wai-q-card q3">
+        <div class="wai-q-num">03</div>
+        <h3 class="wai-q-question">"How is the CPO seat?"</h3>
+        <p class="wai-q-framing">An empty CPO seat, an interim CPO, or a CPO promoted because nobody else was available is a different risk profile than a strong operator in the role. Diligence usually doesn't surface which one is in place.</p>
+        <div class="wai-q-example">
+          <span class="wai-q-example-label">What this surfaces</span>
+          A founder-CEO acting as their own CPO is a known risk pattern. Diligence rarely names it.
+        </div>
+      </div>
+
+      <div class="wai-q-card q4">
+        <div class="wai-q-num">04</div>
+        <h3 class="wai-q-question">"What's the discovery cadence?"</h3>
+        <p class="wai-q-framing">The investment thesis depends on the product team understanding the customer well enough to make the right calls. A team without a structured discovery practice is making guesses, not informed decisions.</p>
+        <div class="wai-q-example">
+          <span class="wai-q-example-label">What this surfaces</span>
+          A product org running zero customer interviews per quarter cannot validate the assumptions the thesis depends on.
+        </div>
+      </div>
+
+      <div class="wai-q-card q5">
+        <div class="wai-q-num">05</div>
+        <h3 class="wai-q-question">"How does the team handle ambiguity?"</h3>
+        <p class="wai-q-framing">Value creation plans always require decisions under incomplete information. A team that defaults to consensus or to executive direction will move slowly. A team with strong operating principles will move faster.</p>
+        <div class="wai-q-example">
+          <span class="wai-q-example-label">What this surfaces</span>
+          An org where every roadmap decision routes through the CEO is bottlenecked. The CEO becomes the constraint on execution speed.
+        </div>
+      </div>
+
+      <div class="wai-q-card q6">
+        <div class="wai-q-num">06</div>
+        <h3 class="wai-q-question">"What's the relationship between product and sales?"</h3>
+        <p class="wai-q-framing">If product and sales are at war, the value creation plan will be litigated quarterly instead of executed. Diligence often misses this because both parties speak well of each other in interviews.</p>
+        <div class="wai-q-example">
+          <span class="wai-q-example-label">What this surfaces</span>
+          A roadmap with no sales-influenced items, or one entirely dictated by sales, are both warning signs.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Worked example -->
+<section class="wai-section alt wai-example">
+  <div class="container">
+    <span class="section-label">Worked example</span>
+    <div class="rule"></div>
+    <h3>A deal that closed clean and underperformed.</h3>
+    <span class="wai-example-tag">Setup</span>
+    <p class="example-body">A growth-stage SaaS company gets acquired. The thesis: shift from a self-serve, mid-market product to an enterprise platform with a strategic sales motion. The financial diligence is clean. The customer concentration is acceptable. The product team is praised in management interviews.</p>
+    <span class="wai-example-tag outcome">Outcome, eighteen months later</span>
+    <p class="example-body">Enterprise pipeline is at 30 percent of plan. The product team has been working on the roadmap, but the roadmap still skews toward the self-serve user. The CPO was promoted from senior product manager during the deal process. They've never shipped an enterprise platform before. None of this was untrue at diligence. None of it was asked.</p>
+    <p class="wai-table-note">Pattern based on common post-close findings, not a single sourced case.</p>
+  </div>
+</section>
+
+<!-- 6. Self-diagnostic -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Diagnostic</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Six questions for the deal team.</h2>
+    <p class="section-body">Yes or no, asked of the deal team or the candidate company's leadership during pre-close. Two questions an operating partner can run on a Friday afternoon, four questions a CPO advisor can answer in a 90-minute working session. The questions are blunt by design. Hedging defeats the point. If the honest answer is yes-but, it's a no.</p>
+
+    <div class="wai-diagnostic">
+      <ol class="wai-diagnostic-list">
+        <li>Has the product organization ever shipped a strategic shift of similar magnitude to the one the thesis requires?</li>
+        <li>Does the current product roadmap reflect the deal thesis, or does it reflect the team's existing backlog?</li>
+        <li>Is the CPO seat held by a strong operator, or is it vacant, interim, or recently filled from within?</li>
+        <li>Does the team have a documented discovery cadence, with evidence of customer interviews driving decisions in the last two quarters?</li>
+        <li>Does the org have documented operating principles for decisions made under ambiguity, or do most decisions route to the CEO?</li>
+        <li>Can the team produce evidence that product and sales are aligned on the next 18 months of priorities?</li>
+      </ol>
+
+      <div class="wai-diagnostic-interp">
+        Five or six yeses: the team is likely to deliver. Three or four: there's execution risk that needs to be priced into the plan. Fewer than three: the thesis depends on a team that hasn't demonstrated it can execute it.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. What execution-readiness diligence produces -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">What an audit produces</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Output the deal team can act on.</h2>
+    <p class="section-body">Execution-readiness diligence is not a leadership review. It's a structured assessment that names whether the existing team can deliver the value creation plan, where the gaps are, and what they cost. Three things define the output.</p>
+
+    <div class="wai-statements">
+      <div class="wai-statement">
+        <strong>A documented assessment of the product organization's track record against the cadence the thesis requires.</strong>
+        <p>The team's prior strategic shifts get named, dated, and rated. The cadence required by the thesis gets compared against the cadence the org has actually delivered. Gaps surface as a track-record finding, not a gut call.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>A roadmap-to-thesis fit analysis that names what the team is building and what the thesis requires them to build.</strong>
+        <p>Each item on the current roadmap gets tagged: thesis-aligned, neutral, or backlog-driven. The mismatch is quantified. The deal team sees what would have to change in the first hundred days for the plan to be on track.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>A specific list of execution risks priced into the operating model, not assumed away.</strong>
+        <p>Each risk has an owner, a cost, and a mitigation path. The list lands in the IC memo and the operating model, not in a separate appendix. Execution risk becomes a number the deal team can defend rather than a vibe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Three-box flow -->
+<section class="wai-section">
+  <div class="container">
+    <div class="wai-flow">
+      <div class="wai-flow-box start">
+        <div class="wai-flow-label">What gets tested</div>
+        <div class="wai-flow-title">Thesis</div>
+      </div>
+      <div class="wai-flow-arrow" aria-hidden="true">→</div>
+      <div class="wai-flow-box middle">
+        <div class="wai-flow-label">What's missing</div>
+        <div class="wai-flow-title">Execution-readiness</div>
+      </div>
+      <div class="wai-flow-arrow" aria-hidden="true">→</div>
+      <div class="wai-flow-box end">
+        <div class="wai-flow-label">What gets defended</div>
+        <div class="wai-flow-title">Defensible plan</div>
+      </div>
+    </div>
+    <p class="wai-flow-caption">Diligence on the thesis isn't diligence on the plan. The plan needs its own.</p>
+  </div>
+</section>
+
+<!-- 9. Quiet close -->
+<section class="wai-quiet">
+  <div class="container">
+    <p>If you're running diligence on a deal where the value creation plan depends on a product team you haven't tested, <a href="mailto:marc@theproductoperator.ai?subject=Let%27s%20connect">I'd be glad to talk</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <div class="footer-nav">
+    <ul class="footer-links">
+      <li><a href="due-diligence.html">Due Diligence</a></li>
+      <li><a href="leadership.html">Advisory &amp; Leadership</a></li>
+      <li><a href="ai-platform.html">The Platform</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+    <span class="footer-divider" aria-hidden="true"></span>
+    <ul class="footer-contact">
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mailto:marc@theproductoperator.ai" aria-label="Email Marc" class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></a></li>
+      <li><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+    </ul>
+  </div>
+  <span class="footer-copy">© 2026 Marc Liebman · theproductoperator.ai</span>
+</footer>
+<script src="app.js?v=15"></script>
+</body>
+</html>
