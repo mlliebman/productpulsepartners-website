@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CVXZ3WEN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9CVXZ3WEN3');
+</script>
+<title>The Product Operator</title>
+<meta name="description" content="Why one roadmap can't serve four readers, and what specialization looks like.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="A product roadmap is a political document.">
+<meta property="og:description" content="Why one roadmap can't serve four readers, and what specialization looks like.">
+<meta property="og:url" content="https://theproductoperator.ai/the-political-roadmap">
+<meta property="og:type" content="article">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A product roadmap is a political document.">
+<meta name="twitter:description" content="Why one roadmap can't serve four readers, and what specialization looks like.">
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="styles.css?v=15">
+<style>
+/* Page-scoped layout. Sibling to ai-as-cost-vs-lever, data-as-the-ai-bottleneck, the-drift-problem, the-execution-gap. */
+.wai-hero {
+  padding: 116px 48px 56px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.wai-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--black);
+  max-width: 100%;
+  margin: 14px 0 22px;
+}
+.wai-hero p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--slate);
+  max-width: 100%;
+}
+
+.wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
+.wai-section.alt { background: var(--off-white); }
+.wai-section.plain { background: var(--white); }
+.wai-section > .container > p.section-body { max-width: 100%; }
+
+/* Four-readers visual: 2x2 grid of stylized roadmap previews */
+.wai-readers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 36px;
+}
+.wai-reader-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 26px 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.wai-reader-card.r-strategic { border-top-color: var(--teal-dark); }
+.wai-reader-card.r-engineering { border-top-color: #c87a12; }
+.wai-reader-card.r-sales { border-top-color: #d14343; }
+.wai-reader-card.r-board { border-top-color: #6b6b85; }
+.wai-reader-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 18px;
+}
+.wai-reader-card.r-strategic .wai-reader-label { color: var(--teal-dark); }
+.wai-reader-card.r-engineering .wai-reader-label { color: #8f5608; }
+.wai-reader-card.r-sales .wai-reader-label { color: #b53030; }
+.wai-reader-card.r-board .wai-reader-label { color: #4a4a63; }
+.wai-reader-vis {
+  height: 90px;
+  margin-bottom: 18px;
+  padding: 4px 0;
+  display: flex;
+}
+
+/* Strategic: stacked theme bars */
+.wai-reader-vis.v-strategic {
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+.wai-reader-vis.v-strategic .v-bar {
+  height: 14px;
+  border-radius: 3px;
+  background: var(--teal-dark);
+}
+.wai-reader-vis.v-strategic .v-bar:nth-child(1) { width: 88%; opacity: 0.85; }
+.wai-reader-vis.v-strategic .v-bar:nth-child(2) { width: 64%; opacity: 0.55; }
+.wai-reader-vis.v-strategic .v-bar:nth-child(3) { width: 76%; opacity: 0.35; }
+
+/* Engineering: capacity grid */
+.wai-reader-vis.v-engineering {
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+.wai-reader-vis.v-engineering .v-row {
+  display: flex;
+  gap: 4px;
+  height: 14px;
+}
+.wai-reader-vis.v-engineering .v-cell {
+  background: #c87a12;
+  border-radius: 2px;
+  opacity: 0.65;
+}
+.wai-reader-vis.v-engineering .v-cell.s1 { flex: 1; }
+.wai-reader-vis.v-engineering .v-cell.s2 { flex: 2; }
+.wai-reader-vis.v-engineering .v-cell.s3 { flex: 3; }
+.wai-reader-vis.v-engineering .v-cell.dim { opacity: 0.3; }
+
+/* Sales: quarterly columns with theme dots */
+.wai-reader-vis.v-sales {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  align-items: end;
+}
+.wai-reader-vis.v-sales .v-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.wai-reader-vis.v-sales .v-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d14343;
+  opacity: 0.65;
+}
+.wai-reader-vis.v-sales .v-q {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+
+/* Board: smooth arc with year markers */
+.wai-reader-vis.v-board {
+  flex-direction: column;
+  justify-content: center;
+}
+.wai-reader-vis.v-board svg {
+  width: 100%;
+  height: 56px;
+}
+.wai-reader-vis.v-board .v-years {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.wai-reader-reader {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.5;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.wai-reader-caption {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.55;
+  color: var(--mid);
+  max-width: 820px;
+}
+
+/* Why-one-roadmap prose section */
+.wai-prose {
+  margin-top: 36px;
+  max-width: 880px;
+}
+.wai-prose p {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+.wai-prose p:last-of-type { margin-bottom: 0; }
+.wai-prose p strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--black);
+  margin-right: 6px;
+}
+.wai-prose-close {
+  margin-top: 36px;
+  padding-left: 22px;
+  border-left: 2px solid var(--teal-dark);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* Roadmap explainer cards (2x2) */
+.wai-rmcards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 36px;
+}
+.wai-rmcard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 26px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.wai-rmcard.c1 { border-top-color: var(--teal-dark); }
+.wai-rmcard.c2 { border-top-color: #c87a12; }
+.wai-rmcard.c3 { border-top-color: #d14343; }
+.wai-rmcard.c4 { border-top-color: #6b6b85; }
+.wai-rmcard-num {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1;
+  color: #ebe8e2;
+  margin-bottom: 6px;
+}
+.wai-rmcard-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  align-self: flex-start;
+  background: var(--off-white);
+  color: var(--slate);
+}
+.wai-rmcard.c1 .wai-rmcard-tag { background: #eafaf5; color: var(--teal-dark); }
+.wai-rmcard.c2 .wai-rmcard-tag { background: #fcf3e3; color: #8f5608; }
+.wai-rmcard.c3 .wai-rmcard-tag { background: #fdecec; color: #b53030; }
+.wai-rmcard.c4 .wai-rmcard-tag { background: #ecedf3; color: #4a4a63; }
+.wai-rmcard-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.22;
+  color: var(--black);
+  margin: 0 0 16px;
+}
+.wai-rmcard-meta { margin: 0; }
+.wai-rmcard-meta dt {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 4px;
+  margin-top: 14px;
+}
+.wai-rmcard-meta dt:first-child { margin-top: 0; }
+.wai-rmcard-meta dd {
+  margin: 0;
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* Worked example */
+.wai-example h3 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  color: var(--black);
+  margin: 12px 0 14px;
+}
+.wai-example > .container > p.example-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.7;
+  max-width: 100%;
+  margin-bottom: 22px;
+}
+.wai-example > .container > p.example-body:last-of-type { margin-bottom: 0; }
+.wai-example .wai-example-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 6px;
+}
+.wai-example .wai-example-tag.outcome { color: #b53030; }
+.wai-table-note {
+  font-size: 12px;
+  color: #9a958c;
+  font-style: italic;
+  line-height: 1.55;
+  margin-top: 18px;
+  max-width: 100%;
+}
+
+/* Diagnostic */
+.wai-diagnostic {
+  max-width: 880px;
+  margin: 32px 0 0;
+}
+.wai-diagnostic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: diag-counter;
+}
+.wai-diagnostic-list li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.55;
+  align-items: start;
+}
+.wai-diagnostic-list li:first-child { padding-top: 8px; }
+.wai-diagnostic-list li:last-child { border-bottom: none; }
+.wai-diagnostic-list li::before {
+  counter-increment: diag-counter;
+  content: counter(diag-counter, decimal-leading-zero);
+  font-family: var(--serif);
+  font-size: 18px;
+  color: #c5bfb2;
+  line-height: 1.2;
+}
+.wai-diagnostic-interp {
+  margin-top: 28px;
+  padding: 22px 26px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal-dark);
+  border-radius: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+/* Three statements */
+.wai-statements {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px 32px;
+  margin-top: 36px;
+}
+.wai-statement {
+  padding-left: 20px;
+  border-left: 2px solid var(--teal-dark);
+}
+.wai-statement strong {
+  display: block;
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.wai-statement p {
+  font-size: 14px; font-weight: 300;
+  color: var(--slate); line-height: 1.7;
+}
+
+/* Three-box flow */
+.wai-flow {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr 36px 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin: 16px 0 22px;
+}
+.wai-flow-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  padding: 30px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wai-flow-box.start { border-top: 3px solid #d14343; }
+.wai-flow-box.middle { border-top: 3px solid #c87a12; }
+.wai-flow-box.end { border-top: 3px solid var(--teal-dark); }
+.wai-flow-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.wai-flow-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--black);
+}
+.wai-flow-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  color: #c5bfb2;
+}
+.wai-flow-caption {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* Quiet close */
+.wai-quiet {
+  padding: 88px 48px 96px;
+  background: var(--white);
+}
+.wai-quiet .container { max-width: 760px; }
+.wai-quiet p {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.5;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+.wai-quiet a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal-dark);
+  font-style: normal;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.wai-quiet a:hover {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .wai-hero { padding: 100px 32px 48px; }
+  .wai-section { padding: 56px 32px; }
+  .wai-quiet { padding: 72px 32px 80px; }
+  .wai-readers-grid, .wai-rmcards { grid-template-columns: 1fr; gap: 20px; }
+  .wai-statements { grid-template-columns: 1fr; gap: 20px; }
+  .wai-flow { grid-template-columns: 1fr; }
+  .wai-flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+}
+@media (max-width: 640px) {
+  .wai-hero { padding: 92px 24px 40px; }
+  .wai-section { padding: 48px 24px; }
+  .wai-quiet { padding: 60px 24px 64px; }
+  .wai-rmcard, .wai-reader-card { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <ul class="nav-links">
+    <li><a href="due-diligence.html">Due Diligence</a></li>
+    <li><a href="leadership.html">Advisory &amp; Leadership</a></li>
+    <li><a href="ai-platform.html">The Platform</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-btn-wrap"><a href="https://app.theproductoperator.ai" target="_blank" rel="noopener" class="nav-cta-outline">Try the Platform</a></li>
+    <li class="nav-btn-wrap"><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="due-diligence.html">Due Diligence</a>
+  <a href="leadership.html">Advisory &amp; Leadership</a>
+  <a href="ai-platform.html">The Platform</a>
+  <a href="about.html">About</a>
+  <a href="https://app.theproductoperator.ai" target="_blank" rel="noopener">Try the Platform</a>
+  <a href="contact.html">Let's Talk</a>
+</div>
+
+<!-- 1. Hero hook -->
+<section class="wai-hero">
+  <div class="container">
+    <span class="section-label">The Product Operator</span>
+    <h1>A product roadmap is a political document. The team that pretends otherwise is the team that ships the wrong things.</h1>
+    <p>Several product organizations I work with run a quarterly roadmap review that turns into a negotiation. Engineering wants more capacity for tech debt. Sales wants commitments to specific quarters. The CEO wants a clearer narrative. The board wants evidence of strategic discipline. The roadmap leaving the meeting is shaped by whoever pushed hardest in the room. The team thinks they have a roadmap. They have a compromise.</p>
+  </div>
+</section>
+
+<!-- 2. The four readers visual -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Four readers</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">One source of truth. Four documents.</h2>
+    <p class="section-body">The four roadmaps the org needs are not four versions of the same thing. They are four artifacts at four altitudes, each shaped for the reader who has to act on it. Most product orgs write one document and call it four.</p>
+
+    <div class="wai-readers-grid">
+      <div class="wai-reader-card r-strategic">
+        <div class="wai-reader-label">Strategic</div>
+        <div class="wai-reader-vis v-strategic" aria-hidden="true">
+          <div class="v-bar"></div>
+          <div class="v-bar"></div>
+          <div class="v-bar"></div>
+        </div>
+        <div class="wai-reader-reader">CEO and senior leadership. Themes and bets, framed by strategic priorities.</div>
+      </div>
+      <div class="wai-reader-card r-engineering">
+        <div class="wai-reader-label">Engineering</div>
+        <div class="wai-reader-vis v-engineering" aria-hidden="true">
+          <div class="v-row"><div class="v-cell s2"></div><div class="v-cell s1"></div><div class="v-cell s3"></div></div>
+          <div class="v-row"><div class="v-cell s1"></div><div class="v-cell s2"></div><div class="v-cell s2"></div></div>
+          <div class="v-row"><div class="v-cell s3 dim"></div><div class="v-cell s2"></div><div class="v-cell s1 dim"></div></div>
+        </div>
+        <div class="wai-reader-reader">Engineering leads and TPM. Capacity-bound work with dependencies surfaced.</div>
+      </div>
+      <div class="wai-reader-card r-sales">
+        <div class="wai-reader-label">Sales-facing</div>
+        <div class="wai-reader-vis v-sales" aria-hidden="true">
+          <div class="v-col"><div class="v-dot"></div><span class="v-q">Q1</span></div>
+          <div class="v-col"><div class="v-dot"></div><div class="v-dot"></div><span class="v-q">Q2</span></div>
+          <div class="v-col"><div class="v-dot"></div><span class="v-q">Q3</span></div>
+          <div class="v-col"><div class="v-dot"></div><div class="v-dot"></div><span class="v-q">Q4</span></div>
+        </div>
+        <div class="wai-reader-reader">Sales and customer success. Quarterly themes in customer-recognizable language.</div>
+      </div>
+      <div class="wai-reader-card r-board">
+        <div class="wai-reader-label">Board</div>
+        <div class="wai-reader-vis v-board" aria-hidden="true">
+          <svg viewBox="0 0 200 56" preserveAspectRatio="none">
+            <path d="M 5 46 Q 50 12, 100 24 T 195 6" fill="none" stroke="#6b6b85" stroke-width="2" opacity="0.65"/>
+            <circle cx="5" cy="46" r="3" fill="#6b6b85" opacity="0.7"/>
+            <circle cx="100" cy="24" r="3" fill="#6b6b85" opacity="0.7"/>
+            <circle cx="195" cy="6" r="3" fill="#6b6b85" opacity="0.7"/>
+          </svg>
+          <div class="v-years"><span>2026</span><span>2027</span><span>2028</span></div>
+        </div>
+        <div class="wai-reader-reader">Board, investors, operating partners. Three-year arc tied to the value creation plan.</div>
+      </div>
+    </div>
+
+    <p class="wai-reader-caption">One source of truth. Four documents. Most product orgs write one and call it four.</p>
+  </div>
+</section>
+
+<!-- 3. Why one roadmap can't serve four readers -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">The mismatch</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Why one roadmap can't serve four readers.</h2>
+    <p class="section-body">When a single roadmap is asked to do four jobs, every reader compromises and nobody is served. Each reader is reading the document at a different altitude, with a different question in mind, and the document can only be optimized for one of them at a time.</p>
+
+    <div class="wai-prose">
+      <p><strong>Engineering.</strong> Needs capacity-bound work, near-term, with dependencies and unknowns surfaced. The unified roadmap softens technical reality to keep sales and the board comfortable. The cost: engineering plans against a roadmap that can't be honored, surfaces the gap halfway through the quarter, and gets blamed for the slip.</p>
+      <p><strong>Sales.</strong> Needs themes they can speak about confidently to customers, without specific commitment dates that will be missed. The unified roadmap forces them to choose between vagueness, which loses deals, and overcommitment, which loses customers later. They pick the path that closes this quarter and deal with next quarter when it arrives.</p>
+      <p><strong>The CEO.</strong> Needs a strategic narrative that maps to the company's stated priorities. The unified roadmap gets cluttered with operational detail engineering and sales need. By the time the CEO is presenting it to the executive team, the strategic story has been buried under quarterly commitments and dependency notes.</p>
+      <p><strong>The board.</strong> Needs evidence that the team is executing the value creation plan. The unified roadmap is too granular to read at the board's altitude and too sanitized to surface real risk. The board sees a polished artifact, doesn't ask the right questions, and finds out about the gap two quarters later.</p>
+      <p class="wai-prose-close">Each reader is reading a different document, then arguing about why their document doesn't match yours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. The four roadmaps explained -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">The four roadmaps</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">What each artifact is actually for.</h2>
+    <p class="section-body">Same priorities. Four different artifacts. Each authored at the altitude its reader needs, in the format they can act on. None of them tries to be the others. The work isn't writing four documents from scratch every quarter. It's keeping one source of priorities clean, then deriving each artifact from it deliberately.</p>
+
+    <div class="wai-rmcards">
+      <div class="wai-rmcard c1">
+        <div class="wai-rmcard-num">01</div>
+        <span class="wai-rmcard-tag">Strategic</span>
+        <h3 class="wai-rmcard-title">The strategic roadmap.</h3>
+        <dl class="wai-rmcard-meta">
+          <dt>Reader</dt>
+          <dd>CEO and senior leadership.</dd>
+          <dt>Format</dt>
+          <dd>Themes and bets, framed by strategic priorities. Three to five items. Time horizons in halves or years.</dd>
+          <dt>Purpose</dt>
+          <dd>Aligns leadership on what the company is becoming.</dd>
+        </dl>
+      </div>
+      <div class="wai-rmcard c2">
+        <div class="wai-rmcard-num">02</div>
+        <span class="wai-rmcard-tag">Engineering</span>
+        <h3 class="wai-rmcard-title">The engineering roadmap.</h3>
+        <dl class="wai-rmcard-meta">
+          <dt>Reader</dt>
+          <dd>Engineering leads, individual contributors, technical program management.</dd>
+          <dt>Format</dt>
+          <dd>Specific work items, capacity-bound, with dependencies and unknowns surfaced.</dd>
+          <dt>Purpose</dt>
+          <dd>Lets engineering plan capacity and surface risk before commitments are made.</dd>
+        </dl>
+      </div>
+      <div class="wai-rmcard c3">
+        <div class="wai-rmcard-num">03</div>
+        <span class="wai-rmcard-tag">Sales-facing</span>
+        <h3 class="wai-rmcard-title">The sales-facing roadmap.</h3>
+        <dl class="wai-rmcard-meta">
+          <dt>Reader</dt>
+          <dd>Sales leadership, customer success, customers in modified form.</dd>
+          <dt>Format</dt>
+          <dd>Quarterly themes in customer-recognizable language. No commitment dates. Themes, not features.</dd>
+          <dt>Purpose</dt>
+          <dd>Lets sales speak with confidence without overcommitting.</dd>
+        </dl>
+      </div>
+      <div class="wai-rmcard c4">
+        <div class="wai-rmcard-num">04</div>
+        <span class="wai-rmcard-tag">Board</span>
+        <h3 class="wai-rmcard-title">The board roadmap.</h3>
+        <dl class="wai-rmcard-meta">
+          <dt>Reader</dt>
+          <dd>Board of directors, investors, operating partners.</dd>
+          <dt>Format</dt>
+          <dd>Three-year arc tied to the value creation plan. Strategic shifts, not operational details.</dd>
+          <dt>Purpose</dt>
+          <dd>Gives the board evidence that strategic discipline is being maintained.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Worked example -->
+<section class="wai-section alt wai-example">
+  <div class="container">
+    <span class="section-label">Worked example</span>
+    <div class="rule"></div>
+    <h3>The roadmap review that turned into a fight.</h3>
+    <span class="wai-example-tag">Setup</span>
+    <p class="example-body">A CPO walks into a quarterly roadmap review with a single 18-month roadmap. Engineering pushes back: too much committed, no capacity for the work that's actually needed to keep the platform stable. Sales pushes back: nothing they can take to customers without overcommitting. The CEO pushes back: where's the strategic story? The CPO leaves the meeting with a roadmap that's been edited four times by people with conflicting needs.</p>
+    <span class="wai-example-tag outcome">Outcome, six weeks later</span>
+    <p class="example-body">The roadmap that ships is the artifact of the meeting, not the artifact of strategy. Engineering deprioritizes work that wasn't surfaced. Sales accidentally commits to a date that wasn't supposed to be a commitment. The CEO can't explain the narrative to the board. The CPO is the visible failure point. The actual failure point is structural. One document was asked to do four jobs.</p>
+    <p class="wai-table-note">Pattern based on common product-org dynamics, not a single sourced case.</p>
+  </div>
+</section>
+
+<!-- 6. Self-diagnostic -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Diagnostic</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Six questions.</h2>
+    <p class="section-body">Yes or no for your own product organization. Take it as a CPO answering for yourself, or as a CEO watching the roadmap review from the outside. The questions are blunt by design. Hedging defeats the point. If the honest answer is yes-but, it's a no.</p>
+
+    <div class="wai-diagnostic">
+      <ol class="wai-diagnostic-list">
+        <li>Does your product organization produce a single roadmap document that's shown to engineering, sales, the CEO, and the board?</li>
+        <li>When that roadmap is reviewed, do meeting participants argue about what specific items mean: what level of commitment, what timeline, what scope?</li>
+        <li>Has the roadmap been edited in the last quarter to reflect a complaint from a specific stakeholder, rather than a change in actual priorities?</li>
+        <li>Do customer-facing teams have a roadmap they can show customers without legal review?</li>
+        <li>Does engineering have a capacity-bound view of the next two quarters that's distinct from the document the board sees?</li>
+        <li>When the board asks about strategic shifts, can the team produce a roadmap framed at the board's altitude without rebuilding it from scratch?</li>
+      </ol>
+
+      <div class="wai-diagnostic-interp">
+        Five or six yeses: the org has specialized its roadmaps. Three or four: the roadmap is doing too much work. Fewer than three: the roadmap is the source of the political fight, not the resolution to it.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. What specialization looks like -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">What specialization looks like</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">One source. Four artifacts. A discipline that holds them in sync.</h2>
+    <p class="section-body">Specialization isn't four uncoordinated documents. It's a single source of priorities, owned by the CPO, that propagates into four artifacts, each shaped for its reader. Three things define the discipline.</p>
+
+    <div class="wai-statements">
+      <div class="wai-statement">
+        <strong>A single source of priorities, owned by the CPO, that all four roadmaps derive from.</strong>
+        <p>The priorities live in one document with one owner. When they change, the change is visible. The four roadmaps regenerate from the same source, so they cannot drift from each other or from the company's actual direction.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>Four artifacts, each authored for a specific reader, each consistent with the source priorities, each different in format and altitude.</strong>
+        <p>The strategic roadmap is in themes. The engineering roadmap is in capacity blocks. The sales roadmap is in quarterly stories. The board roadmap is a three-year arc. Same priorities, four formats. None of them tries to be the others.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>A discipline of regenerating the four artifacts when priorities change, instead of editing one document four times to satisfy four stakeholders.</strong>
+        <p>When priorities shift, the source updates first, then each artifact gets regenerated. Stakeholders react to consistent translations of the same decision rather than fighting over edits to a single document that was never going to satisfy them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Three-box flow -->
+<section class="wai-section">
+  <div class="container">
+    <div class="wai-flow">
+      <div class="wai-flow-box start">
+        <div class="wai-flow-label">Source</div>
+        <div class="wai-flow-title">Priorities</div>
+      </div>
+      <div class="wai-flow-arrow" aria-hidden="true">→</div>
+      <div class="wai-flow-box middle">
+        <div class="wai-flow-label">What's missing</div>
+        <div class="wai-flow-title">Specialization</div>
+      </div>
+      <div class="wai-flow-arrow" aria-hidden="true">→</div>
+      <div class="wai-flow-box end">
+        <div class="wai-flow-label">What gets defended</div>
+        <div class="wai-flow-title">Aligned execution</div>
+      </div>
+    </div>
+    <p class="wai-flow-caption">The roadmap stops being an argument when it stops being one document.</p>
+  </div>
+</section>
+
+<!-- 9. Quiet close -->
+<section class="wai-quiet">
+  <div class="container">
+    <p>If your roadmap reviews are turning into negotiations, <a href="mailto:marc@theproductoperator.ai?subject=Let%27s%20connect">I'd be glad to talk</a> about what specialization looks like in practice.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <div class="footer-nav">
+    <ul class="footer-links">
+      <li><a href="due-diligence.html">Due Diligence</a></li>
+      <li><a href="leadership.html">Advisory &amp; Leadership</a></li>
+      <li><a href="ai-platform.html">The Platform</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+    <span class="footer-divider" aria-hidden="true"></span>
+    <ul class="footer-contact">
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mailto:marc@theproductoperator.ai" aria-label="Email Marc" class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></a></li>
+      <li><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+    </ul>
+  </div>
+  <span class="footer-copy">© 2026 Marc Liebman · theproductoperator.ai</span>
+</footer>
+<script src="app.js?v=15"></script>
+</body>
+</html>
