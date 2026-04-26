@@ -18,15 +18,13 @@
 <!-- Open Graph -->
 <meta property="og:title" content="Most AI investments get evaluated on the model. The data underneath is often where the failure actually lives.">
 <meta property="og:description" content="Five data-quality failure modes that make AI investments unworkable, and what a forensic audit surfaces. Built for diligence, not dashboards.">
-<meta property="og:image" content="https://theproductoperator.ai/og-data-as-the-ai-bottleneck.png">
 <meta property="og:url" content="https://theproductoperator.ai/data-as-the-ai-bottleneck">
 <meta property="og:type" content="article">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Most AI investments get evaluated on the model. The data underneath is often where the failure actually lives.">
 <meta name="twitter:description" content="Five data-quality failure modes that make AI investments unworkable, and what a forensic audit surfaces. Built for diligence, not dashboards.">
-<meta name="twitter:image" content="https://theproductoperator.ai/og-data-as-the-ai-bottleneck.png">
 
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -51,41 +49,15 @@
   max-width: 100%;
   margin: 14px 0 22px;
 }
+.wai-hero {
+  border-bottom: 1px solid var(--border);
+}
 .wai-hero p {
   font-size: 17px;
   font-weight: 300;
   line-height: 1.65;
   color: var(--slate);
   max-width: 100%;
-}
-
-/* Image hero block (primary visual asset) */
-.wai-image-block {
-  background: var(--white);
-  padding: 0 48px 64px;
-  border-bottom: 1px solid var(--border);
-}
-.wai-image-block .container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.wai-image-block figure { margin: 0; }
-.wai-image-block img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-}
-.wai-image-block figcaption {
-  margin: 22px auto 0;
-  max-width: 720px;
-  font-size: 14px;
-  color: var(--slate);
-  font-style: italic;
-  line-height: 1.6;
-  text-align: center;
 }
 
 .wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
@@ -522,7 +494,6 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .wai-hero { padding: 100px 32px 48px; }
-  .wai-image-block { padding: 0 32px 56px; }
   .wai-section { padding: 56px 32px; }
   .wai-quiet { padding: 72px 32px 80px; }
   .wai-compare, .wai-statements { grid-template-columns: 1fr; gap: 20px; }
@@ -535,7 +506,6 @@
 }
 @media (max-width: 640px) {
   .wai-hero { padding: 92px 24px 40px; }
-  .wai-image-block { padding: 0 24px 44px; }
   .wai-section { padding: 48px 24px; }
   .wai-quiet { padding: 60px 24px 64px; }
   .wai-cost-callout { padding: 24px 22px; }
@@ -576,17 +546,7 @@
   </div>
 </section>
 
-<!-- 2. Five-failure-mode summary visual -->
-<section class="wai-image-block">
-  <div class="container">
-    <figure>
-      <img src="og-data-as-the-ai-bottleneck.png" alt="A production database table with a meaningful percentage of rows flagged as synthetic, demo, automation, or duplicate records mixed in with real customer activity.">
-      <figcaption>A 50% contamination rate looks impossible until you see the table. It's more common than not. Diligence rarely catches it.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- 3. Diagnostic frame -->
+<!-- 2. Diagnostic frame -->
 <section class="wai-section alt">
   <div class="container">
     <span class="section-label">What gets graded vs. what predicts</span>
