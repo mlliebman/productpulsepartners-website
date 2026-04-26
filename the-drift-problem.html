@@ -18,15 +18,13 @@
 <!-- Open Graph -->
 <meta property="og:title" content="The metric the AI trained on may not mean what it means today.">
 <meta property="og:description" content="Schema drift is the data quality failure mode that breaks AI investments quietly. Built for diligence, not dashboards.">
-<meta property="og:image" content="https://theproductoperator.ai/og-the-drift-problem.png">
 <meta property="og:url" content="https://theproductoperator.ai/the-drift-problem">
 <meta property="og:type" content="article">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The metric the AI trained on may not mean what it means today.">
 <meta name="twitter:description" content="Schema drift is the data quality failure mode that breaks AI investments quietly. Built for diligence, not dashboards.">
-<meta name="twitter:image" content="https://theproductoperator.ai/og-the-drift-problem.png">
 
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -59,33 +57,123 @@
   max-width: 100%;
 }
 
-/* Image hero block */
-.wai-image-block {
+/* Inline annotated timeline (richer than data-bottleneck's three-card row) */
+.wai-timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin: 36px 0 0;
+  position: relative;
+}
+.wai-timeline::before {
+  content: '';
+  position: absolute;
+  left: 14%; right: 14%;
+  top: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #009e85 0%, #c87a12 50%, #d14343 100%);
+  opacity: 0.35;
+  z-index: 0;
+}
+.wai-timeline-step {
   background: var(--white);
-  padding: 0 48px 64px;
-  border-bottom: 1px solid var(--border);
-}
-.wai-image-block .container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.wai-image-block figure { margin: 0; }
-.wai-image-block img {
-  width: 100%;
-  height: auto;
-  display: block;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
 }
-.wai-image-block figcaption {
-  margin: 22px auto 0;
-  max-width: 720px;
+.wai-timeline-step.t1 { border-top-color: #009e85; }
+.wai-timeline-step.t2 { border-top-color: #c87a12; }
+.wai-timeline-step.t3 { border-top-color: #d14343; }
+.wai-timeline-year {
+  font-family: var(--serif);
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.wai-timeline-def {
   font-size: 14px;
+  color: var(--mid);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+.wai-timeline-def code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  background: var(--off-white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.wai-timeline-trigger {
+  margin-top: auto;
+  padding: 12px 14px;
+  background: var(--off-white);
+  border-radius: 6px;
+  border-left: 2px solid #c5bfb2;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--mid);
+}
+.wai-timeline-trigger-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--slate);
+  margin-bottom: 4px;
+}
+.wai-model-sees {
+  margin-top: 32px;
+  padding: 26px 30px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--ink);
+  border-radius: 8px;
+}
+.wai-model-sees-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.wai-model-sees-body {
+  font-family: var(--serif);
   font-style: italic;
-  line-height: 1.6;
-  text-align: center;
+  font-size: clamp(17px, 1.9vw, 19px);
+  line-height: 1.5;
+  color: var(--black);
+  letter-spacing: -0.005em;
+}
+.wai-timeline-caption {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.55;
+  color: var(--mid);
+  max-width: 820px;
+}
+.wai-timeline-caption code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78em;
+  background: var(--off-white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-style: normal;
+  color: var(--ink);
 }
 
 .wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
@@ -412,17 +500,19 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .wai-hero { padding: 100px 32px 48px; }
-  .wai-image-block { padding: 0 32px 56px; }
   .wai-section { padding: 56px 32px; }
   .wai-quiet { padding: 72px 32px 80px; }
   .wai-cards4, .wai-statements { grid-template-columns: 1fr; gap: 20px; }
   .wai-flow { grid-template-columns: 1fr; }
   .wai-flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .wai-timeline { grid-template-columns: 1fr; gap: 16px; }
+  .wai-timeline::before { display: none; }
 }
 @media (max-width: 640px) {
   .wai-hero { padding: 92px 24px 40px; }
-  .wai-image-block { padding: 0 24px 44px; }
   .wai-section { padding: 48px 24px; }
+  .wai-timeline-step { padding: 22px 20px; }
+  .wai-model-sees { padding: 22px 22px; }
   .wai-quiet { padding: 60px 24px 64px; }
   .wai-cost-callout { padding: 24px 22px; }
   .wai-mode-card { padding: 24px 22px; }
@@ -461,13 +551,47 @@
   </div>
 </section>
 
-<!-- 2. Schema-drift timeline visual -->
-<section class="wai-image-block">
+<!-- 2. Schema-drift timeline visual (inline annotated) -->
+<section class="wai-section">
   <div class="container">
-    <figure>
-      <img src="og-the-drift-problem.png" alt="A five-year timeline of the metric monthly_active_users showing three different definitions across 2020, 2022, and 2024.">
-      <figcaption>Five years of <code>monthly_active_users</code>. Three different definitions. The chart shows growth. Some of it is real. Some of it is definitional.</figcaption>
-    </figure>
+    <span class="section-label">The drift</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">One column. Five years. Three different metrics.</h2>
+    <p class="section-body">Same column name. Same dashboard label. Three different definitions stacked into one time series. Each shift had a defensible reason. None got recorded where a downstream model could see it.</p>
+
+    <div class="wai-timeline">
+      <div class="wai-timeline-step t1">
+        <div class="wai-timeline-year">2020</div>
+        <p class="wai-timeline-def"><code>monthly_active_users</code> = users with any session in the last 30 days.</p>
+        <div class="wai-timeline-trigger">
+          <span class="wai-timeline-trigger-label">Triggered by</span>
+          First instrumentation. The team picked the loosest credible definition because something needed to ship by quarter-end.
+        </div>
+      </div>
+      <div class="wai-timeline-step t2">
+        <div class="wai-timeline-year">2022</div>
+        <p class="wai-timeline-def"><code>monthly_active_users</code> = users with three or more sessions in the last 30 days.</p>
+        <div class="wai-timeline-trigger">
+          <span class="wai-timeline-trigger-label">Triggered by</span>
+          Analytics audit. One-session events and tab-opens were inflating the count. The definition tightened. History stayed loose.
+        </div>
+      </div>
+      <div class="wai-timeline-step t3">
+        <div class="wai-timeline-year">2024</div>
+        <p class="wai-timeline-def"><code>monthly_active_users</code> = users who completed a defined "core action" in the last 30 days.</p>
+        <div class="wai-timeline-trigger">
+          <span class="wai-timeline-trigger-label">Triggered by</span>
+          Product strategy shift. Engagement defined by outcomes, not visits. Definition rewritten end-to-end. History never reconciled.
+        </div>
+      </div>
+    </div>
+
+    <div class="wai-model-sees">
+      <span class="wai-model-sees-label">What the model sees</span>
+      <p class="wai-model-sees-body">Five years of one column read as one time series. Three patterns absorbed as features. The model can't see that the column's meaning shifted, and predicts confidently against an incoherent input.</p>
+    </div>
+
+    <p class="wai-timeline-caption">Five years of <code>monthly_active_users</code>. Three different definitions. The chart shows growth. Some of it is real. Some of it is definitional.</p>
   </div>
 </section>
 
