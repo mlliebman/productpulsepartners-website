@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CVXZ3WEN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9CVXZ3WEN3');
+</script>
+<title>The Product Operator</title>
+<meta name="description" content="Schema drift is the data quality failure mode that breaks AI investments quietly. Built for diligence, not dashboards.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The metric the AI trained on may not mean what it means today.">
+<meta property="og:description" content="Schema drift is the data quality failure mode that breaks AI investments quietly. Built for diligence, not dashboards.">
+<meta property="og:image" content="https://theproductoperator.ai/og-the-drift-problem.png">
+<meta property="og:url" content="https://theproductoperator.ai/the-drift-problem">
+<meta property="og:type" content="article">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The metric the AI trained on may not mean what it means today.">
+<meta name="twitter:description" content="Schema drift is the data quality failure mode that breaks AI investments quietly. Built for diligence, not dashboards.">
+<meta name="twitter:image" content="https://theproductoperator.ai/og-the-drift-problem.png">
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="styles.css?v=15">
+<style>
+/* Page-scoped layout — light theme. Sibling to ai-as-cost-vs-lever and data-as-the-ai-bottleneck. */
+.wai-hero {
+  padding: 116px 48px 56px;
+  background: var(--white);
+}
+.wai-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--black);
+  max-width: 100%;
+  margin: 14px 0 22px;
+}
+.wai-hero p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--slate);
+  max-width: 100%;
+}
+
+/* Image hero block */
+.wai-image-block {
+  background: var(--white);
+  padding: 0 48px 64px;
+  border-bottom: 1px solid var(--border);
+}
+.wai-image-block .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.wai-image-block figure { margin: 0; }
+.wai-image-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+.wai-image-block figcaption {
+  margin: 22px auto 0;
+  max-width: 720px;
+  font-size: 14px;
+  color: var(--slate);
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
+.wai-section.alt { background: var(--off-white); }
+.wai-section.plain { background: var(--white); }
+.wai-section > .container > p.section-body { max-width: 100%; }
+
+/* Why drift is invisible — prose with serif stakeholder lead-ins */
+.wai-prose {
+  margin-top: 36px;
+  max-width: 880px;
+}
+.wai-prose p {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+.wai-prose p:last-of-type { margin-bottom: 0; }
+.wai-prose p strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--black);
+  margin-right: 6px;
+}
+.wai-prose-close {
+  margin-top: 36px;
+  padding-left: 22px;
+  border-left: 2px solid var(--teal-dark);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* Four cards in a 2x2 grid */
+.wai-cards4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 36px;
+}
+.wai-mode-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 26px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.wai-mode-card.c1 { border-top-color: var(--teal-dark); }
+.wai-mode-card.c2 { border-top-color: #c87a12; }
+.wai-mode-card.c3 { border-top-color: #b58a1c; }
+.wai-mode-card.c4 { border-top-color: #d14343; }
+.wai-mode-num {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1;
+  color: #ebe8e2;
+  margin-bottom: 6px;
+}
+.wai-mode-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--off-white);
+  color: var(--slate);
+  margin-bottom: 14px;
+  align-self: flex-start;
+}
+.wai-mode-card.c1 .wai-mode-tag { background: #eafaf5; color: var(--teal-dark); }
+.wai-mode-card.c2 .wai-mode-tag { background: #fcf3e3; color: #8f5608; }
+.wai-mode-card.c3 .wai-mode-tag { background: #fbf3dd; color: #79570c; }
+.wai-mode-card.c4 .wai-mode-tag { background: #fdecec; color: #b53030; }
+.wai-mode-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.22;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.wai-mode-body {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.wai-mode-example {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--mid);
+  background: var(--off-white);
+  padding: 12px 16px;
+  border-radius: 6px;
+  border-left: 2px solid #c5bfb2;
+  font-style: italic;
+}
+.wai-mode-example-label {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 4px;
+  font-style: normal;
+}
+
+/* Worked example callout (large pull-quote, thin border) */
+.wai-example h3 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  color: var(--black);
+  margin: 12px 0 14px;
+}
+.wai-example > .container > p.example-setup {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.7;
+  max-width: 100%;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+.wai-cost-callout {
+  margin: 30px 0 0;
+  padding: 32px 36px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid #d14343;
+  border-radius: 8px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.36;
+  letter-spacing: -0.015em;
+  color: var(--black);
+}
+.wai-cost-callout code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78em;
+  background: var(--off-white);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0;
+}
+.wai-table-note {
+  font-size: 12px;
+  color: #9a958c;
+  font-style: italic;
+  line-height: 1.55;
+  margin-top: 14px;
+  max-width: 100%;
+}
+
+/* Diagnostic */
+.wai-diagnostic {
+  max-width: 880px;
+  margin: 32px 0 0;
+}
+.wai-diagnostic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: diag-counter;
+}
+.wai-diagnostic-list li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.55;
+  align-items: start;
+}
+.wai-diagnostic-list li:first-child { padding-top: 8px; }
+.wai-diagnostic-list li:last-child { border-bottom: none; }
+.wai-diagnostic-list li::before {
+  counter-increment: diag-counter;
+  content: counter(diag-counter, decimal-leading-zero);
+  font-family: var(--serif);
+  font-size: 18px;
+  color: #c5bfb2;
+  line-height: 1.2;
+}
+.wai-diagnostic-group {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 28px 0 4px;
+}
+.wai-diagnostic-group:first-of-type { margin-top: 16px; }
+.wai-diagnostic-interp {
+  margin-top: 28px;
+  padding: 22px 26px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal-dark);
+  border-radius: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+/* Closing principles — three statements */
+.wai-statements {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px 32px;
+  margin-top: 36px;
+}
+.wai-statement {
+  padding-left: 20px;
+  border-left: 2px solid var(--teal-dark);
+}
+.wai-statement strong {
+  display: block;
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.wai-statement p {
+  font-size: 14px; font-weight: 300;
+  color: var(--slate); line-height: 1.7;
+}
+
+/* Three-box flow */
+.wai-flow {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr 36px 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin: 16px 0 22px;
+}
+.wai-flow-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  padding: 30px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wai-flow-box.start { border-top: 3px solid #d14343; }
+.wai-flow-box.middle { border-top: 3px solid #c87a12; }
+.wai-flow-box.end { border-top: 3px solid var(--teal-dark); }
+.wai-flow-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.wai-flow-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--black);
+}
+.wai-flow-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  color: #c5bfb2;
+}
+.wai-flow-caption {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--black);
+  max-width: 820px;
+}
+
+/* Quiet close */
+.wai-quiet {
+  padding: 88px 48px 96px;
+  background: var(--white);
+}
+.wai-quiet .container {
+  max-width: 760px;
+}
+.wai-quiet p {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.5;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+.wai-quiet a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal-dark);
+  font-style: normal;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.wai-quiet a:hover {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .wai-hero { padding: 100px 32px 48px; }
+  .wai-image-block { padding: 0 32px 56px; }
+  .wai-section { padding: 56px 32px; }
+  .wai-quiet { padding: 72px 32px 80px; }
+  .wai-cards4, .wai-statements { grid-template-columns: 1fr; gap: 20px; }
+  .wai-flow { grid-template-columns: 1fr; }
+  .wai-flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+}
+@media (max-width: 640px) {
+  .wai-hero { padding: 92px 24px 40px; }
+  .wai-image-block { padding: 0 24px 44px; }
+  .wai-section { padding: 48px 24px; }
+  .wai-quiet { padding: 60px 24px 64px; }
+  .wai-cost-callout { padding: 24px 22px; }
+  .wai-mode-card { padding: 24px 22px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <ul class="nav-links">
+    <li><a href="due-diligence.html">Due Diligence</a></li>
+    <li><a href="leadership.html">Advisory &amp; Leadership</a></li>
+    <li><a href="ai-platform.html">The Platform</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-btn-wrap"><a href="https://app.theproductoperator.ai" target="_blank" rel="noopener" class="nav-cta-outline">Try the Platform</a></li>
+    <li class="nav-btn-wrap"><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="due-diligence.html">Due Diligence</a>
+  <a href="leadership.html">Advisory &amp; Leadership</a>
+  <a href="ai-platform.html">The Platform</a>
+  <a href="about.html">About</a>
+  <a href="https://app.theproductoperator.ai" target="_blank" rel="noopener">Try the Platform</a>
+  <a href="contact.html">Let's Talk</a>
+</div>
+
+<!-- 1. Hero hook -->
+<section class="wai-hero">
+  <div class="container">
+    <span class="section-label">The Product Operator</span>
+    <h1>The metric the AI trained on may not mean what it means today.</h1>
+    <p>Several PE diligence teams I work with run thorough data audits before greenlighting an AI investment. Most of those audits look at what's in the records: typos, nulls, contamination, missing fields. They rarely look at what the records mean. That's where schema drift lives, and it's the failure mode most likely to break an AI investment thesis quietly.</p>
+  </div>
+</section>
+
+<!-- 2. Schema-drift timeline visual -->
+<section class="wai-image-block">
+  <div class="container">
+    <figure>
+      <img src="og-the-drift-problem.png" alt="A five-year timeline of the metric monthly_active_users showing three different definitions across 2020, 2022, and 2024.">
+      <figcaption>Five years of <code>monthly_active_users</code>. Three different definitions. The chart shows growth. Some of it is real. Some of it is definitional.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 3. Why drift is invisible -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">Why drift hides</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Drift is invisible to almost everyone who could catch it.</h2>
+    <p class="section-body">The reason drift slips through diligence is that nobody whose job it is to catch it has the full view. Each stakeholder sees a piece. The piece looks consistent. The mismatch lives in the gaps between them.</p>
+
+    <div class="wai-prose">
+      <p><strong>The data team.</strong> They may know the definition changed because they made the change themselves. The change was discussed in standup, scoped in a ticket, and shipped. It was not always documented in a place a downstream consumer can find. The change is local to the team that made it.</p>
+      <p><strong>The model.</strong> The model sees a column name and a value. It cannot see the metadata that would tell it the value's definition shifted in 2022 and again in 2024. Five years of training data look like one continuous time series. The model trains on it accordingly and learns three patterns at once.</p>
+      <p><strong>The board.</strong> The metric on the board deck has the same name today as it did three years ago. The trend chart looks coherent. The board doesn't know to ask whether the underlying definition stayed stable, and the operating team that presents the deck doesn't always know to flag it. The conversation moves on.</p>
+      <p><strong>The AI investment thesis.</strong> The thesis depends on a growth pattern in a specific metric. Some of that growth is real customer behavior changing over time. Some of it is definitional shifts the metric absorbed quietly. The thesis cannot tell the difference. The model trained to act on the thesis cannot either.</p>
+      <p class="wai-prose-close">Drift is a coordination problem disguised as a data problem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Where drift comes from -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Causes</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Four ways drift gets introduced.</h2>
+    <p class="section-body">Drift isn't malicious and it isn't a sign of a sloppy data team. Most of the time, it's the byproduct of getting better at measuring something while leaving history alone. Four common patterns surface in the audits I run, often in combination on the same metric.</p>
+
+    <div class="wai-cards4">
+      <div class="wai-mode-card c1">
+        <div class="wai-mode-num">01</div>
+        <span class="wai-mode-tag">Product evolution</span>
+        <div class="wai-mode-title">The product changed. The metric had to.</div>
+        <p class="wai-mode-body">The thing the metric measures genuinely changed because the product changed. New features, new user behaviors, new core actions. The old definition no longer fits.</p>
+        <div class="wai-mode-example">
+          <span class="wai-mode-example-label">In real systems</span>
+          A "session" meant a tab open in 2020. By 2024, with native mobile and offline sync, "session" was redefined to cover something else entirely.
+        </div>
+      </div>
+
+      <div class="wai-mode-card c2">
+        <div class="wai-mode-num">02</div>
+        <span class="wai-mode-tag">Analytics maturity</span>
+        <div class="wai-mode-title">The team got better. History didn't catch up.</div>
+        <p class="wai-mode-body">The data team got better at measuring the same thing. The new definition is more rigorous. Historical data wasn't backfilled to the new definition.</p>
+        <div class="wai-mode-example">
+          <span class="wai-mode-example-label">In real systems</span>
+          The team realized "active users" shouldn't include accounts whose only activity was a webhook firing. The definition tightened. Historical numbers stayed loose.
+        </div>
+      </div>
+
+      <div class="wai-mode-card c3">
+        <div class="wai-mode-num">03</div>
+        <span class="wai-mode-tag">Cross-system reconciliation</span>
+        <div class="wai-mode-title">Two systems disagreed. One won.</div>
+        <p class="wai-mode-body">Two systems disagreed about the same metric. Someone picked one definition and called it canonical. The other system's history quietly stopped mattering.</p>
+        <div class="wai-mode-example">
+          <span class="wai-mode-example-label">In real systems</span>
+          Salesforce reported 4,200 customers. The data warehouse reported 4,540. The team standardized on the warehouse number. The CRM history became inconsistent with itself.
+        </div>
+      </div>
+
+      <div class="wai-mode-card c4">
+        <div class="wai-mode-num">04</div>
+        <span class="wai-mode-tag">Definitional debt</span>
+        <div class="wai-mode-title">Loose at first. Tightened in the dark.</div>
+        <p class="wai-mode-body">The metric was loosely defined when first instrumented. As the team got more sophisticated, the definition tightened informally without being version-controlled.</p>
+        <div class="wai-mode-example">
+          <span class="wai-mode-example-label">In real systems</span>
+          Three different engineers each had their own implicit definition of "churn." Reports that combined their queries gave different answers depending on who ran them.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Worked example -->
+<section class="wai-section alt wai-example">
+  <div class="container">
+    <span class="section-label">Worked example</span>
+    <div class="rule"></div>
+    <h3>The metric that drifted under the AI bet.</h3>
+    <p class="example-setup">A growth-stage SaaS company is being evaluated for acquisition. The investment thesis depends on continued growth in monthly active users, which has compounded at 47 percent annually for three years. The diligence team validates the trend, validates the methodology for the current period, and signs off. The deal closes.</p>
+
+    <div class="wai-cost-callout">
+      Eighteen months later, the AI churn-prediction model trained on five years of MAU history is producing predictions the operating team can't reconcile with what they're seeing on the ground. The model isn't wrong. The MAU definition shifted twice during the training window. The model learned three different patterns at once and can't untangle them.
+    </div>
+    <p class="wai-table-note">Pattern based on common diligence findings, not a single sourced study.</p>
+  </div>
+</section>
+
+<!-- 6. Self-diagnostic -->
+<section class="wai-section">
+  <div class="container">
+    <span class="section-label">Diagnostic</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Six questions.</h2>
+    <p class="section-body">Yes or no for the metrics your AI investment depends on. Two questions per stakeholder layer. Take it as an operating partner running diligence on a portfolio company, or as a CDO answering for your own org. The questions are blunt by design. Hedging defeats the point. If the honest answer is yes-but, it's a no.</p>
+
+    <div class="wai-diagnostic">
+      <div class="wai-diagnostic-group">Layer 01 · data team</div>
+      <ol class="wai-diagnostic-list" start="1">
+        <li>For the metrics your AI investment thesis depends on, can your data team produce a documented change history of the field's definition over the last 24 months?</li>
+        <li>When a metric definition changes, is the change recorded somewhere a downstream model can reference, or is it tribal knowledge?</li>
+      </ol>
+
+      <div class="wai-diagnostic-group">Layer 02 · downstream consumers</div>
+      <ol class="wai-diagnostic-list" start="3">
+        <li>When the board sees a five-year trend chart, does anyone validate that the metric definition stayed stable across that window?</li>
+        <li>Do the dashboards your operating team uses display the metric definition alongside the metric value, or just the value?</li>
+      </ol>
+
+      <div class="wai-diagnostic-group">Layer 03 · investment thesis</div>
+      <ol class="wai-diagnostic-list" start="5">
+        <li>Does your AI investment thesis depend on growth in a specific metric over a specific time window? If yes, has anyone audited that metric's definition history across that window?</li>
+        <li>If the metric drifted during the training window, would your AI model's outputs reveal that, or would they silently absorb it as signal?</li>
+      </ol>
+
+      <div class="wai-diagnostic-interp">
+        Five or six yeses: drift is unlikely to break the thesis. Three or four: there's drift exposure that's not currently quantified. Fewer than three: the AI investment thesis is built on a metric that may not have meant the same thing throughout its history.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. What a drift-aware data audit produces -->
+<section class="wai-section alt">
+  <div class="container">
+    <span class="section-label">What an audit produces</span>
+    <div class="rule"></div>
+    <h2 class="section-headline">Output that names the drift exposure.</h2>
+    <p class="section-body">A drift-aware audit isn't a hygiene report and it isn't a slide deck of definitional observations. It surfaces drift quantitatively, ties each instance to the part of the investment thesis it puts at risk, and produces artifacts the AI training pipeline can read directly. Three things define the output.</p>
+
+    <div class="wai-statements">
+      <div class="wai-statement">
+        <strong>A documented change history for each metric the AI investment depends on, including the date and reason for each definition change.</strong>
+        <p>Every change has a date, an owner, a reason, and the version of the metric before and after. The history sits next to the metric in the data dictionary, not in a Slack thread or a PR description nobody can find later.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>A model-readable artifact (typically a YAML or JSON schema with versioned definitions) that downstream AI systems can consume to detect drift at training time.</strong>
+        <p>The schema is checked into the same repo as the model code. When the schema version changes, the training pipeline either fails or flags the affected window. Drift becomes a build-time signal, not a six-month operational mystery.</p>
+      </div>
+      <div class="wai-statement">
+        <strong>A drift-exposure score for the investment thesis, naming which metrics are stable enough to train on and which are not.</strong>
+        <p>Each metric gets a stability rating across the training window. Metrics with high drift get sequestered or excluded. The score lands in the IC memo and the post-close remediation plan, not in a technical appendix the deal team won't open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Three-box flow visualization -->
+<section class="wai-section">
+  <div class="container">
+    <div class="wai-flow">
+      <div class="wai-flow-box start">
+        <div class="wai-flow-label">Today</div>
+        <div class="wai-flow-title">Schema</div>
+      </div>
+      <div class="wai-flow-arrow" aria-hidden="true">→</div>
+      <div class="wai-flow-box middle">
+        <div class="wai-flow-label">What's missing</div>
+        <div class="wai-flow-title">History</div>
+      </div>
+      <div class="wai-flow-arrow" aria-hidden="true">→</div>
+      <div class="wai-flow-box end">
+        <div class="wai-flow-label">What gets defended</div>
+        <div class="wai-flow-title">Defensible AI bet</div>
+      </div>
+    </div>
+    <p class="wai-flow-caption">Drift isn't a data quality problem. It's an AI investment risk that lives one layer up.</p>
+  </div>
+</section>
+
+<!-- 9. Quiet close -->
+<section class="wai-quiet">
+  <div class="container">
+    <p>If you're running AI-readiness diligence and want a second set of eyes on the drift exposure in the underlying metrics, <a href="mailto:marc@theproductoperator.ai?subject=Let%27s%20connect">I'd be glad to talk</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo"><span class="nav-dot"></span>The Product Operator</a>
+  <div class="footer-nav">
+    <ul class="footer-links">
+      <li><a href="due-diligence.html">Due Diligence</a></li>
+      <li><a href="leadership.html">Advisory &amp; Leadership</a></li>
+      <li><a href="ai-platform.html">The Platform</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+    <span class="footer-divider" aria-hidden="true"></span>
+    <ul class="footer-contact">
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mailto:marc@theproductoperator.ai" aria-label="Email Marc" class="footer-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></a></li>
+      <li><a href="https://linkedin.com/in/marcliebman" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+    </ul>
+  </div>
+  <span class="footer-copy">© 2026 Marc Liebman · theproductoperator.ai</span>
+</footer>
+<script src="app.js?v=15"></script>
+</body>
+</html>
