@@ -92,6 +92,30 @@
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
+.insight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.insight-pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  line-height: 1.4;
+  background: var(--off-white);
+  color: var(--slate);
+}
+.insight-pill--ai-investment { background: #eafaf5; color: var(--teal-dark); }
+.insight-pill--data-quality { background: #fbf3dd; color: #79570c; }
+.insight-pill--diligence { background: #fdecec; color: #b53030; }
+.insight-pill--product-org { background: #ecedf3; color: #4a4a63; }
+.insight-pill--roadmap { background: #fcf3e3; color: #8f5608; }
+
 .insight-meta {
   display: flex;
   flex-wrap: wrap;
@@ -264,12 +288,26 @@
       return;
     }
 
+    function tagSlug(t) {
+      return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
     var html = published.map(function (i) {
+      var tags = '';
+      if (Array.isArray(i.tags) && i.tags.length) {
+        tags = '<div class="insight-tags">'
+          + i.tags.map(function (t) {
+              return '<span class="insight-pill insight-pill--' + tagSlug(t) + '">'
+                + escapeHtml(t) + '</span>';
+            }).join('')
+          + '</div>';
+      }
       var audience = i.audience
         ? '<span class="insight-audience">' + escapeHtml(i.audience) + '</span>'
         : '';
       return ''
         + '<a class="insight-card" href="' + escapeHtml(i.slug) + '.html">'
+        +   tags
         +   '<div class="insight-meta">'
         +     '<span class="insight-date">' + escapeHtml(i.displayDate || '') + '</span>'
         +     audience
