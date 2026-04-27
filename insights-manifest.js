@@ -4,20 +4,34 @@
 // Edit this file to publish, unpublish, or reorder cards on the index page.
 //
 // ─────────────────────────────────────────────────────────────────────────────
+// THE RULE
+// ─────────────────────────────────────────────────────────────────────────────
+// An insight article is either:
+//   PUBLISHED   = linked from /insights.html AND no noindex tag in its HTML
+//   UNPUBLISHED = not linked from /insights.html AND noindex tag in place
+//
+// Nothing in between. Don't link a page that's still noindexed (search engines
+// see a dead end), and don't strip noindex on a page that isn't linked yet
+// (the article is exposed without the index introducing it).
+//
+// ─────────────────────────────────────────────────────────────────────────────
 // PUBLISHING WORKFLOW
 // ─────────────────────────────────────────────────────────────────────────────
 // To publish an insight on /insights.html:
-//   1. Set its `published` field to true.
+//   1. Set its `published` field below to true.
 //   2. Fill in `publishDate` (ISO format, e.g. "2026-04-27") — used for sorting.
 //   3. Fill in `displayDate` (human-readable, e.g. "April 2026") — shown on card.
-//   4. (Optional, for SEO) Open the insight's HTML file and remove the line:
+//   4. Open the insight's HTML file and DELETE this line:
 //        <meta name="robots" content="noindex, nofollow">
-//      This makes the insight indexable by search engines. Skip this step if
-//      you want to keep the insight URL-only (e.g. for LinkedIn-driven traffic).
+//      Required, not optional. Removing this is what makes the article
+//      indexable by search engines, which is the whole point of publishing.
 //   5. Commit and push.
 //
-// To unpublish an insight: set `published` back to false. The insight URL keeps
-// working for anyone with the link, but the card disappears from /insights.html.
+// To unpublish an insight:
+//   1. Set `published` back to false (card disappears from /insights.html).
+//   2. Restore <meta name="robots" content="noindex, nofollow"> in the
+//      insight's HTML file. Search engines will drop it from the index on
+//      next crawl. The URL still works for anyone with a direct link.
 //
 // Card sort order: newest publishDate first.
 //
