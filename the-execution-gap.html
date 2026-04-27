@@ -60,6 +60,28 @@
   max-width: 100%;
 }
 
+/* Breadcrumb back to /insights */
+.wai-breadcrumb {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wai-breadcrumb a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+.wai-breadcrumb a:hover { border-bottom-color: var(--teal-dark); }
+.wai-breadcrumb-sep { color: #c5bfb2; }
+.wai-breadcrumb-current { color: var(--mid); }
+
 .wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
 .wai-section.alt { background: var(--off-white); }
 .wai-section.plain { background: var(--white); }
@@ -434,6 +456,11 @@
 <!-- 1. Hero hook -->
 <section class="wai-hero">
   <div class="container">
+    <nav class="wai-breadcrumb" aria-label="Breadcrumb">
+      <a href="insights.html">Operator Insights</a>
+      <span class="wai-breadcrumb-sep" aria-hidden="true">/</span>
+      <span class="wai-breadcrumb-current" aria-current="page">The Execution Gap</span>
+    </nav>
     <span class="section-label">The Product Operator</span>
     <h1>Most PE diligence asks whether the company is worth buying. It rarely asks whether the team can deliver the thesis.</h1>
     <p>Several PE operating partners I work with have lived the same pattern. The deal closed clean. The financial diligence was thorough. The thesis was sound. Six quarters in, the value creation plan is behind, and most of the gap traces back to a product organization that wasn't ready for the plan it was handed. Pre-close diligence rarely tests for that. Post-close, it's the operating partner's problem.</p>

@@ -57,6 +57,28 @@
   max-width: 100%;
 }
 
+/* Breadcrumb back to /insights */
+.wai-breadcrumb {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wai-breadcrumb a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+.wai-breadcrumb a:hover { border-bottom-color: var(--teal-dark); }
+.wai-breadcrumb-sep { color: #c5bfb2; }
+.wai-breadcrumb-current { color: var(--mid); }
+
 /* Inline annotated timeline (richer than data-bottleneck's three-card row) */
 .wai-timeline {
   display: grid;
@@ -545,6 +567,11 @@
 <!-- 1. Hero hook -->
 <section class="wai-hero">
   <div class="container">
+    <nav class="wai-breadcrumb" aria-label="Breadcrumb">
+      <a href="insights.html">Operator Insights</a>
+      <span class="wai-breadcrumb-sep" aria-hidden="true">/</span>
+      <span class="wai-breadcrumb-current" aria-current="page">The Drift Problem</span>
+    </nav>
     <span class="section-label">The Product Operator</span>
     <h1>The metric the AI trained on may not mean what it means today.</h1>
     <p>Several PE diligence teams I work with run thorough data audits before greenlighting an AI investment. Most of those audits look at what's in the records: typos, nulls, contamination, missing fields. They rarely look at what the records mean. That's where schema drift lives, and it's the failure mode most likely to break an AI investment thesis quietly.</p>

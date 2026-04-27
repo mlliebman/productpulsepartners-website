@@ -58,6 +58,28 @@
   max-width: 100%;
 }
 
+/* Breadcrumb back to /insights */
+.wai-breadcrumb {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wai-breadcrumb a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+.wai-breadcrumb a:hover { border-bottom-color: var(--teal-dark); }
+.wai-breadcrumb-sep { color: #c5bfb2; }
+.wai-breadcrumb-current { color: var(--mid); }
+
 .wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
 .wai-section.alt { background: var(--off-white); }
 .wai-section.plain { background: var(--white); }
@@ -419,6 +441,11 @@
 <!-- 1. Hero hook -->
 <section class="wai-hero">
   <div class="container">
+    <nav class="wai-breadcrumb" aria-label="Breadcrumb">
+      <a href="insights.html">Operator Insights</a>
+      <span class="wai-breadcrumb-sep" aria-hidden="true">/</span>
+      <span class="wai-breadcrumb-current" aria-current="page">The CIM Cracks</span>
+    </nav>
     <span class="section-label">The Product Operator</span>
     <h1>The most useful information in a CIM is rarely in any single section. It's in the cracks between sections.</h1>
     <p>Several diligence engagements I've worked on came down to a single observation that wasn't in any one section of the CIM. The CIM was thorough. Each section was internally polished. The risk that mattered showed up in the inconsistency between sections, not in the content of any single one. CIMs are written to tell a story. Diligence is the work of finding the story the CIM didn't tell.</p>

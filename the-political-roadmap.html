@@ -58,6 +58,28 @@
   max-width: 100%;
 }
 
+/* Breadcrumb back to /insights */
+.wai-breadcrumb {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wai-breadcrumb a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+.wai-breadcrumb a:hover { border-bottom-color: var(--teal-dark); }
+.wai-breadcrumb-sep { color: #c5bfb2; }
+.wai-breadcrumb-current { color: var(--mid); }
+
 .wai-section { padding: 72px 48px; border-bottom: 1px solid var(--border); }
 .wai-section.alt { background: var(--off-white); }
 .wai-section.plain { background: var(--white); }
@@ -540,6 +562,11 @@
 <!-- 1. Hero hook -->
 <section class="wai-hero">
   <div class="container">
+    <nav class="wai-breadcrumb" aria-label="Breadcrumb">
+      <a href="insights.html">Operator Insights</a>
+      <span class="wai-breadcrumb-sep" aria-hidden="true">/</span>
+      <span class="wai-breadcrumb-current" aria-current="page">The Political Roadmap</span>
+    </nav>
     <span class="section-label">The Product Operator</span>
     <h1>A product roadmap is a political document. The team that pretends otherwise is the team that ships the wrong things.</h1>
     <p>Several product organizations I work with run a quarterly roadmap review that turns into a negotiation. Engineering wants more capacity for tech debt. Sales wants commitments to specific quarters. The CEO wants a clearer narrative. The board wants evidence of strategic discipline. The roadmap leaving the meeting is shaped by whoever pushed hardest in the room. The team thinks they have a roadmap. They have a compromise.</p>
