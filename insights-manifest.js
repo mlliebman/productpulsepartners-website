@@ -29,9 +29,9 @@ const INSIGHTS = [
     title: 'You paid for the AI. Nobody built the system.',
     summary: 'Why AI investment inside PE-backed product orgs has no defensible return, and the three gaps causing it.',
     audience: 'For PE operating partners',
-    publishDate: '',
-    displayDate: '',
-    published: false,
+    publishDate: '2026-04-27',
+    displayDate: 'April 2026',
+    published: true,
   },
   {
     slug: 'data-as-the-ai-bottleneck',
