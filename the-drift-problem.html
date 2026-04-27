@@ -57,8 +57,17 @@
   max-width: 100%;
 }
 
-/* Breadcrumb back to /insights */
+/* Breadcrumb back to /insights — overrides global nav rule from styles.css */
 .wai-breadcrumb {
+  position: static;
+  top: auto; left: auto; right: auto;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  height: auto;
+  border-bottom: none;
+  z-index: auto;
   margin-bottom: 14px;
   font-size: 12px;
   font-weight: 500;
@@ -66,6 +75,7 @@
   color: var(--slate);
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   flex-wrap: wrap;
 }
