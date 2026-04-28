@@ -110,8 +110,8 @@ const INSIGHTS = [
     summary: "The diligence work of finding the story the CIM didn't tell. Six common cracks, one worked example, and what systematic crack-finding produces.",
     audience: 'For deal teams and advisory partners',
     tags: ['Diligence'],
-    publishDate: '',
-    displayDate: '',
-    published: false,
+    publishDate: '2026-04-28',
+    displayDate: 'April 2026',
+    published: true,
   },
 ];
