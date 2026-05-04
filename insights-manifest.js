@@ -114,4 +114,14 @@ const INSIGHTS = [
     displayDate: 'April 2026',
     published: true,
   },
+  {
+    slug: 'the-three-lens-framework',
+    title: 'Most AI evaluations conflate three different questions.',
+    summary: 'Three lenses for AI investment: Opportunity, Readiness, Deployment. Applied in sequence, before capital commits.',
+    audience: 'For PE operating partners and CAIOs',
+    tags: ['AI Investment'],
+    publishDate: '2026-04-30',
+    displayDate: 'April 2026',
+    published: true,
+  },
 ];
