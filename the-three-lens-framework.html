@@ -388,7 +388,7 @@
   max-width: 820px;
 }
 
-/* Six deployment archetypes — appears under Lens 3 grid */
+/* Per-lens expansion blocks — appear under the lens-card grid */
 .wai-archetypes {
   margin-top: 32px;
   padding-top: 28px;
@@ -403,6 +403,9 @@
   color: var(--slate);
   margin-bottom: 8px;
 }
+.wai-archetypes--l1 .wai-archetypes-eyebrow { color: var(--teal-dark); }
+.wai-archetypes--l2 .wai-archetypes-eyebrow { color: #8f5608; }
+.wai-archetypes--l3 .wai-archetypes-eyebrow { color: #b53030; }
 .wai-archetypes-heading {
   font-family: var(--serif);
   font-size: clamp(22px, 2.4vw, 26px);
@@ -418,9 +421,12 @@
   margin: 0;
 }
 .wai-archetypes-list > div {
-  border-left: 2px solid #d14343;
+  border-left: 2px solid var(--border);
   padding-left: 16px;
 }
+.wai-archetypes--l1 .wai-archetypes-list > div { border-left-color: var(--teal-dark); }
+.wai-archetypes--l2 .wai-archetypes-list > div { border-left-color: #c87a12; }
+.wai-archetypes--l3 .wai-archetypes-list > div { border-left-color: #d14343; }
 .wai-archetypes-list dt {
   font-family: var(--serif);
   font-size: 16px;
@@ -647,9 +653,63 @@
       </div>
     </div>
 
-    <div class="wai-archetypes">
-      <div class="wai-archetypes-eyebrow">Where the same shape recurs</div>
-      <h3 class="wai-archetypes-heading">Six deployment archetypes that show up across mid-market AI.</h3>
+    <div class="wai-archetypes wai-archetypes--l1">
+      <div class="wai-archetypes-eyebrow">Lens 01 · expanded</div>
+      <h3 class="wai-archetypes-heading">Five opportunity archetypes.</h3>
+      <dl class="wai-archetypes-list">
+        <div>
+          <dt>Revenue expansion</dt>
+          <dd>AI changes what the company sells or how much customers will pay. Measured in ARR lift, ARPU, win rate, retention.</dd>
+        </div>
+        <div>
+          <dt>Cost compression</dt>
+          <dd>AI changes the unit cost of doing existing work. Measured in throughput per FTE, hours displaced, cost per transaction.</dd>
+        </div>
+        <div>
+          <dt>Quality and risk</dt>
+          <dd>AI changes the rate of bad outcomes. Measured in adverse-event rate, expected loss avoided, audit findings reduced.</dd>
+        </div>
+        <div>
+          <dt>Decision velocity</dt>
+          <dd>AI changes how fast or how well humans decide. Measured in cycle time, decision quality, opportunity cost avoided.</dd>
+        </div>
+        <div>
+          <dt>Capability creation</dt>
+          <dd>AI does something the company genuinely could not do before. Measured in addressable use cases unlocked, new segments accessible.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="wai-archetypes wai-archetypes--l2">
+      <div class="wai-archetypes-eyebrow">Lens 02 · expanded</div>
+      <h3 class="wai-archetypes-heading">Five readiness pillars.</h3>
+      <dl class="wai-archetypes-list">
+        <div>
+          <dt>Data</dt>
+          <dd>Whether AI systems can access reliable, governed, useful data. Often the binding constraint at mid-market.</dd>
+        </div>
+        <div>
+          <dt>Technical infrastructure</dt>
+          <dd>Whether engineering and deployment infrastructure exist to run AI in production without breaking it.</dd>
+        </div>
+        <div>
+          <dt>Talent</dt>
+          <dd>Whether the people exist to build, deploy, and operate AI. Senior applied AI talent is brutally hard to hire at mid-market.</dd>
+        </div>
+        <div>
+          <dt>Governance</dt>
+          <dd>Whether the company can deploy AI without creating regulatory, legal, or reputational liability.</dd>
+        </div>
+        <div>
+          <dt>Organizational</dt>
+          <dd>Whether structure, incentives, and culture support AI deployment. The most commonly omitted pillar.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="wai-archetypes wai-archetypes--l3">
+      <div class="wai-archetypes-eyebrow">Lens 03 · expanded</div>
+      <h3 class="wai-archetypes-heading">Six deployment archetypes.</h3>
       <dl class="wai-archetypes-list">
         <div>
           <dt>Embedded SaaS feature</dt>
