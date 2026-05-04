@@ -388,6 +388,57 @@
   max-width: 820px;
 }
 
+/* Six deployment archetypes — appears under Lens 3 grid */
+.wai-archetypes {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  max-width: 100%;
+}
+.wai-archetypes-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 8px;
+}
+.wai-archetypes-heading {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 26px);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--black);
+  margin: 0 0 22px;
+}
+.wai-archetypes-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+  margin: 0;
+}
+.wai-archetypes-list > div {
+  border-left: 2px solid #d14343;
+  padding-left: 16px;
+}
+.wai-archetypes-list dt {
+  font-family: var(--serif);
+  font-size: 16px;
+  letter-spacing: -0.005em;
+  color: var(--black);
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+.wai-archetypes-list dd {
+  font-size: 13.5px;
+  color: var(--slate);
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .wai-archetypes-list { grid-template-columns: 1fr; gap: 16px; }
+}
+
 /* Quiet close */
 .wai-quiet {
   padding: 88px 48px 96px;
@@ -464,7 +515,7 @@
     </nav>
     <span class="section-label">The Product Operator</span>
     <h1>Most AI evaluations conflate three different questions. The discipline is keeping them separate.</h1>
-    <p>A portfolio CEO told me their AI capability was a competitive advantage. It was a vendor's product roadmap. The deployment had been treated as a tooling decision. It was actually an architecture decision. Across the engagements I run, the pattern repeats. Most AI evaluations conflate three different questions: where AI could move the business, whether the company can execute, and how the technology should actually be deployed. The discipline is running them in sequence.</p>
+    <p>A new portfolio CEO told me her AI capability used to be a competitive advantage. She'd come to realize it was a vendor's product roadmap. The deployment had been treated as a tooling decision. It was actually an architecture decision. Across the engagements I run, the pattern repeats. Most AI evaluations conflate three different questions: where AI could move the business, whether the company can execute, and how the technology should actually be deployed. The discipline is running them in sequence.</p>
   </div>
 </section>
 
@@ -595,6 +646,37 @@
         </div>
       </div>
     </div>
+
+    <div class="wai-archetypes">
+      <div class="wai-archetypes-eyebrow">Where the same shape recurs</div>
+      <h3 class="wai-archetypes-heading">Six deployment archetypes that show up across mid-market AI.</h3>
+      <dl class="wai-archetypes-list">
+        <div>
+          <dt>Embedded SaaS feature</dt>
+          <dd>AI baked into the CRM, ticketing, or productivity suite the team already uses. Fastest to deploy. Lowest defensibility.</dd>
+        </div>
+        <div>
+          <dt>Configured AI platform</dt>
+          <dd>A horizontal AI tool tuned to the company's use case. Medium build cost. Defensibility through configuration, not architecture.</dd>
+        </div>
+        <div>
+          <dt>API-built application</dt>
+          <dd>Foundation model APIs plus internal engineering. Higher cost. Defensibility through workflow integration and proprietary data.</dd>
+        </div>
+        <div>
+          <dt>Specialist partner deployment</dt>
+          <dd>Vertical AI vendor for a specific function: voice, vision, search, document intelligence. Variable cost. Moderate defensibility.</dd>
+        </div>
+        <div>
+          <dt>Self-hosted custom</dt>
+          <dd>Model weights running in company-controlled infrastructure. Highest cost. Justified by regulatory, residency, or volume constraints.</dd>
+        </div>
+        <div>
+          <dt>Hybrid orchestration</dt>
+          <dd>Multiple components combined behind a routing layer. Most sophisticated. Premature hybrid is the most common over-engineering failure.</dd>
+        </div>
+      </dl>
+    </div>
   </div>
 </section>
 
@@ -605,9 +687,9 @@
     <div class="rule"></div>
     <h3>When the deployment was actually an architecture decision.</h3>
     <span class="wai-example-tag">Setup</span>
-    <p class="example-body">A portfolio CEO told me their AI capability was a competitive advantage. Two years of customer-facing workflows had been built on one horizontal AI platform. Strong adoption. Strong outputs. The deployment had been treated as a tooling decision.</p>
+    <p class="example-body">A new portfolio CEO told me her AI capability used to be a competitive advantage. Two years of customer-facing workflows had been built on one horizontal AI platform. Strong adoption. Strong outputs. The deployment had been treated as a tooling decision.</p>
     <span class="wai-example-tag discovery">Discovery</span>
-    <p class="example-body">It was actually an architecture decision. The platform was doing the same work for two of their direct competitors. The vendor's roadmap was the company's capability ceiling: anything the vendor didn't ship, the company couldn't do. Switching cost had compounded silently. Two years of integration had made the implied exit cost roughly 18 months of engineering. Differentiation was leaking quarter by quarter. Whatever the vendor enabled this company to do, it enabled the competition to do, in the same quarter.</p>
+    <p class="example-body">She'd come to realize it was a vendor's product roadmap. What surfaced when we walked it through: the platform was doing the same work for two of her company's direct competitors. The vendor's roadmap was the capability ceiling. Whatever the vendor didn't ship, the company couldn't do. Switching cost had compounded silently. Two years of integration had made the implied exit cost roughly 18 months of engineering. Differentiation was leaking quarter by quarter. Whatever the vendor enabled her company to do, it enabled the competition to do, in the same quarter.</p>
     <span class="wai-example-tag outcome">Outcome</span>
     <p class="example-body">The fix wasn't ripping the vendor out. It was naming what was vendor-owned, what was company-owned, and what needed to migrate before the next opportunity required it. None of this was caught at procurement. It would have been caught at deployment review.</p>
   </div>

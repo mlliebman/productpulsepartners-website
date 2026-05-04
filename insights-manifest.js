@@ -120,8 +120,8 @@ const INSIGHTS = [
     summary: 'Three lenses for AI investment: Opportunity, Readiness, Deployment. Applied in sequence, before capital commits.',
     audience: 'For PE operating partners and CAIOs',
     tags: ['AI Investment'],
-    publishDate: '2026-04-30',
-    displayDate: 'April 2026',
+    publishDate: '2026-05-04',
+    displayDate: 'May 2026',
     published: true,
   },
 ];
