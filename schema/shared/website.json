@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://theproductoperator.ai/#website",
+  "url": "https://theproductoperator.ai/",
+  "name": "The Product Operator",
+  "description": "Product leadership and due diligence for PE-backed B2B SaaS.",
+  "publisher": {
+    "@id": "https://theproductoperator.ai/#org"
+  },
+  "inLanguage": "en-US"
+}

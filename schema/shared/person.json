@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://theproductoperator.ai/#marc",
+  "name": "Marc Liebman",
+  "givenName": "Marc",
+  "familyName": "Liebman",
+  "url": "https://theproductoperator.ai/",
+  "image": "https://theproductoperator.ai/marc-headshot.jpg",
+  "jobTitle": "Founder, The Product Operator",
+  "description": "Founder of The Product Operator. 25 years of product leadership across founder-led startups, growth-stage companies, and PE-backed B2B SaaS. 30+ due diligence engagements across private equity firms including Advent International, Thoma Bravo, Blackstone, and Genstar Capital. Former Global SVP of Product at Amadeus Hospitality. Led product diligence across two PE-led exits, including the sale of TravelClick to Thoma Bravo.",
+  "knowsAbout": [
+    "technical due diligence",
+    "product due diligence",
+    "product operating model",
+    "fractional Chief Product Officer",
+    "AI strategy for product teams",
+    "private equity portfolio operations",
+    "agentic workflows for product management",
+    "B2B SaaS product leadership",
+    "post-acquisition value creation"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/marcliebman"
+  ],
+  "worksFor": {
+    "@id": "https://theproductoperator.ai/#org"
+  }
+}

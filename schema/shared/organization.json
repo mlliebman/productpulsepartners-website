@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://theproductoperator.ai/#org",
+  "name": "The Product Operator",
+  "alternateName": "Product Pulse Partners",
+  "url": "https://theproductoperator.ai/",
+  "logo": "https://theproductoperator.ai/linkedin_logo_500.png",
+  "description": "Product leadership and due diligence advisory for PE-backed B2B SaaS. Pre-close technical and product due diligence, post-close embedded product leadership, and a purpose-built agentic workflow platform deployed inside portfolio company operations.",
+  "founder": {
+    "@id": "https://theproductoperator.ai/#marc"
+  },
+  "founders": [
+    {
+      "@id": "https://theproductoperator.ai/#marc"
+    }
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/marcliebman"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "url": "https://theproductoperator.ai/contact",
+    "contactType": "sales",
+    "areaServed": "US",
+    "availableLanguage": "English"
+  }
+}
