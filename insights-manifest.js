@@ -126,8 +126,8 @@ const INSIGHTS = [
   },
   {
     slug: 'the-product-operator-profile',
-    title: 'The legacy product manager profile is a growth ceiling.',
-    summary: "The role was scoped for an operating model AI already changed. The Product Operator profile is the shape that's actually emerging.",
+    title: 'The legacy product manager profile is a constraint on growth.',
+    summary: "Hiring elite talent against last year's JD means paying full comp for a job AI has already absorbed. Same role title, different shape.",
     audience: 'For CPOs and CEOs of growth-stage SaaS',
     tags: ['Product Org'],
     publishDate: '2026-05-12',
