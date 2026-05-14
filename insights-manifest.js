@@ -135,9 +135,9 @@ const INSIGHTS = [
     published: true,
   },
   {
-    slug: 'the-people-vs-the-role',
-    title: 'The legacy product manager profile is the constraint. The legacy people are the asset.',
-    summary: 'Most companies cut the people and keep the legacy profile. Three transition models for product talent through the AI shift.',
+    slug: 'cut-or-redesign',
+    title: 'The math in AI-driven restructures is usually right. The operating model behind it often isn\'t.',
+    summary: 'Most firms cut the people and keep the legacy operating model. That sequence is backwards. Three ways to redesign product talent before you cut.',
     audience: 'For CPOs and operating partners',
     tags: ['Product Org'],
     publishDate: '2026-05-19',
